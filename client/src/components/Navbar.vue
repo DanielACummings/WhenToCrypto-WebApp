@@ -1,5 +1,9 @@
 <template>
-	<nav v-if="this.$route.name != 'login'" class="navbar navbar-expand-lg navbar-light bg-primary">
+	<nav
+		v-if="this.$route.name != 'login'"
+		class="navbar navbar-expand-sm navbar-dark border-bottom"
+		style="background-color: #000;"
+	>
 		<router-link class="navbar-brand" :to="{ name: 'home' }">WhenToCrypto</router-link>
 		<button
 			class="navbar-toggler"
@@ -22,7 +26,7 @@
 				</li>
 			</ul>
 			<span class="navbar-text">
-				<button @click="logout" class="btn btn-danger text-right">Logout</button>
+				<button @click="logout" class="btn btn-secondary text-right">Logout</button>
 			</span>
 		</div>
 	</nav>
@@ -39,4 +43,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.console-green {
+	color: #0f0;
+}
+</style>
