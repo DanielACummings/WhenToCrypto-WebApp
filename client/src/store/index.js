@@ -78,16 +78,16 @@ export default new Vuex.Store({
         console.warn(e.message)
       }
     },
-    async login({ commit, dispatch }, creds) {
+    async login({ commit }, creds) {
       try {
         let user = await AuthService.Login(creds)
         commit('setUser', user)
-        router.push({ name: "boards" })
+        router.push({ name: "home" })
       } catch (e) {
         console.warn(e.message)
       }
     },
-    async logout({ commit, dispatch }) {
+    async logout({ commit }) {
       try {
         let success = await AuthService.Logout()
         if (!success) { }
