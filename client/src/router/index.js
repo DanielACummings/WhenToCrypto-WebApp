@@ -3,7 +3,7 @@ import Router from 'vue-router'
 // @ts-ignore
 import Home from '../views/Home.vue'
 // @ts-ignore
-import Board from '../views/Board.vue'
+import Ledgers from '../views/Ledgers.vue'
 // @ts-ignore
 import Login from '../views/Login.vue'
 
@@ -17,10 +17,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/boards/:boardId',
-      name: 'board',
-      props: true,
-      component: Board
+      path: '/ledgers',
+      name: 'ledgers',
+      component: Ledgers
     },
     {
       path: '/login',

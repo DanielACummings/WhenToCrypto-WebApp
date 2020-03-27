@@ -1,68 +1,65 @@
 <template>
-	<div class="boards">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<h1 class="pb-4">Boards</h1>
-				</div>
+	<div class="home container">
+		<div class="row">
+			<div class="col">
+				<h1 class="pb-4 pt-5 console-green">Tracked Cryptos</h1>
 			</div>
-			<!-- Create board modal -->
-			<div class="row text-center">
-				<div class="col-12">
-					<button
-						type="button"
-						class="btn btn-primary text-center"
-						data-toggle="modal"
-						data-target="#add-board-modal"
-						data-whatever="@getbootstrap"
-					>Add Board</button>
+		</div>
+		<!-- Add crypto modal -->
+		<div class="row text-center">
+			<div class="col-12">
+				<button
+					type="button"
+					class="btn btn-secondary text-center"
+					data-toggle="modal"
+					data-target="#add-crypto-modal"
+					data-whatever="@getbootstrap"
+				>Add a Crypto</button>
 
-					<div
-						class="modal fade"
-						id="add-board-modal"
-						tabindex="-1"
-						role="dialog"
-						aria-labelledby="add-board-modal-label"
-						aria-hidden="true"
-					>
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="add-board-modal-label">Add Board</h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<form @submit.prevent="addBoard" class="text-left">
-										<div class="form-group">
-											<label for="title" class="col-form-label">Title:</label>
-											<input type="text" v-model="newBoard.title" class="form-control" id="title" required />
-										</div>
-										<div class="form-group">
-											<label for="description" class="col-form-label">Description:</label>
-											<input type="text" v-model="newBoard.description" class="form-control" id="description" />
-										</div>
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										<button type="submit" class="btn btn-primary">Submit</button>
-									</form>
-								</div>
+				<div
+					class="modal fade"
+					id="add-crypto-modal"
+					tabindex="-1"
+					role="dialog"
+					aria-labelledby="add-crypto-modal-label"
+					aria-hidden="true"
+				>
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="add-crypto-modal-label">Add a Crypto</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form @submit.prevent="addCrypto" class="text-left">
+									<div class="form-group">
+										<label for="name" class="col-form-label">Name:</label>
+										<input type="text" v-model="newCrypto.name" class="form-control" id="name" required />
+									</div>
+									<div class="form-group">
+										<label for="img" class="col-form-label">Image URL (Web Address):</label>
+										<input
+											type="text"
+											v-model="newCrypto.img"
+											class="form-control"
+											id="img"
+											placeholder="Optional"
+										/>
+									</div>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									<button type="submit" class="btn btn-dark">Submit</button>
+								</form>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-12">
-					<div class="text-left ml-5 mt-5" v-for="board in boards" :key="board._id">
-						<button @click="deleteBoard(board._id)" class="btn btn-secondary">X</button>
-						<router-link
-							class="text-dark"
-							:to="{name: 'board', params: {boardId: board._id}}"
-						>{{board.title}}</router-link>
-					</div>
-				</div>
-			</div>
+		</div>
+		<div class="row">
+			<!-- public keeps inserted here -->
+			<crypto v-for="keep in publicKeeps" :key="keep.id" :keepProp="keep" />
 		</div>
 	</div>
 </template>
@@ -75,9 +72,9 @@ export default {
 	},
 	data() {
 		return {
-			newBoard: {
-				title: "",
-				description: ""
+			newCrypto: {
+				name: "",
+				img: ""
 			}
 		};
 	},
@@ -87,23 +84,18 @@ export default {
 		}
 	},
 	methods: {
-		addBoard() {
-			this.$store.dispatch("addBoard", this.newBoard);
-			this.newBoard = { title: "", description: "" };
+		addCrypto() {
+			this.$store.dispatch("addBoard", this.newCrypto);
+			this.newCrypto = { title: "", description: "" };
 		},
-		deleteBoard(deleteBoard) {
+		deleteCrypto(deleteCrypto) {
 			let close = confirm("Are you sure you\nwant to delete this?");
 			if (close == true) {
-				this.$store.dispatch("deleteBoard", deleteBoard);
+				this.$store.dispatch("deleteCrypto", deleteCrypto);
 			}
 		}
 	}
 };
 </script>
 
-<style>
-body {
-	background-color: black;
-	color: #0f0;
-}
-</style>
+<style></style>

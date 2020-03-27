@@ -64,7 +64,4 @@ export default {
 .action {
 	cursor: pointer;
 }
-.console-green {
-	color: #0f0;
-}
 </style>
