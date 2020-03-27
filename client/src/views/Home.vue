@@ -2,9 +2,6 @@
 	<div class="boards">
 		<div class="container">
 			<div class="row">
-				<div class="col-12 text-right pt-5">
-					<button @click="logout" class="btn btn-danger text-right">Logout</button>
-				</div>
 				<div class="col-12">
 					<h1 class="pb-4">Boards</h1>
 				</div>
@@ -94,9 +91,6 @@ export default {
 			this.$store.dispatch("addBoard", this.newBoard);
 			this.newBoard = { title: "", description: "" };
 		},
-		logout() {
-			this.$store.dispatch("logout");
-		},
 		deleteBoard(deleteBoard) {
 			let close = confirm("Are you sure you\nwant to delete this?");
 			if (close == true) {
@@ -109,6 +103,7 @@ export default {
 
 <style>
 body {
-	background-image: url("https://images.unsplash.com/photo-1578167597239-14f8fc680b6b?ixlib=rb-1.2.1&auto=format&fit=crop&w=2156&q=80");
+	background-color: black;
+	color: #0f0;
 }
 </style>

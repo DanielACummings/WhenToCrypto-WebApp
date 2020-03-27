@@ -1,12 +1,13 @@
 <template>
 	<div class="login">
-		<h1 class="pt-5 pb-5">WhenToCrypto</h1>
+		<h1 class="pt-5 console-green">WhenToCrypto</h1>
+		<p class="console-green pb-5">Only spend your crypto when it's worth more than you paid for it</p>
 		<form v-if="loginForm" @submit.prevent="loginUser">
 			<input class="mb-1" type="email" v-model="creds.email" placeholder="Email" />
 			<br />
 			<input class="mb-1" type="password" v-model="creds.password" placeholder="Password" />
 			<br />
-			<button class="btn btn-success" type="submit">Login</button>
+			<button class="btn btn-secondary" type="submit">Login</button>
 		</form>
 		<form v-else @submit.prevent="register">
 			<br />
@@ -16,9 +17,9 @@
 			<br />
 			<input class="mb-1" type="password" v-model="newUser.password" placeholder="Password" />
 			<br />
-			<button class="btn btn-warning" type="submit">Create Account</button>
+			<button class="btn btn-secondary" type="submit">Create Account</button>
 		</form>
-		<div class="action" @click="loginForm = !loginForm">
+		<div class="action console-green" @click="loginForm = !loginForm">
 			<p v-if="loginForm">No account? Click here to Register</p>
 			<p v-else>Already have an account? Click here to Login</p>
 		</div>
@@ -62,5 +63,8 @@ export default {
 <style>
 .action {
 	cursor: pointer;
+}
+.console-green {
+	color: #0f0;
 }
 </style>
