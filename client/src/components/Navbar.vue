@@ -1,7 +1,7 @@
 <template>
 	<nav
 		v-if="this.$route.name != 'login'"
-		class="navbar navbar-expand-sm navbar-dark border-bottom"
+		class="navbar navbar-expand-sm navbar-dark"
 		style="background-color: #000;"
 	>
 		<router-link class="navbar-brand" :to="{ name: 'home' }">WhenToCrypto</router-link>
@@ -21,8 +21,8 @@
 				<li class="nav-item" :class="{ active: $route.name == 'home' }">
 					<router-link :to="{ name: 'home' }" class="nav-link">Home</router-link>
 				</li>
-				<li class="nav-item" :class="{ active: $route.name == 'dashboard' }">
-					<router-link class="nav-link" :to="{ name: 'dashboard' }">Dashboard</router-link>
+				<li class="nav-item" :class="{ active: $route.name == 'ledgers' }">
+					<router-link class="nav-link" :to="{ name: 'ledgers' }">Ledgers</router-link>
 				</li>
 			</ul>
 			<span class="navbar-text">
@@ -43,8 +43,4 @@ export default {
 };
 </script>
 
-<style>
-.console-green {
-	color: #0f0;
-}
-</style>
+<style></style>
