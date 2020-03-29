@@ -6,11 +6,19 @@ import Home from '../views/Home.vue'
 import Ledgers from '../views/Ledgers.vue'
 // @ts-ignore
 import Login from '../views/Login.vue'
+// // @ts-ignore
+// import Cryptocurrency from '../views/Cryptocurrency.vue'
+
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
     {
       path: '/',
       name: 'home',
@@ -21,11 +29,12 @@ export default new Router({
       name: 'ledgers',
       component: Ledgers
     },
-    {
-      path: '/login',
-      name: 'login',
-      component: Login
-    },
+    // for individual ledger view
+    // {
+    //   path: '/ledgers/:cryptoName',
+    //   name: 'cryptocurrency',
+    //   component: Cryptocurrency
+    // },
     {
       path: "*",
       redirect: '/'
