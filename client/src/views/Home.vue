@@ -59,16 +59,20 @@
 		</div>
 		<div class="row">
 			<!-- public keeps inserted here -->
-			<crypto v-for="keep in publicKeeps" :key="keep.id" :keepProp="keep" />
+			<cryptocurrency v-for="crypto in cryptos" :key="crypto.id" :cryptoProp="crypto" />
 		</div>
 	</div>
 </template>
 
 <script>
+import cryptocurrency from "@/components/Cryptocurrency";
 export default {
 	name: "boards",
+	components: {
+		cryptocurrency
+	},
 	mounted() {
-		this.$store.dispatch("getBoards");
+		this.$store.dispatch("getCryptos");
 	},
 	data() {
 		return {
@@ -79,17 +83,19 @@ export default {
 		};
 	},
 	computed: {
-		boards() {
-			return this.$store.state.boards;
+		cryptos() {
+			return this.$store.state.cryptos;
 		}
 	},
 	methods: {
 		addCrypto() {
-			this.$store.dispatch("addBoard", this.newCrypto);
+			this.$store.dispatch("addCrypto", this.newCrypto);
 			this.newCrypto = { title: "", description: "" };
 		},
 		deleteCrypto(deleteCrypto) {
-			let close = confirm("Are you sure you\nwant to delete this?");
+			let close = confirm(
+				"Records for this crypto\n will be lost forever.\nAre you sure you\nwant to delete this?"
+			);
 			if (close == true) {
 				this.$store.dispatch("deleteCrypto", deleteCrypto);
 			}
