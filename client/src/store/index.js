@@ -35,7 +35,7 @@ export default new Vuex.Store({
   },
   actions: {
     //#region - AUTH
-    async register({ commit, dispatch }, creds) {
+    async register({ commit }, creds) {
       try {
         let user = await AuthService.Register(creds)
         commit('setUser', user)
@@ -64,5 +64,10 @@ export default new Vuex.Store({
       }
     },
     //#endregion
+
+    //#region - Cryptocurrencies
+    async getCryptos({ commit }) {
+      let res = await api.get('cryptos')
+    }
   }
 })
