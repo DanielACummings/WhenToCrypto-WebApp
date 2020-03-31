@@ -3,22 +3,30 @@ import express from 'express'
 import { Authorize } from '../middleware/authorize.js'
 
 export default class CryptosController {
-  constructor() {
-    this.router = express.Router()
-      .use(Authorize.authenticated)
-      .get('', this.getAll)
-  }
+	constructor() {
+		this.router = express.Router()
+			.use(Authorize.authenticated)
+			.get('', this.getAll)
+			.post('', this.create)
+			.use(this.defaultRoute)
+	}
 
-  defaultRoute(next) {
-    next({ status: 404, message: 'No Such Route' })
-  }
+	defaultRoute(next) {
+		next({ status: 404, message: 'No Such Route' })
+	}
 
-  async getAll(req, res, next) {
-    try {
-      let data = await cryptosService.getAll(req.session.uid)
-      return res.send(data)
-    } catch (err) { next(err) } {
+	async getAll(req, res, next) {
+		try {
+			let data = await cryptosService.getAll(req.session.uid)
+			return res.send(data)
+		} catch (error) { next(error) }
+	}
 
-    }
-  }
+	async create(req, res, next) {
+		try {
+			req.body.authorId = req.session.uid
+			let data = await cryptosService.create(req.body)
+			return res.status(201).send(data)
+		} catch (error) { next(error) }
+	}
 }

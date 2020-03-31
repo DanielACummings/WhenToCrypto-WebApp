@@ -8,6 +8,10 @@ class CryptosService {
   async getAll(userId) {
     return await _repository.find({ authorId: userId })
   }
+
+  async create(newData) {
+    return await _repository.create(newData)
+  }
 }
 
 const cryptosService = new CryptosService()

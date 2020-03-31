@@ -33,10 +33,20 @@
 								</button>
 							</div>
 							<div class="modal-body">
-								<form @submit.prevent="addCrypto" class="text-left">
+								<form @submit.prevent="createCrypto" class="text-left">
 									<div class="form-group">
 										<label for="name" class="col-form-label">Name:</label>
 										<input type="text" v-model="newCrypto.name" class="form-control" id="name" required />
+									</div>
+									<div class="form-group">
+										<label for="description" class="col-form-label">Description:</label>
+										<input
+											type="text"
+											v-model="newCrypto.description"
+											class="form-control"
+											id="description"
+											placeholder="Optional"
+										/>
 									</div>
 									<div class="form-group">
 										<label for="img" class="col-form-label">Image URL (Web Address):</label>
@@ -48,8 +58,8 @@
 											placeholder="Optional"
 										/>
 									</div>
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 									<button type="submit" class="btn btn-dark">Submit</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 								</form>
 							</div>
 						</div>
@@ -57,8 +67,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<!-- public keeps inserted here -->
+		<div class="row pt-5">
+			<!-- User's cryptos inserted here -->
 			<cryptocurrency v-for="crypto in cryptos" :key="crypto.id" :cryptoProp="crypto" />
 		</div>
 	</div>
@@ -78,6 +88,7 @@ export default {
 		return {
 			newCrypto: {
 				name: "",
+				description: "",
 				img: ""
 			}
 		};
@@ -88,13 +99,17 @@ export default {
 		}
 	},
 	methods: {
-		addCrypto() {
-			this.$store.dispatch("addCrypto", this.newCrypto);
-			this.newCrypto = { title: "", description: "" };
+		createCrypto() {
+			this.$store.dispatch("createCrypto", this.newCrypto);
+			this.newCrypto = {
+				name: "",
+				description: "",
+				img: ""
+			};
 		},
 		deleteCrypto(deleteCrypto) {
 			let close = confirm(
-				"Records for this crypto\n will be lost forever.\nAre you sure you\nwant to delete this?"
+				"Records for this crypto will be lost forever.\nAre you sure you want to delete them?"
 			);
 			if (close == true) {
 				this.$store.dispatch("deleteCrypto", deleteCrypto);
