@@ -4,10 +4,9 @@ import bp from 'body-parser'
 import DbContext from "./db/dbconfig"
 const server = express()
 
-//Fire up database connection
+//Connects database
 DbContext.connect()
 
-//Sets the port to Heroku's, and the files to the built project 
 var port = process.env.PORT || 3000
 server.use(express.static(__dirname + '/../client/dist'))
 
@@ -22,29 +21,23 @@ var corsOptions = {
 };
 server.use(cors(corsOptions))
 
-//REGISTER MIDDLEWEAR
+// Middleware
 server.use(bp.json())
 server.use(bp.urlencoded({
   extended: true
 }))
 
-//REGISTER YOUR SESSION, OTHERWISE YOU WILL NEVER GET LOGGED IN
+// Registers sessions
 import UserController from './controllers/UserController'
 import Session from "./middleware/session"
 server.use(new Session().express)
 server.use('/account', new UserController().router)
 
 
-//YOUR ROUTES HERE!!!!!!
-import BoardController from './controllers/BoardController'
-import ListsController from './controllers/ListsController'
-import TasksController from './controllers/TasksController'
-import CommentsController from './controllers/CommentsController'
+// Routes
+import CryptosController from './controllers/CryptosController'
 
-server.use('/api/boards', new BoardController().router)
-server.use('/api/lists', new ListsController().router)
-server.use('/api/tasks', new TasksController().router)
-server.use('/api/comments', new CommentsController().router)
+server.use('/api/cryptos', new CryptosController().router)
 
 
 
