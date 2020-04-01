@@ -36,7 +36,14 @@
 								<form @submit.prevent="createCrypto" class="text-left">
 									<div class="form-group">
 										<label for="name" class="col-form-label">Name:</label>
-										<input type="text" v-model="newCrypto.name" class="form-control" id="name" required />
+										<input
+											type="text"
+											v-model="newCrypto.name"
+											class="form-control"
+											id="name"
+											placeholder="Not Case Sensitive"
+											required
+										/>
 									</div>
 									<div class="form-group">
 										<label for="description" class="col-form-label">Description:</label>

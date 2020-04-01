@@ -8,7 +8,9 @@
 				<div class="col-12 text-center pt-1">Averaged Value:</div>
 				<div class="row text-center pt-1">
 					<div class="col">
-						<button class="btn btn-sm btn-warning">Market Value</button>
+						<button class="btn btn-sm btn-warning">
+							<a target="_blank" :href="baseURL + cryptoProp.name">Current Market Value</a>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -20,9 +22,13 @@ export default {
 	name: "cryptocurrency",
 	props: ["cryptoProp"],
 	data() {
-		return {};
+		return {
+			baseURL: "https://coinmarketcap.com/currencies/"
+		};
 	},
-	methods: {}
+	methods: {
+		test() {}
+	}
 };
 </script>
 <style>
