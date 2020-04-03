@@ -8,8 +8,8 @@
 				<div class="row text-center pt-1">
 					<div class="col-12 text-center pt-1">Averaged Value:</div>
 					<div class="col">
-						<button class="btn btn-sm btn-warning">
-							<a target="_blank" :href="baseURL + cryptoProp.name">Current Market Value</a>
+						<button class="btn btn-sm btn-warning mb-1">
+							<a target="_blank" :href="baseURL + cryptoProp.name">Market Value</a>
 						</button>
 					</div>
 				</div>
@@ -41,16 +41,18 @@
 										</button>
 									</div>
 									<div class="modal-body">
-										<form @submit.prevent="createTransaction" class="text-left">
+										<form @submit.prevent="createTransaction(cryptoProp.id)" class="text-left">
+											<!-- Transaction type dropdown -->
 											<div class="form-group">
-												<label for="transaction-type" class="col-form-label">Transaction Type:</label>
+												<label for="transaction-type" class="col-form-label">Type:</label>
 												<input
 													type="text"
 													list="options"
 													v-model="newTransaction.transactionType"
 													class="form-control"
 													id="transaction-type"
-													placeholder="Use Dropdown or Type Answer"
+													placeholder="Type Anser or Click Dropdown"
+													required
 												/>
 												<datalist id="options">
 													<option>Purchased with Local Currency</option>
@@ -61,31 +63,60 @@
 												</datalist>
 											</div>
 											<div class="form-group">
-												<input type="radio" id="pos" name="pos-or-neg" value="True" required />
-												<label for="pos">+</label>
-												<input type="radio" id="neg" name="pos-or-neg" value="False" />
-												<label for="neg">-</label>
-											</div>
-											<div class="form-group">
-												<label for="description" class="col-form-label">Crypto Value:</label>
+												<label for="date" class="col-form-label">Date:</label>
 												<input
 													type="text"
+													v-model="newTransaction.date"
+													class="form-control"
+													id="date"
+													placeholder="mm/dd/yyyy"
+													required
+												/>
+											</div>
+											<!-- +/- radio buttons for possible, future use -->
+											<div class="form-group">
+												<label for="add-or-sub">Adding or Subtracting from Ledger?:</label>
+												<br />
+												<input
+													type="radio"
+													v-model="newTransaction.addOrSub"
+													id="add"
+													name="add-or-sub"
+													value="add"
+													required
+												/>
+												<label for="add">Adding</label>
+												<input
+													type="radio"
+													v-model="newTransaction.addOrSub"
+													id="sub"
+													name="add-or-sub"
+													value="sub"
+												/>
+												<label for="sub">Subtracting</label>
+											</div>
+											<div class="form-group">
+												<label for="crypto-value" class="col-form-label">Value in Crypto:</label>
+												<input
+													type="float"
 													v-model="newTransaction.description"
 													class="form-control"
 													id="description"
 													placeholder="Example: 0.12345678"
+													required
 												/>
 											</div>
 											<div class="form-group">
-												<label for="market-value" class="col-form-label">
-													Transaction Value in Local Currency:
-													<br />(At Time of Transaction)
-												</label>
+												<label
+													for="market-value"
+													class="col-form-label"
+												>Value in Local Currency at Time of Transaction:</label>
 												<input
-													type="number"
+													type="float"
 													v-model="newTransaction.marketValue"
 													class="form-control"
 													id="market-value"
+													required
 												/>
 											</div>
 											<button type="submit" class="btn btn-dark">Submit</button>
@@ -109,23 +140,27 @@ export default {
 		return {
 			baseURL: "https://coinmarketcap.com/currencies/",
 			newTransaction: {
-				isPositive: Boolean,
-				cryptoAmount: 0,
-				marketValue: 0,
+				transactionType: "",
 				date: "",
-				transactionType: "" /* make dropdown */
+				addOrSub: "",
+				cryptoAmount: 0,
+				marketValue: 0
 			}
 		};
 	},
 	methods: {
 		createTransaction(cryptoId) {
-			this.$store.dispatch("createTransaction", this.newTransaction);
+			let transactionData = { ...this.newTransaction };
+			transactionData.cryptoId = cryptoId;
+			console.log(transactionData.addOrSub);
+
+			this.$store.dispatch("createTransaction", transactionData);
 			this.newTransaction = {
-				isPositive: Boolean,
-				cryptoAmount: 0,
-				marketValue: 0,
+				transactionType: "",
 				date: "",
-				transactionType: ""
+				addOrSub: "",
+				cryptoAmount: 0,
+				marketValue: 0
 			};
 		}
 	}
