@@ -35,7 +35,10 @@
 							<div class="modal-body">
 								<form @submit.prevent="createCrypto" class="text-left">
 									<div class="form-group">
-										<label for="name" class="col-form-label">Name:</label>
+										<label for="name" class="col-form-label">
+											Name:
+											<br />(Used in the "Current Market Value" button link, so preferably choose an actual crypto name)
+										</label>
 										<input
 											type="text"
 											v-model="newCrypto.name"
