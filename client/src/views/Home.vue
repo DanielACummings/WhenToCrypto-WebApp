@@ -68,6 +68,16 @@
 											placeholder="Optional"
 										/>
 									</div>
+									<div class="form-group">
+										<label for="notes" class="col-form-label">Notes:</label>
+										<input
+											type="text"
+											v-model="newCrypto.notes"
+											class="form-control"
+											id="notes"
+											placeholder="Optional"
+										/>
+									</div>
 									<button type="submit" class="btn btn-dark">Submit</button>
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 								</form>
@@ -99,7 +109,11 @@ export default {
 			newCrypto: {
 				name: "",
 				description: "",
-				img: ""
+				img: "",
+				addTCount: 0,
+				addTSum: 0,
+				totalOwned: 0,
+				notes: ""
 			}
 		};
 	},
@@ -114,7 +128,11 @@ export default {
 			this.newCrypto = {
 				name: "",
 				description: "",
-				img: ""
+				img: "",
+				addTCount: 0,
+				addTSum: 0,
+				totalOwned: 0,
+				notes: ""
 			};
 		},
 		deleteCrypto(deleteCrypto) {

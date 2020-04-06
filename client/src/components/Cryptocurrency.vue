@@ -41,6 +41,7 @@
 										</button>
 									</div>
 									<div class="modal-body">
+										<p class="text-left">Note: Do Not Add Transfers Between Your Wallets</p>
 										<form @submit.prevent="createTransaction(cryptoProp.id)" class="text-left">
 											<!-- Transaction type dropdown -->
 											<div class="form-group">
@@ -51,25 +52,30 @@
 													v-model="newTransaction.transactionType"
 													class="form-control"
 													id="transaction-type"
-													placeholder="Type Anser or Click Dropdown"
+													placeholder="Type Answer or Click Dropdown"
 													required
 												/>
 												<datalist id="options">
-													<option>Purchased with Local Currency</option>
-													<option>Earned as Income</option>
+													<option>Purchased of Crypto with Local Currency</option>
+													<option>Income</option>
 													<option>Earned as Payment</option>
 													<option>Received as Gift</option>
+													<option>Gave as Gift</option>
+													<option>Converted Between Cryptos</option>
+													<option>Hard Fork</option>
+													<option>Interest</option>
 													<option>Sold for Local Currency</option>
+													<option>Mining</option>
 												</datalist>
 											</div>
 											<div class="form-group">
-												<label for="date" class="col-form-label">Date:</label>
+												<label for="date-and-time" class="col-form-label">Date & 24 Hour Time:</label>
 												<input
 													type="text"
 													v-model="newTransaction.date"
 													class="form-control"
-													id="date"
-													placeholder="mm/dd/yyyy"
+													id="date-and-time"
+													placeholder="yyyy/mm/dd/hh:mm"
 													required
 												/>
 											</div>
@@ -96,21 +102,21 @@
 												<label for="sub">Subtracting</label>
 											</div>
 											<div class="form-group">
-												<label for="crypto-value" class="col-form-label">Value in Crypto:</label>
+												<label for="crypto-value" class="col-form-label">Amount of Crypto:</label>
 												<input
 													type="float"
-													v-model="newTransaction.description"
+													v-model="newTransaction.cryptoAmount"
 													class="form-control"
-													id="description"
+													id="crypto-value"
 													placeholder="Example: 0.12345678"
 													required
 												/>
 											</div>
 											<div class="form-group">
-												<label
-													for="market-value"
-													class="col-form-label"
-												>Value in Local Currency at Time of Transaction:</label>
+												<label for="market-value" class="col-form-label">
+													Amount of Local Currency at Time of Transaction:
+													<br />(Including Fees)
+												</label>
 												<input
 													type="float"
 													v-model="newTransaction.marketValue"
