@@ -19,18 +19,18 @@ export default new Vuex.Store({
   state: {
     user: {},
     cryptos: [],
-    transactions: [],
     ledgers: [],
-    activeLedger: {}
+    activeLedger: {},
+    actLedTransactions: []
   },
 
   mutations: {
     resetState(state) {
       state.user = {},
         state.cryptos = [],
-        state.transactions = [],
         state.ledgers = [],
-        state.activeLedger = {}
+        state.activeLedger = {},
+        state.actLedTransactions = []
     },
     setUser(state, user) {
       state.user = user
@@ -40,9 +40,6 @@ export default new Vuex.Store({
     },
     addCrypto(state, crypto) {
       state.cryptos.push(crypto)
-    },
-    addTransaction(state, transaction) {
-      state.transactions.push(transaction)
     }
   },
 
@@ -89,9 +86,11 @@ export default new Vuex.Store({
     },
 
     //#region - Transactions
-    async createTransaction({ commit }, payload) {
-      let res = await api.post('transactions', payload)
-      commit('addTransaction', res.data)
+    async createTransaction({ dispatch }, payload) {
+      console.log("Store payload: " + payload);
+
+      await api.post('transactions', payload)
+      dispatch('getCryptos')
     }
   }
 })

@@ -2,6 +2,7 @@ import transactionsService from '../services/TransactionsService'
 import express from 'express'
 import { Authorize } from '../middleware/authorize'
 import User from "../models/User"
+import cryptosService from "../services/CryptosService"
 
 export default class TransactionsController {
   constructor() {
@@ -17,8 +18,12 @@ export default class TransactionsController {
   async create(req, res, next) {
     try {
       req.body.authorId = req.session.uid
-      let data = await transactionsService.create(req.body)
-      return res.status(201).send(data)
+      let newTx = await transactionsService.create(req.body)
+      //@ts-ignore
+      if (newTx.posOrNeg == 'pos') {
+        await cryptosService.addPosTxData(newTx)
+      }
+      return res.status(201).send(newTx)
     } catch (error) { next(error) }
   }
 }
