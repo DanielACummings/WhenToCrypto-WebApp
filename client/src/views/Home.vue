@@ -37,7 +37,7 @@
 									<div class="form-group">
 										<label for="name" class="col-form-label">
 											Name:
-											<br />(Used in the "Current Market Value" button link, so preferably choose an actual crypto name)
+											<br />(Used in "Market Value" button link. Please choose an actual crypto name)
 										</label>
 										<input
 											type="text"
@@ -46,6 +46,17 @@
 											id="name"
 											placeholder="Not Case Sensitive"
 											required
+										/>
+									</div>
+									<div class="form-group">
+										<label for="decimals" class="col-form-label">How Many Decimals is It Divisible By?:</label>
+										<input
+											type="number"
+											step="1"
+											min="0"
+											v-model="newCrypto.decimals"
+											class="form-control"
+											id="decimals"
 										/>
 									</div>
 									<div class="form-group">
@@ -97,7 +108,7 @@
 <script>
 import cryptocurrency from "@/components/Cryptocurrency";
 export default {
-	name: "boards",
+	name: "home",
 	components: {
 		cryptocurrency
 	},
@@ -108,12 +119,13 @@ export default {
 		return {
 			newCrypto: {
 				name: "",
+				decimals: 0,
 				description: "",
 				img: "",
-				addTCount: 0,
-				addTSum: 0,
-				totalOwned: 0,
-				notes: ""
+				notes: "",
+				posTxCount: 0,
+				posTxLocalValSum: 0,
+				totalOwned: 0
 			}
 		};
 	},
@@ -129,10 +141,10 @@ export default {
 				name: "",
 				description: "",
 				img: "",
-				addTCount: 0,
-				addTSum: 0,
-				totalOwned: 0,
-				notes: ""
+				notes: "",
+				posTxCount: 0,
+				posTxLocalValSum: 0,
+				totalOwned: 0
 			};
 		},
 		deleteCrypto(deleteCrypto) {

@@ -10,10 +10,9 @@ class TransactionsService {
   }
 
   async create(newData) {
-    // Makes crypto & local currency values negative if user selects "Subtracting" on transaction form
-    if (newData.addOrSub == "sub") {
+    // Makes crypto value negative if user selects "Subtracting" on transaction form
+    if (newData.posOrNeg == "neg") {
       newData.cryptoAmount = -Math.abs(newData.cryptoAmount)
-      newData.marketValue = -Math.abs(newData.marketValue)
     }
     return await _repository.create(newData)
   }

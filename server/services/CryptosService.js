@@ -12,6 +12,11 @@ class CryptosService {
   async create(newData) {
     return await _repository.create(newData)
   }
+
+  async addPosTxData(newTx) {
+    let pricePerCryptoUnit = newTx.cryptoAmount / newTx.marketValue
+    return await _repository.findOneAndUpdate({ _id: newTx.cryptoId }, { $inc: { posTxCount: +1, posTxLocalValSum: +pricePerCryptoUnit, totalOwned: +newTx.cryptoAmount } })
+  }
 }
 
 const cryptosService = new CryptosService()

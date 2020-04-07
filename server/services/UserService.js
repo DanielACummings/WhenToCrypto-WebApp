@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs'
 import User from "../models/User"
 import ApiError from "../utils/ApiError"
 
-//bcrypt uses hashing and salt to obfiscate your password 
+//Obfuscates passwords by using bcrypt hashing and salt
 const SALT = 10
 
 const _repository = mongoose.model('User', User)
@@ -34,7 +34,6 @@ class UserService {
     if (!valid) {
       throw new ApiError("Invalid Username Or Password")
     }
-    //ALWAYS REMOVE THE PASSWORD FROM THE USER OBJECT
     //@ts-ignore
     delete user._doc.hash
     return user

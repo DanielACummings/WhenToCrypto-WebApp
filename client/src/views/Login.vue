@@ -1,7 +1,9 @@
 <template>
 	<div class="login">
 		<h1 class="pt-5 console-green">WhenToCrypto</h1>
-		<p class="console-green pb-5">Only spend your crypto when it's worth more than you paid for it</p>
+		<p
+			class="console-green pb-5"
+		>Only spend your cryptocurrency when it's worth more than you paid for it</p>
 		<form v-if="loginForm" @submit.prevent="loginUser">
 			<input class="mb-1" type="email" v-model="creds.email" placeholder="Email" />
 			<br />
@@ -46,7 +48,7 @@ export default {
 	},
 	beforeCreate() {
 		if (this.$store.state.user._id) {
-			this.$router.push({ name: "boards" });
+			this.$router.push({ name: "home" });
 		}
 	},
 	methods: {
