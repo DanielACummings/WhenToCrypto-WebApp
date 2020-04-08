@@ -5,9 +5,9 @@
 				<h1 class="pb-4 pt-5 console-green">Tracked Cryptos</h1>
 			</div>
 		</div>
-		<!-- Add crypto modal -->
-		<div class="row text-center">
-			<div class="col-12">
+		<div class="row">
+			<!-- Add crypto modal form -->
+			<div class="col-6 text-right">
 				<button
 					type="button"
 					class="btn btn-secondary text-center"
@@ -49,7 +49,7 @@
 										/>
 									</div>
 									<div class="form-group">
-										<label for="decimals" class="col-form-label">How Many Decimals is It Divisible By?:</label>
+										<label for="decimals" class="col-form-label">How Many Decimals is It Divisible By?</label>
 										<input
 											type="number"
 											step="1"
@@ -97,6 +97,153 @@
 					</div>
 				</div>
 			</div>
+			<!-- Create transaction modal -->
+			<div class="col-6 text-left">
+				<button
+					type="button"
+					class="btn btn-secondary text-center"
+					data-toggle="modal"
+					data-target="#add-transaction-modal"
+					data-whatever="@getbootstrap"
+				>Add Transaction</button>
+				<div
+					class="modal fade"
+					id="add-transaction-modal"
+					tabindex="-1"
+					role="dialog"
+					aria-labelledby="add-transaction-modal-label"
+					aria-hidden="true"
+				>
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<div class="modal-title" id="add-transaction-modal-label">
+									<h5>Add Transaction</h5>
+									<p class="text-left">Note: Do Not Add Transfers Between Your Wallets</p>
+								</div>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form @submit.prevent="createTransaction" class="text-left">
+									<!-- "Which Crypto?" dropdown -->
+									<label>Which Crypto?</label>
+									<br />
+									<select v-model="newTransaction.cryptoId">
+										<option v-for="crypto in cryptos" :key="crypto.id" :value="crypto.id">{{crypto.name}}</option>
+									</select>
+
+									<!-- Which crypto dropdown -->
+									<!-- <div class="dropdown">
+										<label for="which-crypto">Which Crypto?</label>
+										<select
+											type="text"
+											class="dropdown-toggle"
+											id="which-crypto"
+											data-toggle="dropdown"
+											v-model="newTransaction.cryptoId"
+										/>
+										<ul class="dropdown-menu">
+											<div v-for="crypto in cryptos" :key="crypto.id">
+												<div class="dropdown-item" :value="crypto.id">{{crypto.name}}</div>
+											</div>
+										</ul>
+									</div>-->
+
+									<!-- Transaction type dropdown -->
+									<div class="form-group">
+										<label for="transaction-type" class="col-form-label">Type:</label>
+										<input
+											type="text"
+											list="options"
+											v-model="newTransaction.transactionType"
+											class="form-control"
+											id="transaction-type"
+											placeholder="Type Answer or Click Dropdown"
+											required
+										/>
+										<datalist id="options">
+											<option>Purchased of Crypto with Local Currency</option>
+											<option>Income</option>
+											<option>Earned as Payment</option>
+											<option>Received as Gift</option>
+											<option>Gave as Gift</option>
+											<option>Converted Between Cryptos</option>
+											<option>Hard Fork</option>
+											<option>Interest</option>
+											<option>Sold for Local Currency</option>
+											<option>Mining</option>
+										</datalist>
+									</div>
+									<!-- Date -->
+									<div class="form-group">
+										<label for="date" class="col-form-label">Date:</label>
+										<input
+											type="text"
+											v-model="newTransaction.date"
+											class="form-control"
+											id="date"
+											placeholder="yyyy/mm/dd"
+											required
+										/>
+									</div>
+									<!-- +/- radio buttons for adding or subtracting from ledger-->
+									<div class="form-group">
+										<label for="pos-or-neg">Adding or Subtracting from Ledger?:</label>
+										<br />
+										<input
+											type="radio"
+											v-model="newTransaction.posOrNeg"
+											id="pos"
+											name="pos-or-neg"
+											value="pos"
+											required
+										/>
+										<label for="pos">Adding</label>
+										<input
+											type="radio"
+											v-model="newTransaction.posOrNeg"
+											id="neg"
+											name="pos-or-neg"
+											value="neg"
+										/>
+										<label for="neg">Subtracting</label>
+									</div>
+									<div class="form-group">
+										<label for="crypto-value" class="col-form-label">Amount of Crypto:</label>
+										<input
+											type="number"
+											step="any"
+											v-model="newTransaction.cryptoAmount"
+											class="form-control"
+											id="crypto-value"
+											placeholder="Example: 0.12345678"
+											required
+										/>
+									</div>
+									<div class="form-group">
+										<label for="market-value" class="col-form-label">
+											Amount of Local Currency:
+											<br />(Including Fees)
+										</label>
+										<input
+											type="number"
+											step="any"
+											v-model="newTransaction.marketValue"
+											class="form-control"
+											id="market-value"
+											required
+										/>
+									</div>
+									<button type="submit" class="btn btn-dark">Submit</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="row pt-5">
 			<!-- User's cryptos inserted here -->
@@ -115,6 +262,11 @@ export default {
 	mounted() {
 		this.$store.dispatch("getCryptos");
 	},
+	computed: {
+		cryptos() {
+			return this.$store.state.cryptos;
+		}
+	},
 	data() {
 		return {
 			newCrypto: {
@@ -126,13 +278,16 @@ export default {
 				posTxCount: 0,
 				posTxLocalValSum: 0,
 				totalOwned: 0
+			},
+			newTransaction: {
+				transactionType: "",
+				date: "",
+				posOrNeg: "",
+				cryptoAmount: 0,
+				marketValue: 0,
+				cryptoId: ""
 			}
 		};
-	},
-	computed: {
-		cryptos() {
-			return this.$store.state.cryptos;
-		}
 	},
 	methods: {
 		createCrypto() {
@@ -154,6 +309,18 @@ export default {
 			if (close == true) {
 				this.$store.dispatch("deleteCrypto", deleteCrypto);
 			}
+		},
+		createTransaction() {
+			let transactionData = { ...this.newTransaction };
+			transactionData.cryptoId = cryptoProp.id;
+			this.$store.dispatch("createTransaction", transactionData);
+			this.newTransaction = {
+				transactionType: "",
+				date: "",
+				posOrNeg: "",
+				cryptoAmount: 0,
+				marketValue: 0
+			};
 		}
 	}
 };
