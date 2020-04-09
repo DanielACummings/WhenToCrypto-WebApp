@@ -87,8 +87,6 @@ export default new Vuex.Store({
 
     //#region - Transactions
     async createTransaction({ dispatch }, payload) {
-      console.log("Store payload: " + payload);
-
       await api.post('transactions', payload)
       dispatch('getCryptos')
     }

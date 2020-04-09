@@ -6,15 +6,16 @@
 				<p>{{cryptoProp.description}}</p>
 				<img :src="cryptoProp.img" class="card-img" alt="crypto image" />
 				<div class="row text-center pt-1">
+					<div class="col-12 text-center pt-1">Total owned: {{cryptoProp.totalOwned}}</div>
 					<div class="col-12 text-center pt-1">
 						Averaged Value:
 						<br />
-						<a href="https://www.symbols.com/symbol/currency-sign" target="blank_">¤</a>
-						{{(cryptoProp.posTxCount /cryptoProp.posTxLocalValSum).toFixed(2)}}
+						<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
+						{{(cryptoProp.localValAv).toFixed(2)}}
 					</div>
 					<div class="col">
 						<button class="btn btn-sm btn-dark mb-1">
-							<a target="_blank" :href="baseURL + cryptoProp.name">Market Value</a>
+							<a target="_blank" :href="baseURL + cryptoProp.name" id="market-val-btn">Market Value</a>
 						</button>
 					</div>
 				</div>

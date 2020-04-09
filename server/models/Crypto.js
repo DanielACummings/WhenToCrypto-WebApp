@@ -9,7 +9,7 @@ const Crypto = new Schema({
   img: { type: String },
   notes: { type: String },
   posTxCount: { type: Number, required: true },
-  posTxLocalValSum: { type: Number, required: true },
+  localValAv: { type: Number, required: true },
   totalOwned: { type: Number, required: true },
   authorId: { type: ObjectId, ref: 'User', required: true }
 }, { timestamps: true, toJSON: { virtuals: true } })

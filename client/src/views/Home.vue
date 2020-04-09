@@ -37,7 +37,7 @@
 									<div class="form-group">
 										<label for="name" class="col-form-label">
 											Name:
-											<br />(Used in "Market Value" button link. Please choose an actual crypto name)
+											<br />(Used in "Market Value" link. Please choose an actual crypto name, & if name contains spaces, use "-"s instead)
 										</label>
 										<input
 											type="text"
@@ -256,6 +256,7 @@
 import cryptocurrency from "@/components/Cryptocurrency";
 export default {
 	name: "home",
+	props: ["cryptoProp"],
 	components: {
 		cryptocurrency
 	},
@@ -276,7 +277,7 @@ export default {
 				img: "",
 				notes: "",
 				posTxCount: 0,
-				posTxLocalValSum: 0,
+				localValAv: 0,
 				totalOwned: 0
 			},
 			newTransaction: {
@@ -298,7 +299,7 @@ export default {
 				img: "",
 				notes: "",
 				posTxCount: 0,
-				posTxLocalValSum: 0,
+				localValAv: 0,
 				totalOwned: 0
 			};
 		},
@@ -310,16 +311,16 @@ export default {
 				this.$store.dispatch("deleteCrypto", deleteCrypto);
 			}
 		},
-		createTransaction() {
+		createTransaction(cryptoId) {
 			let transactionData = { ...this.newTransaction };
-			transactionData.cryptoId = cryptoProp.id;
 			this.$store.dispatch("createTransaction", transactionData);
 			this.newTransaction = {
 				transactionType: "",
 				date: "",
 				posOrNeg: "",
 				cryptoAmount: 0,
-				marketValue: 0
+				marketValue: 0,
+				cryptoId: ""
 			};
 		}
 	}
