@@ -1,15 +1,13 @@
 <template>
 	<div class="login">
-		<h1 class="pt-5 console-green">WhenToCrypto</h1>
-		<p
-			class="console-green pb-5"
-		>Only spend your cryptocurrency when it's worth more than you paid for it</p>
+		<h1 class="pt-5">WhenToCrypto</h1>
+		<p class="pb-5">Only spend your cryptocurrency when it's worth more than you paid for it</p>
 		<form v-if="loginForm" @submit.prevent="loginUser">
 			<input class="mb-1" type="email" v-model="creds.email" placeholder="Email" />
 			<br />
-			<input class="mb-1" type="password" v-model="creds.password" placeholder="Password" />
+			<input class="mb-1" type="password" v-model="creds.password" placeholder="Passphrase" />
 			<br />
-			<button class="btn btn-secondary" type="submit">Login</button>
+			<button class="btn btn-warning" type="submit">Login</button>
 		</form>
 		<form v-else @submit.prevent="register">
 			<br />
@@ -17,11 +15,11 @@
 			<br />
 			<input class="mb-1" type="email" v-model="newUser.email" placeholder="Email" />
 			<br />
-			<input class="mb-1" type="password" v-model="newUser.password" placeholder="Password" />
+			<input class="mb-1" type="password" v-model="newUser.password" placeholder="Passphrase" />
 			<br />
-			<button class="btn btn-secondary" type="submit">Create Account</button>
+			<button class="btn btn-warning" type="submit">Create Account</button>
 		</form>
-		<div class="action console-green" @click="loginForm = !loginForm">
+		<div class="action" @click="loginForm = !loginForm">
 			<p v-if="loginForm">No account? Click here to Register</p>
 			<p v-else>Already have an account? Click here to Login</p>
 		</div>
@@ -65,5 +63,8 @@ export default {
 <style>
 .action {
 	cursor: pointer;
+}
+.login {
+	color: #375a7f;
 }
 </style>

@@ -5,7 +5,8 @@ let Schema = mongoose.Schema
 const User = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  hash: { type: String, required: true }
+  hash: { type: String, required: true },
+  donated: { type: String, default: "no", required: true }
 }, { timestamps: true })
 
 User.methods.validatePassword = function (password, hash) {
