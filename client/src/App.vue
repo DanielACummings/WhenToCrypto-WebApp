@@ -1,27 +1,32 @@
 <template>
 	<div id="app">
 		<navbar />
+		<h5 id="beta" class="text-left pt-5 pl-5">BETA VERSION</h5>
 		<router-view />
+		<info />
 	</div>
 </template>
 
 <script>
 import navbar from "@/components/Navbar";
+import info from "@/components/Info";
+
 export default {
 	name: "App",
 	components: {
-		navbar
+		navbar,
+		info
 	}
 };
 </script>
 
 <style>
 #app {
-	font-family: "Avenir", Helvetica, Arial, sans-serif;
+	/* font-family: "Avenir", Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	-moz-osx-font-smoothing: grayscale; */
 	text-align: center;
-	color: #2c3e50;
+	/* color: #2c3e50; */
 }
 
 #nav {
@@ -36,10 +41,9 @@ export default {
 #nav a.router-link-exact-active {
 	color: #42b983;
 }
+
 body {
-	background-color: black;
-}
-.console-green {
-	color: #0f0;
+	background: black;
+	color: white;
 }
 </style>

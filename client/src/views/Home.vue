@@ -2,7 +2,7 @@
 	<div class="home container">
 		<div class="row">
 			<div class="col">
-				<h1 class="pb-4 pt-5 console-green">Tracked Cryptos</h1>
+				<h1 id="title" class="pb-4 pt-5">Tracked Cryptos</h1>
 			</div>
 		</div>
 		<div class="row">
@@ -10,7 +10,7 @@
 			<div class="col-6 text-right">
 				<button
 					type="button"
-					class="btn btn-secondary text-center"
+					class="btn btn-primary text-center"
 					data-toggle="modal"
 					data-target="#add-crypto-modal"
 					data-whatever="@getbootstrap"
@@ -49,17 +49,6 @@
 										/>
 									</div>
 									<div class="form-group">
-										<label for="decimals" class="col-form-label">How Many Decimals is It Divisible By?</label>
-										<input
-											type="number"
-											step="1"
-											min="0"
-											v-model="newCrypto.decimals"
-											class="form-control"
-											id="decimals"
-										/>
-									</div>
-									<div class="form-group">
 										<label for="description" class="col-form-label">Description:</label>
 										<input
 											type="text"
@@ -89,8 +78,8 @@
 											placeholder="Optional"
 										/>
 									</div>
-									<button type="submit" class="btn btn-dark">Submit</button>
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									<button type="submit" class="btn btn-primary">Submit</button>
+									<button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
 								</form>
 							</div>
 						</div>
@@ -101,7 +90,7 @@
 			<div class="col-6 text-left">
 				<button
 					type="button"
-					class="btn btn-secondary text-center"
+					class="btn btn-primary text-center"
 					data-toggle="modal"
 					data-target="#add-transaction-modal"
 					data-whatever="@getbootstrap"
@@ -119,7 +108,6 @@
 							<div class="modal-header">
 								<div class="modal-title" id="add-transaction-modal-label">
 									<h5>Add Transaction</h5>
-									<p class="text-left">Note: Do Not Add Transfers Between Your Wallets</p>
 								</div>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
@@ -134,23 +122,6 @@
 										<option v-for="crypto in cryptos" :key="crypto.id" :value="crypto.id">{{crypto.name}}</option>
 									</select>
 
-									<!-- Which crypto dropdown -->
-									<!-- <div class="dropdown">
-										<label for="which-crypto">Which Crypto?</label>
-										<select
-											type="text"
-											class="dropdown-toggle"
-											id="which-crypto"
-											data-toggle="dropdown"
-											v-model="newTransaction.cryptoId"
-										/>
-										<ul class="dropdown-menu">
-											<div v-for="crypto in cryptos" :key="crypto.id">
-												<div class="dropdown-item" :value="crypto.id">{{crypto.name}}</div>
-											</div>
-										</ul>
-									</div>-->
-
 									<!-- Transaction type dropdown -->
 									<div class="form-group">
 										<label for="transaction-type" class="col-form-label">Type:</label>
@@ -164,16 +135,22 @@
 											required
 										/>
 										<datalist id="options">
-											<option>Purchased of Crypto with Local Currency</option>
+											<!-- Positive -->
+											<option>Purchase of Crypto with Local Currency</option>
 											<option>Income</option>
 											<option>Earned as Payment</option>
 											<option>Received as Gift</option>
-											<option>Gave as Gift</option>
-											<option>Converted Between Cryptos</option>
 											<option>Hard Fork</option>
 											<option>Interest</option>
-											<option>Sold for Local Currency</option>
 											<option>Mining</option>
+											<!-- Negative -->
+											<option>Used for Payment</option>
+											<option>Gave as Gift</option>
+											<option>Sold for Local Currency</option>
+											<option>Mining Fee for Wallet Transfer</option>
+											<option>Lost or Stolen</option>
+											<!-- Either -->
+											<option>Conversion Between Cryptos</option>
 										</datalist>
 									</div>
 									<!-- Date -->
@@ -236,13 +213,21 @@
 											required
 										/>
 									</div>
-									<button type="submit" class="btn btn-dark">Submit</button>
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									<button type="submit" class="btn btn-primary">Submit</button>
+									<button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
 								</form>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col pt-3">
+				<p class="text-center">
+					If your crypto's market value is higher than your averaged value,
+					<br />you can transact without losing purchasing power.
+				</p>
 			</div>
 		</div>
 		<div class="row pt-5">
@@ -272,7 +257,6 @@ export default {
 		return {
 			newCrypto: {
 				name: "",
-				decimals: 0,
 				description: "",
 				img: "",
 				notes: "",

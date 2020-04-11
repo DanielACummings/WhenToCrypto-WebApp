@@ -4,7 +4,6 @@ let ObjectId = Schema.Types.ObjectId
 
 const Crypto = new Schema({
   name: { type: String, required: true },
-  decimals: { type: Number, required: true },
   description: { type: String },
   img: { type: String },
   notes: { type: String },

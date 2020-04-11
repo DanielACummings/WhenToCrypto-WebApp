@@ -1,9 +1,5 @@
 <template>
-	<nav
-		v-if="this.$route.name != 'login'"
-		class="navbar navbar-expand-sm navbar-dark"
-		style="background-color: #000;"
-	>
+	<nav class="navbar navbar-expand-sm navbar-light bg-primary">
 		<router-link class="navbar-brand" :to="{ name: 'home' }">WhenToCrypto</router-link>
 		<button
 			class="navbar-toggler"
@@ -18,15 +14,26 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarText">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item" :class="{ active: $route.name == 'home' }">
+				<!-- <li>s shown on login page -->
+
+				<!-- <li>s shown when logged in -->
+				<li
+					v-show="this.$route.name != 'login'"
+					class="nav-item"
+					:class="{ active: $route.name == 'home' }"
+				>
 					<router-link :to="{ name: 'home' }" class="nav-link">Home</router-link>
 				</li>
-				<li class="nav-item" :class="{ active: $route.name == 'ledgers' }">
+				<li
+					v-show="this.$route.name != 'login'"
+					class="nav-item"
+					:class="{ active: $route.name == 'ledgers' }"
+				>
 					<router-link class="nav-link" :to="{ name: 'ledgers' }">Ledgers</router-link>
 				</li>
 			</ul>
-			<span class="navbar-text">
-				<button @click="logout" class="btn btn-secondary text-right">Logout</button>
+			<span v-show="this.$route.name != 'login'" class="navbar-text">
+				<button @click="logout" class="btn btn-success text-right">Logout</button>
 			</span>
 		</div>
 	</nav>
