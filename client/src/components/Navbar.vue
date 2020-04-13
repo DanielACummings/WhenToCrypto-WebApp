@@ -13,23 +13,18 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarText">
-			<ul class="navbar-nav mr-auto">
-				<!-- <li>s shown on login page -->
-
-				<!-- <li>s shown when logged in -->
-				<li
-					v-show="this.$route.name != 'login'"
-					class="nav-item"
-					:class="{ active: $route.name == 'home' }"
-				>
+			<!-- <ul> shown on login page -->
+			<ul></ul>
+			<!-- <ul> shown when logged in -->
+			<ul v-show="this.$route.name != 'login'" class="navbar-nav mr-auto">
+				<li class="nav-item" :class="{ active: $route.name == 'home' }">
 					<router-link :to="{ name: 'home' }" class="nav-link">Home</router-link>
 				</li>
-				<li
-					v-show="this.$route.name != 'login'"
-					class="nav-item"
-					:class="{ active: $route.name == 'ledgers' }"
-				>
+				<li class="nav-item" :class="{ active: $route.name == 'ledgers' }">
 					<router-link class="nav-link" :to="{ name: 'ledgers' }">Ledgers</router-link>
+				</li>
+				<li class="nav-item" :class="{ active: $route.name == 'features' }">
+					<router-link :to="{ name: 'features' }" class="nav-link">Planned Features</router-link>
 				</li>
 			</ul>
 			<span v-show="this.$route.name != 'login'" class="navbar-text">
