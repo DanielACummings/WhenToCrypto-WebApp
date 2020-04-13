@@ -6,6 +6,8 @@ import Home from '../views/Home.vue'
 import Ledgers from '../views/Ledgers.vue'
 // @ts-ignore
 import Login from '../views/Login.vue'
+// @ts-ignore
+import Features from '../views/Features.vue'
 // // @ts-ignore
 // import Cryptocurrency from '../views/Cryptocurrency.vue'
 
@@ -28,6 +30,11 @@ export default new Router({
       path: '/ledgers',
       name: 'ledgers',
       component: Ledgers
+    },
+    {
+      path: '/features',
+      name: 'features',
+      component: Features
     },
     // for individual ledger view
     // {
