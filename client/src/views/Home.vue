@@ -5,9 +5,9 @@
 				<h1 id="title" class="pb-4 pt-5">Tracked Cryptos</h1>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row text-center">
 			<!-- Add crypto modal form -->
-			<div class="col-6 text-right">
+			<div class="pt-2 col-12 col-sm-6">
 				<button
 					type="button"
 					class="btn btn-primary text-center"
@@ -87,7 +87,7 @@
 				</div>
 			</div>
 			<!-- Create transaction modal -->
-			<div class="col-6 text-left">
+			<div class="pt-2 col-12 col-sm-6">
 				<button
 					type="button"
 					class="btn btn-primary text-center"
