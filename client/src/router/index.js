@@ -8,6 +8,8 @@ import Ledgers from '../views/Ledgers.vue'
 import Login from '../views/Login.vue'
 // @ts-ignore
 import Features from '../views/Features.vue'
+// @ts-ignore
+import WhyUseCrypto from '../views/WhyUseCrypto.vue'
 // // @ts-ignore
 // import Cryptocurrency from '../views/Cryptocurrency.vue'
 
@@ -35,6 +37,11 @@ export default new Router({
       path: '/features',
       name: 'features',
       component: Features
+    },
+    {
+      path: '/whyusecrypto',
+      name: 'whyUseCrypto',
+      component: WhyUseCrypto
     },
     // for individual ledger view
     // {
