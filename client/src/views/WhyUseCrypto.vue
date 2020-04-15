@@ -2,25 +2,23 @@
 	<div class="why-use-crypto container">
 		<div class="row">
 			<div class="col-12">
-				<h1>Why Use Crypto?</h1>
-				<h5 class="pb-5">The Why & How of Cryptocurrency</h5>
+				<h1 class="pb-5">Why Use Crypto?</h1>
 			</div>
-			<div class="col-12 pb-5">
-				<p>Why you should use it.</p>
+			<div class="col-12 pb-5 embed-responsive embed-responsive-16by9">
 				<iframe
-					src="https://player.vimeo.com/video/295145578?app_id=122963\"
-					width="640\"
-					height="360\"
-					frameborder="0\"
-					allow="autoplay; fullscreen\"
+					src="https://player.vimeo.com/video/295145578?app_id=122963"
+					width="560"
+					height="315"
+					frameborder="0"
+					allow="autoplay; fullscreen"
 					allowfullscreen
-					title="Bitcoin - Blockchain explainer\"
+					title="Bitcoin - Blockchain explainer"
 				></iframe>
 			</div>
-			<div class="col-12">
-				<p>How it works.</p>
+			<div class="col-12 mt-5 pt-5">
+				<p>Here's how it works:</p>
 				<div class="row">
-					<div class="col-12 col-xl-6">
+					<div class="col-12 col-xl-6 mt-4 pb-5 embed-responsive embed-responsive-16by9">
 						<iframe
 							width="560"
 							height="315"
@@ -30,7 +28,7 @@
 							allowfullscreen
 						></iframe>
 					</div>
-					<div class="col-12 col-xl-6">
+					<div class="col-12 col-xl-6 mt-4 pb-5 embed-responsive embed-responsive-16by9">
 						<iframe
 							width="560"
 							height="315"

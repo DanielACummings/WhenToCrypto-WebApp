@@ -19,10 +19,11 @@
 			<br />
 			<button class="btn btn-warning" type="submit">Create Account</button>
 		</form>
-		<div class="action pb-5" @click="loginForm = !loginForm">
+		<div class="action pb-2" @click="loginForm = !loginForm">
 			<p v-if="loginForm">No account? Click here to Register</p>
 			<p v-else>Already have an account? Click here to Login</p>
 		</div>
+		<div class="pb-5">Can't log in? Please email whentocrypto@protonmail.com</div>
 		<!-- Why Crypto section -->
 		<div class="row pt-5">
 			<div class="col-12">
@@ -30,38 +31,40 @@
 			</div>
 			<div class="col-12 pb-5">
 				<p>Here's why you should use it:</p>
-				<iframe
-					src="https://player.vimeo.com/video/295145578?app_id=122963"
-					width="560"
-					height="315"
-					frameborder="0"
-					allow="autoplay; fullscreen"
-					allowfullscreen
-					title="Bitcoin - Blockchain explainer"
-				></iframe>
-			</div>
-			<div class="col-12">
-				<p>Here's how it works:</p>
-				<div class="row">
-					<div class="col-12 col-xl-6 pb-5">
-						<iframe
-							width="560"
-							height="315"
-							src="https://www.youtube-nocookie.com/embed/l9jOJk30eQs"
-							frameborder="0"
-							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen
-						></iframe>
-					</div>
-					<div class="col-12 col-xl-6 pb-5">
-						<iframe
-							width="560"
-							height="315"
-							src="https://www.youtube-nocookie.com/embed/Lx9zgZCMqXE"
-							frameborder="0"
-							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen
-						></iframe>
+				<div class="col-12 pb-5 embed-responsive embed-responsive-16by9">
+					<iframe
+						src="https://player.vimeo.com/video/295145578?app_id=122963"
+						width="560"
+						height="315"
+						frameborder="0"
+						allow="autoplay; fullscreen"
+						allowfullscreen
+						title="Bitcoin - Blockchain explainer"
+					></iframe>
+				</div>
+				<div class="col-12 mt-5 pt-5">
+					<p>Here's how it works:</p>
+					<div class="row">
+						<div class="col-12 col-xl-6 mt-4 pb-5 embed-responsive embed-responsive-16by9">
+							<iframe
+								width="560"
+								height="315"
+								src="https://www.youtube-nocookie.com/embed/l9jOJk30eQs"
+								frameborder="0"
+								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen
+							></iframe>
+						</div>
+						<div class="col-12 col-xl-6 mt-4 pb-5 embed-responsive embed-responsive-16by9">
+							<iframe
+								width="560"
+								height="315"
+								src="https://www.youtube-nocookie.com/embed/Lx9zgZCMqXE"
+								frameborder="0"
+								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen
+							></iframe>
+						</div>
 					</div>
 				</div>
 			</div>
