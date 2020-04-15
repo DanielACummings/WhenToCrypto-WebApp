@@ -7,7 +7,7 @@
 			</div>
 			<div class="col-12 text-left pt-5 pb-5">
 				<ol>
-					<li>"Cryptocurrency Explained" tab viewable on login page & when logged in</li>
+					<li>"Cryptocurrency Explained" section. Viewable on login page by scrolling & when logged in under a navbar tab</li>
 					<li>Ability to view all transactions on ledger tab</li>
 					<li>Ability to edit cryptos</li>
 					<li>Easier to see color of add transaction dropdown options on mobile (iPhone)</li>
