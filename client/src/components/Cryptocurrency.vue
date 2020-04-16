@@ -15,9 +15,18 @@
 					</div>
 					<div class="col-12 pt-1">Notes: {{cryptoProp.notes}}</div>
 					<div class="col-12">
-						<button class="btn btn-sm btn-primary mt-1">
-							<a target="_blank" :href="baseURL + cryptoProp.name" id="market-val-btn">Market Value</a>
-						</button>
+						<div class="row">
+							<div class="col-6 text-right">
+								<button class="btn btn-sm btn-primary mt-1">
+									<a target="_blank" :href="baseURL + cryptoProp.name" id="market-val-btn">Market Value</a>
+								</button>
+							</div>
+							<div class="col-6 text-left">
+								<router-link :to="{name: 'ledger', params: {cryptoId: cryptoProp.id}}">
+									<button class="btn btn-sm btn-primary mt-1">View Ledger</button>
+								</router-link>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

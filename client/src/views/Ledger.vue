@@ -1,5 +1,5 @@
 <template>
-	<div class="ledgers container">
+	<div class="ledger container">
 		<div class="row">
 			<div class="col">
 				<h1 class="pt-5 pb-4">Ledgers</h1>
@@ -15,8 +15,10 @@
 
 <script>
 export default {
-	name: "ledgers",
-	mounted() {}
+	name: "ledger",
+	mounted() {
+		this.$store.dispatch("getTxByCrypto", this.$route.params.id);
+	}
 };
 </script>
 <style>

@@ -21,9 +21,6 @@
 				<li class="nav-item" :class="{ active: $route.name == 'home' }">
 					<router-link :to="{ name: 'home' }" class="nav-link">Home</router-link>
 				</li>
-				<li class="nav-item" :class="{ active: $route.name == 'ledgers' }">
-					<router-link class="nav-link" :to="{ name: 'ledgers' }">Ledgers</router-link>
-				</li>
 				<li class="nav-item" :class="{ active: $route.name == 'features' }">
 					<router-link :to="{ name: 'features' }" class="nav-link">Planned Features</router-link>
 				</li>

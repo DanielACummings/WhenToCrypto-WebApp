@@ -46,11 +46,7 @@
 
 <script>
 export default {
-	name: "whyUseCrypto",
-	data() {
-		return {};
-	},
-	methods: {}
+	name: "whyUseCrypto"
 };
 </script>
 
