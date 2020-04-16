@@ -16,6 +16,10 @@ class TransactionsService {
     }
     return await _repository.create(newData)
   }
+
+  async getTxByCrypto(cryptoId) {
+    return await _repository.find({ cryptoId: cryptoId })
+  }
 }
 
 const transactionsService = new TransactionsService()

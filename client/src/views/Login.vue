@@ -1,7 +1,9 @@
 <template>
 	<div class="login container">
 		<h1 class="pt-5">WhenToCrypto</h1>
-		<p class="pb-5">Only spend or sell your cryptocurrency when it's worth more than you paid for it</p>
+		<p
+			class="pb-5 col-12"
+		>Only spend or sell your cryptocurrency when it's worth more than you paid for it</p>
 		<form v-if="loginForm" @submit.prevent="loginUser">
 			<input class="mb-1" type="email" v-model="creds.email" placeholder="Email" />
 			<br />

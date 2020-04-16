@@ -19,11 +19,7 @@
 
 <script>
 export default {
-	name: "features",
-	data() {
-		return {};
-	},
-	methods: {}
+	name: "features"
 };
 </script>
 
