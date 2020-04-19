@@ -6,7 +6,9 @@
 				<p>{{cryptoProp.description}}</p>
 				<img :src="cryptoProp.img" class="card-img" alt="crypto image" />
 				<div class="row text-center pt-1">
-					<div class="col-12 text-center pt-1">Total owned: {{cryptoProp.totalOwned}}</div>
+					<div
+						class="col-12 text-center pt-1"
+					>Total owned: {{parseFloat((cryptoProp.totalOwned).toFixed(8))}}</div>
 					<div class="col-12 text-center pt-1">
 						Averaged Value:
 						<br />

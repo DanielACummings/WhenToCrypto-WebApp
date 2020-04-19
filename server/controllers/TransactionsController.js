@@ -30,7 +30,7 @@ export default class TransactionsController {
 
   async getTxByCrypto(req, res, next) {
     try {
-      let data = await transactionsService.getTxByCrypto(req.body)
+      let data = await transactionsService.getTxByCrypto(req.params.cryptoId)
       return res.send(data)
     } catch (error) { next(error) }
   }

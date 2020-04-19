@@ -91,7 +91,8 @@ export default new Vuex.Store({
       dispatch('getCryptos')
     },
     async getTxByCrypto({ commit }, cryptoId) {
-      let res = await api.get('transactions/:cryptoId', cryptoId)
+      console.log(cryptoId);
+      let res = await api.get(`transactions/${cryptoId}`)
       commit('addTx', res.data)
     }
   }

@@ -10,7 +10,7 @@
 					<li>Ability to edit cryptos</li>
 					<li>Easier to see color of add transaction dropdown options on mobile (iPhone)</li>
 					<li>Alerts after successful creation of cryptos & transactions</li>
-					<li>Password resetting</li>
+					<li>Auth0 integration which includes password resetting by email</li>
 				</ol>
 			</div>
 		</div>

@@ -18,7 +18,8 @@ class TransactionsService {
   }
 
   async getTxByCrypto(cryptoId) {
-    return await _repository.find({ cryptoId: cryptoId })
+    let tx = await _repository.find({ cryptoId: cryptoId })
+    return tx
   }
 }
 
