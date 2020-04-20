@@ -8,7 +8,7 @@
 				<ol>
 					<li>Ability to view all transactions on ledger tab</li>
 					<li>Ability to edit cryptos</li>
-					<li>Easier to see color of add transaction dropdown options on mobile (iPhone)</li>
+					<li>Easier to see color of add transaction dropdown options on mobile</li>
 					<li>Alerts after successful creation of cryptos & transactions</li>
 					<li>Auth0 integration which includes password resetting by email</li>
 				</ol>
