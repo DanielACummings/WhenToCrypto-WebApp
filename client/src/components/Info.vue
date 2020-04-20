@@ -4,7 +4,7 @@
 			<div class="col-12 text-center">
 				<p>
 					Your feedback is appreciated!
-					<br />Please send suggestions, questions, & requests to whentocrypto@protonmail.com
+					<br />Please send suggestions, questions, and requests to whentocrypto@protonmail.com
 				</p>
 			</div>
 		</div>

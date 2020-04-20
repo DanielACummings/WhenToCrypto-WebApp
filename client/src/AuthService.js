@@ -19,6 +19,9 @@ export default class AuthService {
   static async Register(creds) {
     try {
       let res = await auth.post('register', creds)
+      console.log(creds);
+      console.log(res.data);
+
       return res.data
     } catch (e) {
       throw new Error(`[registration failed] : ${!e.response ? 'No response from server' : e.response.data.error}`)
