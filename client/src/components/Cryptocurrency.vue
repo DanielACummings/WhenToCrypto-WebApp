@@ -48,6 +48,9 @@ export default {
 </script>
 
 <style>
+.card {
+	background: rgb(27, 26, 26);
+}
 .crypto-comp {
 	color: #00bc8c;
 }

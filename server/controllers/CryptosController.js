@@ -7,6 +7,7 @@ export default class CryptosController {
     this.router = express.Router()
       .use(Authorize.authenticated)
       .get('', this.getAll)
+      .get('/:cryptoId', this.getLedgerCrypto)
       .post('', this.create)
       .use(this.defaultRoute)
   }
@@ -20,6 +21,15 @@ export default class CryptosController {
       let data = await cryptosService.getAll(req.session.uid)
       return res.send(data)
     } catch (error) { next(error) }
+  }
+
+  async getLedgerCrypto(req, res, next) {
+    try {
+      let data = await cryptosService.getById(req.params.cryptoId)
+      return res.send(data)
+    } catch (error) {
+      next(error)
+    }
   }
 
   async create(req, res, next) {
