@@ -13,11 +13,13 @@
 		</form>
 		<form v-else @submit.prevent="register">
 			<br />
-			<input class="mb-1" type="text" v-model="newUser.name" placeholder="Name" />
+			<input class="mb-1" type="text" v-model="newUser.name" placeholder="Name (Optional)" />
 			<br />
-			<input class="mb-1" type="email" v-model="newUser.email" placeholder="Email" />
+			<input class="mb-1" type="email" v-model="newUser.email" required placeholder="Email" />
 			<br />
-			<input class="mb-1" type="password" v-model="newUser.password" placeholder="Passphrase" />
+			<input class="mb-1" type="password" v-model="newUser.password" required placeholder="Passphrase" />
+			<br />
+			<input class="mb-1" type="text" v-model="newUser.coupon" placeholder="Coupon Code" />
 			<br />
 			<button class="btn btn-warning" type="submit">Create Account</button>
 		</form>
@@ -25,7 +27,6 @@
 			<p v-if="loginForm">No account? Click here to Register</p>
 			<p v-else>Already have an account? Click here to Login</p>
 		</div>
-		<div class="pb-5">Can't log in? Please email whentocrypto@protonmail.com</div>
 		<!-- Why Crypto section -->
 		<div class="row pt-5">
 			<div class="col-12">
@@ -88,7 +89,8 @@ export default {
 			newUser: {
 				email: "",
 				password: "",
-				name: ""
+				name: "",
+				coupon: ""
 			}
 		};
 	},
