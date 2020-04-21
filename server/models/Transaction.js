@@ -8,6 +8,7 @@ const Transaction = new Schema({
   posOrNeg: { type: String, required: true },
   cryptoAmount: { type: Number, required: true },
   marketValue: { type: Number, required: true },
+  notes: { type: String },
   authorId: { type: ObjectId, ref: 'User', required: true },
   cryptoId: { type: ObjectId, ref: 'Crypto', required: true }
 }, { timestamps: true, toJSON: { virtuals: true } })

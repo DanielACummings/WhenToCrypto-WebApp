@@ -213,6 +213,16 @@
 											required
 										/>
 									</div>
+									<div class="form-group">
+										<label for="notes" class="col-form-label">Notes:</label>
+										<input
+											type="text"
+											v-model="newTransaction.notes"
+											class="form-control"
+											id="notes"
+											placeholder="Optional"
+										/>
+									</div>
 									<button type="submit" class="btn btn-primary">Submit</button>
 									<button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
 								</form>
@@ -270,6 +280,7 @@ export default {
 				posOrNeg: "",
 				cryptoAmount: 0,
 				marketValue: 0,
+				notes: "",
 				cryptoId: ""
 			}
 		};
@@ -304,6 +315,7 @@ export default {
 				posOrNeg: "",
 				cryptoAmount: 0,
 				marketValue: 0,
+				notes: "",
 				cryptoId: ""
 			};
 		}
