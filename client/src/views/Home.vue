@@ -119,6 +119,7 @@
 									<div class="form-group">
 										<label for="which-crypto" class="col-form-label">Which Crypto?</label>
 										<select id="which-crypto" class="form-control" v-model="newTransaction.cryptoId">
+											<option value disabled selected>-</option>
 											<option v-for="crypto in cryptos" :key="crypto.id" :value="crypto.id">{{crypto.name}}</option>
 										</select>
 									</div>
@@ -132,6 +133,8 @@
 											id="transaction-type"
 											required
 										>
+											<!-- Placeholder -->
+											<option value disabled selected>-</option>
 											<!-- Positive -->
 											<option>Purchased with Local Currency</option>
 											<option>Income</option>
@@ -167,7 +170,7 @@
 									</div>
 									<!-- +/- radio buttons for adding or subtracting from ledger-->
 									<div class="form-group">
-										<label for="pos-or-neg">Adding or Subtracting from Ledger?:</label>
+										<label for="pos-or-neg" class="col-form-label">Adding or Subtracting from Ledger?</label>
 										<br />
 										<input
 											type="radio"

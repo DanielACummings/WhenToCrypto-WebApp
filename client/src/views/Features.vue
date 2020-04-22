@@ -7,9 +7,9 @@
 			<div class="col-12 text-left pt-5 pb-5">
 				<ol>
 					<li>Ability to edit cryptos</li>
-					<li>Easier to see color of add transaction dropdown options on mobile (iPhone)</li>
-					<li>SweetAlerts for successful creation of cryptos and transactions</li>
+					<li>Faster loading market value links</li>
 					<li>SweetAlerts for failed logins</li>
+					<li>SweetAlerts for successful creation of cryptos and transactions</li>
 					<li>Auth0 integration which includes password resetting by email</li>
 				</ol>
 			</div>
