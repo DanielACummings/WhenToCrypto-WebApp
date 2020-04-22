@@ -10,7 +10,7 @@
 						class="col-12 text-center pt-1"
 					>Total owned: {{parseFloat((cryptoProp.totalOwned).toFixed(8))}}</div>
 					<div class="col-12 text-center pt-1">
-						Averaged Value:
+						Averaged Value Per Coin:
 						<br />
 						<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
 						{{(cryptoProp.localValAv).toFixed(2)}}

@@ -1,6 +1,6 @@
 <template>
 	<div class="login container">
-		<h1 class="pt-5">WhenToCrypto</h1>
+		<h2 class="pt-5">WhenToCrypto</h2>
 		<p
 			class="pb-4 col-12"
 		>Only spend or sell your cryptocurrency when it's worth more than you paid for it</p>

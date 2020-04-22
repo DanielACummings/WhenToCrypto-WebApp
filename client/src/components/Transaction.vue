@@ -7,6 +7,7 @@
 			<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
 			{{txProp.marketValue}}
 		</td>
+		<td>{{txProp.notes}}</td>
 	</tr>
 </template>
 <script>
@@ -16,7 +17,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #curr-symbol {
 	display: inline;
 	margin-right: -3px;

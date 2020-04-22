@@ -94,7 +94,7 @@
 					data-toggle="modal"
 					data-target="#add-transaction-modal"
 					data-whatever="@getbootstrap"
-				>Add Transaction</button>
+				>Add a Transaction</button>
 				<div
 					class="modal fade"
 					id="add-transaction-modal"
@@ -107,7 +107,7 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<div class="modal-title" id="add-transaction-modal-label">
-									<h5>Add Transaction</h5>
+									<h5>Add a Transaction</h5>
 								</div>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
@@ -116,33 +116,34 @@
 							<div class="modal-body">
 								<form @submit.prevent="createTransaction" class="text-left">
 									<!-- "Which Crypto?" dropdown -->
-									<label>Which Crypto?</label>
-									<br />
-									<select v-model="newTransaction.cryptoId">
-										<option v-for="crypto in cryptos" :key="crypto.id" :value="crypto.id">{{crypto.name}}</option>
-									</select>
+									<div class="form-group">
+										<label for="which-crypto" class="col-form-label">Which Crypto?</label>
+										<select id="which-crypto" class="form-control" v-model="newTransaction.cryptoId">
+											<option value disabled selected>-</option>
+											<option v-for="crypto in cryptos" :key="crypto.id" :value="crypto.id">{{crypto.name}}</option>
+										</select>
+									</div>
 
 									<!-- Transaction type dropdown -->
 									<div class="form-group">
 										<label for="transaction-type" class="col-form-label">Type:</label>
-										<input
-											type="text"
-											list="options"
+										<select
 											v-model="newTransaction.transactionType"
 											class="form-control"
 											id="transaction-type"
-											placeholder="Type Answer or Click Dropdown"
 											required
-										/>
-										<datalist id="options">
+										>
+											<!-- Placeholder -->
+											<option value disabled selected>-</option>
 											<!-- Positive -->
-											<option>Purchase of Crypto with Local Currency</option>
+											<option>Purchased with Local Currency</option>
 											<option>Income</option>
 											<option>Earned as Payment</option>
 											<option>Received as Gift</option>
 											<option>Hard Fork</option>
 											<option>Interest</option>
 											<option>Mining</option>
+											<option>Airdrop</option>
 											<!-- Negative -->
 											<option>Used for Payment</option>
 											<option>Gave as Gift</option>
@@ -151,8 +152,10 @@
 											<option>Lost or Stolen</option>
 											<!-- Either -->
 											<option>Conversion Between Cryptos</option>
-										</datalist>
+											<option>Other</option>
+										</select>
 									</div>
+
 									<!-- Date -->
 									<div class="form-group">
 										<label for="date" class="col-form-label">Date:</label>
@@ -167,7 +170,7 @@
 									</div>
 									<!-- +/- radio buttons for adding or subtracting from ledger-->
 									<div class="form-group">
-										<label for="pos-or-neg">Adding or Subtracting from Ledger?:</label>
+										<label for="pos-or-neg" class="col-form-label">Adding or Subtracting from Ledger?</label>
 										<br />
 										<input
 											type="radio"

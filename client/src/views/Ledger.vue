@@ -11,6 +11,7 @@
 						<th>Type</th>
 						<th>Amount</th>
 						<th>Local Curr. Val.</th>
+						<th>Notes</th>
 					</tr>
 					<!-- transactions inserted here -->
 					<transaction v-for="tx in activeLedger" :key="tx.id" :txProp="tx" />
