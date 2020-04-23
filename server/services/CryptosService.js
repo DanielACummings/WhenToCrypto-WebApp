@@ -18,9 +18,7 @@ class CryptosService {
   }
 
   async edit(data) {
-
-    let res = await _repository.findOneAndUpdate({ _id: data.id }, data, { new: true })
-    // if(data.authorId != req.session.uid) {throw error...}
+    let res = await _repository.findOneAndUpdate({ _id: data.id, authorId: data.authorId }, data, { new: true })
     return res
   }
 

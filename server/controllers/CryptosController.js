@@ -41,8 +41,8 @@ export default class CryptosController {
 
   async edit(req, res, next) {
     try {
+      req.body.authorId = req.session.uid
       let data = await cryptosService.edit(req.body)
-
       return res.status(201).send(data)
     } catch (error) { next(error) }
   }
