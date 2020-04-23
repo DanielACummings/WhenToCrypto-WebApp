@@ -93,7 +93,6 @@ export default new Vuex.Store({
       commit('addCrypto', res.data)
     },
     async editCrypto({ dispatch }, update) {
-      console.log(update);
       await api.put('cryptos/' + update.id, update)
       dispatch('getCryptos')
     },

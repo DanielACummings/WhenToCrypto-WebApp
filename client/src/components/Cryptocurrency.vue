@@ -20,20 +20,20 @@
 					<div class="col-12">
 						<div class="row">
 							<div>
-								<button class="btn btn-sm btn-primary mt-1 ml-3 mr-2">
+								<button class="btn btn-sm btn-primary mt-1 ml-4 mr-3">
 									<a target="_blank" :href="baseURL + cryptoProp.name" id="market-val-btn">Market Value</a>
 								</button>
 							</div>
 							<div>
 								<router-link :to="{name: 'ledger', params: {cryptoId: cryptoProp.id}}">
-									<button class="btn btn-sm btn-primary mt-1 ml-3 mr-2">Ledger</button>
+									<button class="btn btn-sm btn-primary mt-1">Ledger</button>
 								</router-link>
 							</div>
 							<!-- Edit crypto modal form -->
 							<div>
 								<button
 									type="button"
-									class="btn btn-sm mt-1 ml-3 mr-2 btn-primary text-center"
+									class="btn btn-sm mt-1 ml-3 btn-primary text-center"
 									data-toggle="modal"
 									data-target="#edit-crypto-modal"
 									data-whatever="@getbootstrap"
@@ -132,7 +132,6 @@ export default {
 	methods: {
 		editCrypto() {
 			let update = { ...this.editedCrypto };
-			console.log(update);
 			this.$store.dispatch("editCrypto", update);
 			this.editedCrypto = {
 				name: "",
