@@ -92,6 +92,10 @@ export default new Vuex.Store({
       let res = await api.post('cryptos', payload)
       commit('addCrypto', res.data)
     },
+    async editCrypto({ dispatch }, update) {
+      await api.put('cryptos/' + update.id, update)
+      dispatch('getCryptos')
+    },
     //#endregion
 
     //#region - Transactions

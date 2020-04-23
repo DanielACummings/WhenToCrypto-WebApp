@@ -17,6 +17,18 @@ class CryptosService {
     return await _repository.create(newData)
   }
 
+  async edit(data) {
+    // Deletes properties that == "" so user can leave update fields empty without them resetting to "" 
+    for (const key of Object.keys(data)) {
+      if (data[key] == "") {
+        delete data[key]
+      }
+    }
+
+    let res = await _repository.findOneAndUpdate({ _id: data.id, authorId: data.authorId }, data, { new: true })
+    return res
+  }
+
   async addPosTxData(newTx) {
     let pricePerCryptoUnit = newTx.marketValue / newTx.cryptoAmount
     let cryptoData = await this.getById(newTx.cryptoId)
