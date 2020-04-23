@@ -17,6 +17,13 @@ class CryptosService {
     return await _repository.create(newData)
   }
 
+  async edit(data) {
+
+    let res = await _repository.findOneAndUpdate({ _id: data.id }, data, { new: true })
+    // if(data.authorId != req.session.uid) {throw error...}
+    return res
+  }
+
   async addPosTxData(newTx) {
     let pricePerCryptoUnit = newTx.marketValue / newTx.cryptoAmount
     let cryptoData = await this.getById(newTx.cryptoId)

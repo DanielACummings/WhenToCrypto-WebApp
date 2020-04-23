@@ -284,7 +284,7 @@ export default {
 				cryptoAmount: 0,
 				marketValue: 0,
 				notes: "",
-				cryptoId: ""
+				id: ""
 			}
 		};
 	},
@@ -301,14 +301,14 @@ export default {
 				totalOwned: 0
 			};
 		},
-		deleteCrypto(deleteCrypto) {
-			let close = confirm(
-				"Records for this crypto will be lost forever.\nAre you sure you want to delete them?"
-			);
-			if (close == true) {
-				this.$store.dispatch("deleteCrypto", deleteCrypto);
-			}
-		},
+		// deleteCrypto(deleteCrypto) {
+		// 	let close = confirm(
+		// 		"Records for this crypto will be lost forever.\nAre you sure you want to delete them?"
+		// 	);
+		// 	if (close == true) {
+		// 		this.$store.dispatch("deleteCrypto", deleteCrypto);
+		// 	}
+		// },
 		createTransaction(cryptoId) {
 			let transactionData = { ...this.newTransaction };
 			this.$store.dispatch("createTransaction", transactionData);
