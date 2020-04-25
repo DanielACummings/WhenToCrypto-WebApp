@@ -10,6 +10,8 @@ import Login from '../views/Login.vue'
 import Features from '../views/Features.vue'
 // @ts-ignore
 import WhyUseCrypto from '../views/WhyUseCrypto.vue'
+// @ts-ignore
+import About from '../views/About.vue'
 
 
 Vue.use(Router)
@@ -40,6 +42,11 @@ export default new Router({
       path: '/ledgers/:cryptoId',
       name: 'ledger',
       component: Ledger
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About
     },
     {
       path: "*",

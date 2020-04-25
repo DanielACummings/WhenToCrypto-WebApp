@@ -27,12 +27,6 @@
 			<p v-if="loginForm">No account? Click here to Register</p>
 			<p v-else>Already have an account? Click here to Login</p>
 		</div>
-		<div class="row">
-			<div class="col-12 pt-5">
-				Shout-out to
-				<a target="_blank" href="https://boisecodeworks.com/">CodeWorks</a> for providing the original template for this app
-			</div>
-		</div>
 		<!-- Why Crypto section -->
 		<div class="row pt-5">
 			<div class="col-12">
@@ -73,6 +67,12 @@
 								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 								allowfullscreen
 							></iframe>
+						</div>
+					</div>
+					<div class="row text-center">
+						<div class="col-12 pt-5 text-center">
+							Shout-out to
+							<a target="_blank" href="https://boisecodeworks.com/">CodeWorks</a> for providing the original template for this app
 						</div>
 					</div>
 				</div>

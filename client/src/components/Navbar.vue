@@ -14,10 +14,16 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarText">
 			<!-- <ul> shown on login page -->
-			<!-- WhyUseCrypto is shown on login page & when logged in -->
-			<ul class="navbar-nav"></ul>
+			<ul v-if="this.$route.name == 'login' || this.$route.name == 'about'" class="navbar-nav mr-auto">
+				<li class="nav-item" :class="{ active: $route.name == 'login' }">
+					<router-link :to="{ name: 'login' }" class="nav-link">Login</router-link>
+				</li>
+				<li class="nav-item" :class="{ active: $route.name == 'about' }">
+					<router-link :to="{ name: 'about' }" class="nav-link">About</router-link>
+				</li>
+			</ul>
 			<!-- <ul> shown when logged in -->
-			<ul v-show="this.$route.name != 'login'" class="navbar-nav mr-auto">
+			<ul v-if="this.$route.name != 'login' && this.$route.name != 'about'" class="navbar-nav mr-auto">
 				<li class="nav-item" :class="{ active: $route.name == 'home' }">
 					<router-link :to="{ name: 'home' }" class="nav-link">Home</router-link>
 				</li>
@@ -28,7 +34,7 @@
 					<router-link class="nav-link" :to="{ name: 'whyUseCrypto' }">Why Use Crypto?</router-link>
 				</li>
 			</ul>
-			<span v-show="this.$route.name != 'login'" class="navbar-text">
+			<span v-if="this.$route.name != 'login' && this.$route.name != 'about'" class="navbar-text">
 				<button @click="logout" class="btn btn-success text-right">Logout</button>
 			</span>
 		</div>
@@ -41,6 +47,11 @@ export default {
 	methods: {
 		logout() {
 			this.$store.dispatch("logout");
+		}
+	},
+	computed: {
+		user() {
+			return this.$store.state.user.email;
 		}
 	}
 };
