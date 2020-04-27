@@ -35,13 +35,12 @@
 									type="button"
 									class="btn btn-sm mt-1 ml-3 btn-primary text-center"
 									data-toggle="modal"
-									data-target="#edit-crypto-modal"
+									:data-target="'#'+cryptoProp.id"
 									data-whatever="@getbootstrap"
 								>Edit</button>
-
 								<div
 									class="modal fade"
-									id="edit-crypto-modal"
+									:id="cryptoProp.id"
 									tabindex="-1"
 									role="dialog"
 									aria-labelledby="edit-crypto-modal-label"

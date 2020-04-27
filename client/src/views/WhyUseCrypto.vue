@@ -2,7 +2,7 @@
 	<div class="why-use-crypto container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="pb-5">Why Use Crypto?</h1>
+				<h1 class="pb-5 pt-5">Why Use Crypto?</h1>
 			</div>
 			<div class="col-12 pb-5 embed-responsive embed-responsive-16by9">
 				<iframe
