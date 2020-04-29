@@ -35,12 +35,13 @@
 									type="button"
 									class="btn btn-sm mt-1 ml-3 btn-primary text-center"
 									data-toggle="modal"
-									:data-target="'#'+cryptoProp.id"
+									data-target="#edit-crypto-modal"
 									data-whatever="@getbootstrap"
 								>Edit</button>
+
 								<div
 									class="modal fade"
-									:id="cryptoProp.id"
+									id="edit-crypto-modal"
 									tabindex="-1"
 									role="dialog"
 									aria-labelledby="edit-crypto-modal-label"
@@ -66,7 +67,10 @@
 														</select>
 													</div>
 													<div class="form-group">
-														<label for="name" class="col-form-label">Name:</label>
+														<label for="name" class="col-form-label">
+															Name:
+															<br />(Used in "Market Value" link. Please choose an actual crypto name. If name contains spaces, use "-"s instead)
+														</label>
 														<input
 															type="text"
 															v-model="editedCrypto.name"
