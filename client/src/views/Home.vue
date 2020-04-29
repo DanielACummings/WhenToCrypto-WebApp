@@ -37,7 +37,7 @@
 									<div class="form-group">
 										<label for="name" class="col-form-label">
 											Name:
-											<br />(Used in "Market Value" link. Please choose an actual crypto name, & if name contains spaces, use "-"s instead)
+											<br />(Used in "Market Value" link. Please choose an actual crypto name. If name contains spaces, use "-"s instead)
 										</label>
 										<input
 											type="text"
