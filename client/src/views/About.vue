@@ -19,7 +19,7 @@
 			<div class="col-12">
 				<div class="row">
 					<div class="col-12 col-sm-7">
-						<h5>Unpaid</h5>
+						<h5 class="pt-2">Unpaid</h5>
 						<ul>
 							<li>Track unlimited transactions for one cryptocurrency</li>
 							<li>View:</li>
@@ -34,7 +34,7 @@
 							<li>Enter the date, type, amount, local currency value, and notes of each transaction</li>
 							<li>Access account data from any device</li>
 						</ul>
-						<h5 class="text">Subscription</h5>
+						<h5 class="pt-3">Subscription</h5>
 						<ul>
 							<li>Use all features of unpaid accounts</li>
 							<li>Track unlimited cryptocurrencies</li>
@@ -55,7 +55,7 @@
 					<div class="col-12">
 						<p>WhenToCrypto only accepts cryptocurrency for payment in order to encourage its everyday use and to provide secure payment for users. Before the full version of WhenToCrypto is released, there will be a payment tab added to the navbar which logged in users will be able to access.</p>
 						<p>In order to pay, users will send an email to whentocrypto@protonmail.com containing the amount of cryptocurrency being sent and the address it will be sent from. Then they will send their payment to any available payment tab address.</p>
-						<h5>Accepted Payment Methods</h5>
+						<h5 class="pt-3">Accepted Payment Methods</h5>
 						<div>
 							<ul>
 								<li>Bitcoin</li>
@@ -67,7 +67,14 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-12 col-sm-6"></div>
+					<div class="col-12 pt-3">
+						<h5>Pricing Options</h5>
+						<ul>
+							<li>$15 USD per quarter ($5 per month)</li>
+							<li>$50 USD per year (Save $10)</li>
+						</ul>
+						<p>Paid in the cryptocurrency equivalent at time of payment.</p>
+					</div>
 				</div>
 			</div>
 		</div>
