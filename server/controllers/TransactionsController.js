@@ -23,6 +23,8 @@ export default class TransactionsController {
       //@ts-ignore
       if (newTx.posOrNeg == 'pos') {
         await cryptosService.addPosTxData(newTx)
+      } else {
+        await cryptosService.subFromTotal(newTx)
       }
       return res.status(201).send(newTx)
     } catch (error) { next(error) }

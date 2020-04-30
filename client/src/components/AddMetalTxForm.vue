@@ -99,6 +99,7 @@
 								<input
 									type="number"
 									step="any"
+									min="0"
 									v-model="newMetalTx.metalAmount"
 									class="form-control"
 									id="metal-amount"
@@ -113,6 +114,7 @@
 								<input
 									type="number"
 									step="any"
+									min=">0"
 									v-model="newMetalTx.marketValue"
 									class="form-control"
 									id="market-value"

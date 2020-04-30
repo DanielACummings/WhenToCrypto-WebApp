@@ -271,6 +271,7 @@
 										<input
 											type="number"
 											step="any"
+											min="0"
 											v-model="newCryptoTransaction.cryptoAmount"
 											class="form-control"
 											id="crypto-amount"
@@ -286,6 +287,7 @@
 										<input
 											type="number"
 											step="any"
+											min="0"
 											v-model="newCryptoTransaction.marketValue"
 											class="form-control"
 											id="market-value"

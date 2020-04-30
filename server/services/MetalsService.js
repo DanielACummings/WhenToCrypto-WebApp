@@ -45,6 +45,10 @@ class MetalsService {
       await _repository.findOneAndUpdate({ _id: newTx.metalId }, { $inc: { posTxCount: +1, totalOwned: +newTx.metalAmount } })
     }
   }
+
+  async subFromTotal(newTx) {
+    await _repository.findOneAndUpdate({ _id: newTx.metalId }, { $inc: { totalOwned: -Math.abs(newTx.metalAmount) } })
+  }
 }
 
 const metalsService = new MetalsService()
