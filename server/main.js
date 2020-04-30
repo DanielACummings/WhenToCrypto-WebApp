@@ -38,12 +38,12 @@ server.use('/account', new UserController().router)
 import CryptosController from './controllers/CryptosController'
 import TransactionsController from './controllers/TransactionsController'
 import MetalsController from './controllers/MetalsController'
+import MetalsTxController from './controllers/MetalsTxController'
 
 server.use('/api/cryptos', new CryptosController().router)
 server.use('/api/transactions', new TransactionsController().router)
 server.use('/api/metals', new MetalsController().router)
-
-
+server.use('/api/metalTx', new MetalsTxController().router)
 
 //NOTE Default error handler, catches all routes with an error attached
 server.use((error, req, res, next) => {

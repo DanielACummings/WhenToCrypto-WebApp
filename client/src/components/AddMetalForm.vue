@@ -6,7 +6,7 @@
 			data-toggle="modal"
 			data-target="#add-gold-or-silver-modal"
 			data-whatever="@getbootstrap"
-		>Add Gold or Silver</button>
+		>Add Metal</button>
 
 		<div
 			class="modal fade"

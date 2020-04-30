@@ -111,6 +111,15 @@ export default new Vuex.Store({
       await api.put('cryptos/' + update.id, update)
       dispatch('getCryptos')
     },
+    // Transactions
+    async createTransaction({ dispatch }, payload) {
+      await api.post('transactions', payload)
+      dispatch('getCryptos')
+    },
+    async getTxByCrypto({ commit }, cryptoId) {
+      let res = await api.get(`transactions/${cryptoId}`)
+      commit('addCryptoTx', res.data)
+    },
     //#endregion
 
     //#region - Metals
@@ -122,16 +131,10 @@ export default new Vuex.Store({
       let res = await api.get('metals')
       commit('setMetals', res.data)
     },
-    ////#endregion
-
-    //#region - Transactions
-    async createTransaction({ dispatch }, payload) {
-      await api.post('transactions', payload)
-      dispatch('getCryptos')
-    },
-    async getTxByCrypto({ commit }, cryptoId) {
-      let res = await api.get(`transactions/${cryptoId}`)
-      commit('addCryptoTx', res.data)
+    // Transactions
+    async createMetalTx({ dispatch }, payload) {
+      await api.post('metalTx', payload)
+      dispatch('getMetals')
     }
     //#endregion
   }

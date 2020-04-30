@@ -8,14 +8,14 @@
 		<!-- Crypto forms -->
 		<div class="row text-center">
 			<!-- Add crypto modal form -->
-			<div class="pt-3 col-12 col-sm-6">
+			<div class="pt-3 col-12 col-sm-4">
 				<button
 					type="button"
 					class="btn btn-primary text-center"
 					data-toggle="modal"
 					data-target="#add-crypto-modal"
 					data-whatever="@getbootstrap"
-				>Add a Crypto</button>
+				>Add Crypto</button>
 
 				<div
 					class="modal fade"
@@ -88,14 +88,14 @@
 				</div>
 			</div>
 			<!-- Edit crypto modal form -->
-			<div class="pt-3 col-12 col-sm-6">
+			<div class="pt-3 col-12 col-sm-4">
 				<button
 					type="button"
 					class="btn btn-primary text-center"
 					data-toggle="modal"
 					data-target="#edit-crypto-modal"
 					data-whatever="@getbootstrap"
-				>Edit a Crypto</button>
+				>Edit Crypto</button>
 
 				<div
 					class="modal fade"
@@ -163,14 +163,14 @@
 				</div>
 			</div>
 			<!-- Create transaction modal -->
-			<div class="pt-3 col-12 col-sm-6">
+			<div class="pt-3 col-12 col-sm-4">
 				<button
 					type="button"
 					class="btn btn-primary text-center"
 					data-toggle="modal"
 					data-target="#add-transaction-modal"
 					data-whatever="@getbootstrap"
-				>Add a Crypto Transaction</button>
+				>Add Crypto Tx</button>
 				<div
 					class="modal fade"
 					id="add-transaction-modal"
@@ -183,7 +183,7 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<div class="modal-title" id="add-transaction-modal-label">
-									<h5>Add a Transaction</h5>
+									<h5>Add a Crypto Transaction</h5>
 								</div>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
@@ -194,7 +194,7 @@
 									<!-- "Which Crypto?" dropdown -->
 									<div class="form-group">
 										<label for="which-crypto" class="col-form-label">Which Crypto?</label>
-										<select id="which-crypto" class="form-control" v-model="newTransaction.cryptoId">
+										<select id="which-crypto" class="form-control" v-model="newCryptoTransaction.cryptoId">
 											<option value disabled selected>-</option>
 											<option v-for="crypto in cryptos" :key="crypto.id" :value="crypto.id">{{crypto.name}}</option>
 										</select>
@@ -204,7 +204,7 @@
 									<div class="form-group">
 										<label for="transaction-type" class="col-form-label">Type:</label>
 										<select
-											v-model="newTransaction.transactionType"
+											v-model="newCryptoTransaction.transactionType"
 											class="form-control"
 											id="transaction-type"
 											required
@@ -237,7 +237,7 @@
 										<label for="date" class="col-form-label">Date:</label>
 										<input
 											type="text"
-											v-model="newTransaction.date"
+											v-model="newCryptoTransaction.date"
 											class="form-control"
 											id="date"
 											placeholder="yyyy/mm/dd"
@@ -250,7 +250,7 @@
 										<br />
 										<input
 											type="radio"
-											v-model="newTransaction.posOrNeg"
+											v-model="newCryptoTransaction.posOrNeg"
 											id="pos"
 											name="pos-or-neg"
 											value="pos"
@@ -259,7 +259,7 @@
 										<label for="pos">Adding</label>
 										<input
 											type="radio"
-											v-model="newTransaction.posOrNeg"
+											v-model="newCryptoTransaction.posOrNeg"
 											id="neg"
 											name="pos-or-neg"
 											value="neg"
@@ -267,13 +267,13 @@
 										<label for="neg">Subtracting</label>
 									</div>
 									<div class="form-group">
-										<label for="crypto-value" class="col-form-label">Amount of Crypto:</label>
+										<label for="crypto-amount" class="col-form-label">Amount of Crypto:</label>
 										<input
 											type="number"
 											step="any"
-											v-model="newTransaction.cryptoAmount"
+											v-model="newCryptoTransaction.cryptoAmount"
 											class="form-control"
-											id="crypto-value"
+											id="crypto-amount"
 											placeholder="Example: 0.12345678"
 											required
 										/>
@@ -286,7 +286,7 @@
 										<input
 											type="number"
 											step="any"
-											v-model="newTransaction.marketValue"
+											v-model="newCryptoTransaction.marketValue"
 											class="form-control"
 											id="market-value"
 											required
@@ -296,7 +296,7 @@
 										<label for="notes" class="col-form-label">Notes:</label>
 										<input
 											type="text"
-											v-model="newTransaction.notes"
+											v-model="newCryptoTransaction.notes"
 											class="form-control"
 											id="notes"
 											placeholder="Optional"
@@ -310,9 +310,14 @@
 					</div>
 				</div>
 			</div>
-			<!-- Add gold or silver modal form -->
+		</div>
+		<div class="row text-center">
+			<!-- Gold & silver forms -->
 			<div class="pt-3 col-12 col-sm-6">
 				<addMetalForm />
+			</div>
+			<div class="pt-3 col-12 col-sm-6">
+				<addMetalTxForm />
 			</div>
 		</div>
 		<div class="row">
@@ -339,6 +344,7 @@ import cryptocurrency from "@/components/Cryptocurrency";
 import metal from "@/components/Metal";
 // Forms
 import addMetalForm from "@/components/AddMetalForm";
+import addMetalTxForm from "@/components/AddMetalTxForm";
 
 export default {
 	name: "home",
@@ -346,7 +352,8 @@ export default {
 	components: {
 		cryptocurrency,
 		addMetalForm,
-		metal
+		metal,
+		addMetalTxForm
 	},
 	mounted() {
 		this.$store.dispatch("getCryptos");
@@ -378,7 +385,7 @@ export default {
 				notes: "",
 				id: ""
 			},
-			newTransaction: {
+			newCryptoTransaction: {
 				transactionType: "",
 				date: "",
 				posOrNeg: "",
@@ -414,9 +421,9 @@ export default {
 			};
 		},
 		createTransaction(cryptoId) {
-			let transactionData = { ...this.newTransaction };
+			let transactionData = { ...this.newCryptoTransaction };
 			this.$store.dispatch("createTransaction", transactionData);
-			this.newTransaction = {
+			this.newCryptoTransaction = {
 				transactionType: "",
 				date: "",
 				posOrNeg: "",

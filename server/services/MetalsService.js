@@ -9,9 +9,9 @@ class MetalsService {
     return await _repository.find({ authorId: userId })
   }
 
-  // async getById(id) {
-  //   return await _repository.findById(id)
-  // }
+  async getById(id) {
+    return await _repository.findById(id)
+  }
 
   async create(newData) {
     return await _repository.create(newData)
@@ -29,22 +29,22 @@ class MetalsService {
   //   return res
   // }
 
-  // async addPosTxData(newTx) {
-  //   let pricePerMetalUnit = newTx.marketValue / newTx.metalAmount
-  //   let metalData = await this.getById(newTx.metalId)
-  //   //@ts-ignore
-  //   let oldAvValue = metalData.localValAv
-  //   //@ts-ignore
-  //   let oldCount = metalData.posTxCount
+  async addPosTxData(newTx) {
+    let pricePerMetalUnit = newTx.marketValue / newTx.metalAmount
+    let metalData = await this.getById(newTx.metalId)
+    //@ts-ignore
+    let oldAvValue = metalData.localValAv
+    //@ts-ignore
+    let oldCount = metalData.posTxCount
 
-  //   //@ts-ignore
-  //   if (metalData.posTxCount == 0) {
-  //     await _repository.findOneAndUpdate({ _id: newTx.metalId }, { $inc: { posTxCount: +1, localValAv: pricePerMetalUnit, totalOwned: +newTx.metalAmount } })
-  //   } else {
-  //     await _repository.findOneAndUpdate({ _id: newTx.metalId }, { localValAv: (oldAvValue * oldCount + pricePerMetalUnit) / (oldCount + 1) })
-  //     await _repository.findOneAndUpdate({ _id: newTx.metalId }, { $inc: { posTxCount: +1, totalOwned: +newTx.metalAmount } })
-  //   }
-  // }
+    //@ts-ignore
+    if (metalData.posTxCount == 0) {
+      await _repository.findOneAndUpdate({ _id: newTx.metalId }, { $inc: { posTxCount: +1, localValAv: pricePerMetalUnit, totalOwned: +newTx.metalAmount } })
+    } else {
+      await _repository.findOneAndUpdate({ _id: newTx.metalId }, { localValAv: (oldAvValue * oldCount + pricePerMetalUnit) / (oldCount + 1) })
+      await _repository.findOneAndUpdate({ _id: newTx.metalId }, { $inc: { posTxCount: +1, totalOwned: +newTx.metalAmount } })
+    }
+  }
 }
 
 const metalsService = new MetalsService()

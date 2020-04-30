@@ -1,19 +1,19 @@
 <template>
-	<tr class="transaction">
-		<td>{{txProp.date}}</td>
-		<td>{{txProp.transactionType}}</td>
-		<td>{{txProp.cryptoAmount}}</td>
+	<tr class="cryptoTransaction">
+		<td>{{cryptoTxProp.date}}</td>
+		<td>{{cryptoTxProp.transactionType}}</td>
+		<td>{{cryptoTxProp.cryptoAmount}}</td>
 		<td>
 			<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
-			{{txProp.marketValue}}
+			{{cryptoTxProp.marketValue}}
 		</td>
-		<td>{{txProp.notes}}</td>
+		<td>{{cryptoTxProp.notes}}</td>
 	</tr>
 </template>
 <script>
 export default {
-	name: "transaction",
-	props: ["txProp"]
+	name: "cryptoTransaction",
+	props: ["cryptoTxProp"]
 };
 </script>
 

@@ -14,7 +14,7 @@
 						<th>Notes</th>
 					</tr>
 					<!-- transactions inserted here -->
-					<transaction v-for="tx in activeLedger" :key="tx.id" :txProp="tx" />
+					<cryptoTransaction v-for="tx in activeCryptoLedger" :key="tx.id" :cryptoTxProp="tx" />
 				</table>
 			</div>
 		</div>
@@ -22,11 +22,11 @@
 </template>
 
 <script>
-import transaction from "../components/Transaction";
+import cryptoTransaction from "../components/CryptoTransaction";
 export default {
 	name: "cryptoLedger",
 	components: {
-		transaction
+		cryptoTransaction
 	},
 	mounted() {
 		this.$store.dispatch("getLedgerCrypto", this.$route.params.cryptoId);
