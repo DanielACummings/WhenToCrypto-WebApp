@@ -1,14 +1,14 @@
-import transactionsService from '../services/TransactionsService'
+import metalTxService from '../services/MetalTxService'
 import express from 'express'
 import { Authorize } from '../middleware/authorize'
-import cryptosService from "../services/CryptosService"
+import metalsService from "../services/MetalsService"
 
 export default class TransactionsController {
   constructor() {
     this.router = express.Router()
       .use(Authorize.authenticated)
       .post('', this.create)
-      .get('/:cryptoId', this.getTxByCrypto)
+      // .get('/:metalId', this.getTxByMetal)
       .use(this.defaultRoute)
   }
 
@@ -19,21 +19,21 @@ export default class TransactionsController {
   async create(req, res, next) {
     try {
       req.body.authorId = req.session.uid
-      let newTx = await transactionsService.create(req.body)
+      let newTx = await metalTxService.create(req.body)
       //@ts-ignore
       if (newTx.posOrNeg == 'pos') {
-        await cryptosService.addPosTxData(newTx)
+        await metalsService.addPosTxData(newTx)
       } else {
-        await cryptosService.subFromTotal(newTx)
+        await metalsService.subFromTotal(newTx)
       }
       return res.status(201).send(newTx)
     } catch (error) { next(error) }
   }
 
-  async getTxByCrypto(req, res, next) {
-    try {
-      let data = await transactionsService.getTxByCrypto(req.params.cryptoId)
-      return res.send(data)
-    } catch (error) { next(error) }
-  }
+  // async getTxByMetal(req, res, next) {
+  //   try {
+  //     let data = await metalsTxService.getTxByMetal(req.params.metalId)
+  //     return res.send(data)
+  //   } catch (error) { next(error) }
+  // }
 }

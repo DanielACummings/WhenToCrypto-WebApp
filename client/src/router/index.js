@@ -3,7 +3,7 @@ import Router from 'vue-router'
 // @ts-ignore
 import Home from '../views/Home.vue'
 // @ts-ignore
-import Ledger from '../views/Ledger.vue'
+import CryptoLedger from '../views/CryptoLedger.vue'
 // @ts-ignore
 import Login from '../views/Login.vue'
 // @ts-ignore
@@ -39,10 +39,15 @@ export default new Router({
       component: WhyUseCrypto
     },
     {
-      path: '/ledgers/:cryptoId',
-      name: 'ledger',
-      component: Ledger
+      path: '/crypto-ledgers/:cryptoId',
+      name: 'cryptoLedger',
+      component: CryptoLedger
     },
+    // {
+    //   path: '/metal-ledgers/:metalId',
+    //   name: 'metalLedger',
+    //   component: MetalLedger
+    // },
     {
       path: '/about',
       name: 'about',

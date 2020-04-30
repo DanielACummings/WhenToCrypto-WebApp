@@ -45,6 +45,10 @@ class CryptosService {
       await _repository.findOneAndUpdate({ _id: newTx.cryptoId }, { $inc: { posTxCount: +1, totalOwned: +newTx.cryptoAmount } })
     }
   }
+
+  async subFromTotal(newTx) {
+    await _repository.findOneAndUpdate({ _id: newTx.cryptoId }, { $inc: { totalOwned: -Math.abs(newTx.cryptoAmount) } })
+  }
 }
 
 const cryptosService = new CryptosService()

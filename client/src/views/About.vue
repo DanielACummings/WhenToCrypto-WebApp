@@ -22,7 +22,7 @@
 						<h5 class="pt-2">Unpaid</h5>
 						<ul>
 							<li>Track unlimited transactions for one cryptocurrency</li>
-							<li>View:</li>
+							<li>View cryptocurrency's:</li>
 							<ul>
 								<li>Averaged value</li>
 								<li>Total balance</li>

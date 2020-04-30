@@ -18,21 +18,28 @@ let api = Axios.create({
 export default new Vuex.Store({
   state: {
     user: {},
+    // Cryptos
     cryptos: [],
-    activeLedger: {},
-    ledgerCrypto: {}
+    activeCryptoLedger: {},
+    ledgerCrypto: {},
+    // Metals
+    metals: [],
+    activeMetalLedger: {},
+    ledgerMetal: {}
   },
 
   mutations: {
     resetState(state) {
       state.user = {},
         state.cryptos = [],
-        state.activeLedger = {},
-        state.ledgerCrypto = {}
+        state.activeCryptoLedger = {},
+        state.ledgerCrypto = {},
+        state.ledgerMetal = {}
     },
     setUser(state, user) {
       state.user = user
     },
+    // Cryptos
     setCryptos(state, cryptos) {
       state.cryptos = cryptos
     },
@@ -42,8 +49,16 @@ export default new Vuex.Store({
     addLedgerCrypto(state, ledgerCrypto) {
       state.ledgerCrypto = ledgerCrypto
     },
-    addTx(state, tx) {
-      state.activeLedger = tx
+    addCryptoTx(state, tx) {
+      state.activeCryptoLedger = tx
+    },
+
+    // Metals
+    setMetals(state, metals) {
+      state.metals = metals
+    },
+    addMetal(state, metal) {
+      state.metals.push(metal)
     }
   },
 
@@ -96,16 +111,30 @@ export default new Vuex.Store({
       await api.put('cryptos/' + update.id, update)
       dispatch('getCryptos')
     },
-    //#endregion
-
-    //#region - Transactions
+    // Transactions
     async createTransaction({ dispatch }, payload) {
       await api.post('transactions', payload)
       dispatch('getCryptos')
     },
     async getTxByCrypto({ commit }, cryptoId) {
       let res = await api.get(`transactions/${cryptoId}`)
-      commit('addTx', res.data)
+      commit('addCryptoTx', res.data)
+    },
+    //#endregion
+
+    //#region - Metals
+    async createMetal({ commit }, payload) {
+      let res = await api.post('metals', payload)
+      commit('addMetal', res.data)
+    },
+    async getMetals({ commit }) {
+      let res = await api.get('metals')
+      commit('setMetals', res.data)
+    },
+    // Transactions
+    async createMetalTx({ dispatch }, payload) {
+      await api.post('metalTx', payload)
+      dispatch('getMetals')
     }
     //#endregion
   }
