@@ -37,9 +37,11 @@ server.use('/account', new UserController().router)
 // Routes
 import CryptosController from './controllers/CryptosController'
 import TransactionsController from './controllers/TransactionsController'
+import MetalsController from './controllers/MetalsController'
 
 server.use('/api/cryptos', new CryptosController().router)
 server.use('/api/transactions', new TransactionsController().router)
+server.use('/api/metals', new MetalsController().router)
 
 
 

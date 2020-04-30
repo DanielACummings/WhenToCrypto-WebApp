@@ -1,21 +1,21 @@
 <template>
-	<div class="crypto-comp col-12 col-md-6 col-lg-4 col-xl-4 pb-3">
+	<div class="metal-comp col-12 col-md-6 col-lg-4 col-xl-4 pb-3">
 		<div class="card" style="width: 18rem;">
 			<div class="card-body">
-				<h3 class="card-title">{{cryptoProp.name}}</h3>
-				<p>{{cryptoProp.description}}</p>
-				<img :src="cryptoProp.img" class="card-img" alt="crypto image" />
+				<h3 class="card-title">{{metalProp.name}}</h3>
+				<p>{{metalProp.description}}</p>
+				<img :src="metalProp.img" class="card-img" alt="metal image" />
 				<div class="row text-center pt-1">
 					<div
 						class="col-12 text-center pt-1"
-					>Total owned: {{parseFloat((cryptoProp.totalOwned).toFixed(8))}}</div>
+					>Total owned: {{parseFloat((metalProp.totalOwned).toFixed(8))}}</div>
 					<div class="col-12 text-center pt-1">
-						Averaged Value Per Coin:
+						Averaged Value Per {{metalProp.measurement}}:
 						<br />
 						<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
-						{{(cryptoProp.localValAv).toFixed(2)}}
+						{{(metalProp.localValAv).toFixed(2)}}
 					</div>
-					<div class="col-12 pt-1">Notes: {{cryptoProp.notes}}</div>
+					<div class="col-12 pt-1">Notes: {{metalProp.notes}}</div>
 					<!-- Buttons -->
 					<div class="col-12 pt-1">
 						<div class="row">
@@ -23,13 +23,13 @@
 								<button class="btn btn-sm btn-primary ml-5 mr-4">
 									<a
 										target="_blank"
-										:href="baseURL + cryptoProp.name.toLowerCase()"
+										:href="baseURL + metalProp.name.toLowerCase() + '-price/'"
 										id="market-val-btn"
 									>Market Value</a>
 								</button>
 							</div>
 							<div>
-								<router-link :to="{name: 'cryptoLedger', params: {cryptoId: cryptoProp.id}}">
+								<router-link :to="{name: 'metalLedger', params: {metalId: metalProp.id}}">
 									<button class="btn btn-sm btn-primary">Ledger</button>
 								</router-link>
 							</div>
@@ -43,11 +43,11 @@
 
 <script>
 export default {
-	name: "cryptocurrency",
-	props: ["cryptoProp"],
+	name: "metal",
+	props: ["metalProp"],
 	data() {
 		return {
-			baseURL: "https://coinmarketcap.com/currencies/"
+			baseURL: "https://goldsilver.com/price-charts/"
 		};
 	}
 };
@@ -57,7 +57,7 @@ export default {
 .card {
 	background: rgb(27, 26, 26);
 }
-.crypto-comp {
+.metal-comp {
 	color: #00bc8c;
 }
 #curr-symbol {

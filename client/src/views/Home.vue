@@ -5,9 +5,10 @@
 				<h1 id="title" class="pb-4 pt-5">Tracked Cryptos</h1>
 			</div>
 		</div>
+		<!-- Crypto forms -->
 		<div class="row text-center">
 			<!-- Add crypto modal form -->
-			<div class="pt-2 col-12 col-sm-4">
+			<div class="pt-3 col-12 col-sm-6">
 				<button
 					type="button"
 					class="btn btn-primary text-center"
@@ -87,7 +88,7 @@
 				</div>
 			</div>
 			<!-- Edit crypto modal form -->
-			<div class="pt-2 col-12 col-sm-4">
+			<div class="pt-3 col-12 col-sm-6">
 				<button
 					type="button"
 					class="btn btn-primary text-center"
@@ -162,14 +163,14 @@
 				</div>
 			</div>
 			<!-- Create transaction modal -->
-			<div class="pt-2 col-12 col-sm-4">
+			<div class="pt-3 col-12 col-sm-6">
 				<button
 					type="button"
 					class="btn btn-primary text-center"
 					data-toggle="modal"
 					data-target="#add-transaction-modal"
 					data-whatever="@getbootstrap"
-				>Add a Transaction</button>
+				>Add a Crypto Transaction</button>
 				<div
 					class="modal fade"
 					id="add-transaction-modal"
@@ -309,6 +310,10 @@
 					</div>
 				</div>
 			</div>
+			<!-- Add gold or silver modal form -->
+			<div class="pt-3 col-12 col-sm-6">
+				<addMetalForm />
+			</div>
 		</div>
 		<div class="row">
 			<div class="col pt-3">
@@ -322,23 +327,37 @@
 			<!-- User's cryptos inserted here -->
 			<cryptocurrency v-for="crypto in cryptos" :key="crypto.id" :cryptoProp="crypto" />
 		</div>
+		<div class="row pt-5">
+			<!-- User's metals inserted here -->
+			<metal v-for="metal in metals" :key="metal.id" :metalProp="metal" />
+		</div>
 	</div>
 </template>
 
 <script>
 import cryptocurrency from "@/components/Cryptocurrency";
+import metal from "@/components/Metal";
+// Forms
+import addMetalForm from "@/components/AddMetalForm";
+
 export default {
 	name: "home",
 	props: ["cryptoProp"],
 	components: {
-		cryptocurrency
+		cryptocurrency,
+		addMetalForm,
+		metal
 	},
 	mounted() {
 		this.$store.dispatch("getCryptos");
+		this.$store.dispatch("getMetals");
 	},
 	computed: {
 		cryptos() {
 			return this.$store.state.cryptos;
+		},
+		metals() {
+			return this.$store.state.metals;
 		}
 	},
 	data() {

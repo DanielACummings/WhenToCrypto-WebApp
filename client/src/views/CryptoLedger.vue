@@ -1,5 +1,5 @@
 <template>
-	<div class="ledger container">
+	<div class="crypto-ledger container">
 		<div class="row">
 			<div class="col-12">
 				<h1 class="pt-5 pb-5">{{ledgerCryptoName}} Transaction History</h1>
@@ -24,7 +24,7 @@
 <script>
 import transaction from "../components/Transaction";
 export default {
-	name: "ledger",
+	name: "cryptoLedger",
 	components: {
 		transaction
 	},
@@ -33,8 +33,8 @@ export default {
 		this.$store.dispatch("getTxByCrypto", this.$route.params.cryptoId);
 	},
 	computed: {
-		activeLedger() {
-			return this.$store.state.activeLedger;
+		activeCryptoLedger() {
+			return this.$store.state.activeCryptoLedger;
 		},
 		ledgerCryptoName() {
 			return this.$store.state.ledgerCrypto.name;

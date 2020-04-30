@@ -13,6 +13,7 @@
 		</form>
 		<form v-else @submit.prevent="register">
 			<br />
+			<p>No coupon code? Please enter where you heard about this app</p>
 			<input class="mb-1" type="text" v-model="newUser.name" placeholder="Name (Optional)" />
 			<br />
 			<input class="mb-1" type="email" v-model="newUser.email" required placeholder="Email" />
