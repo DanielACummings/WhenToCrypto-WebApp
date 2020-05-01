@@ -38,7 +38,7 @@
 									<div class="form-group">
 										<label for="name" class="col-form-label">
 											Name:
-											<br />(Used in "Market Value" link. Please choose an actual crypto name. If name contains spaces, use "-"s instead)
+											<br />(Used in "Market Value" link. Please choose an actual crypto's full name (e.g., Bitcoin) and not its ticker symbol (e.g., BTC).
 										</label>
 										<input
 											type="text"
@@ -170,7 +170,7 @@
 					data-toggle="modal"
 					data-target="#add-transaction-modal"
 					data-whatever="@getbootstrap"
-				>Add Crypto Tx</button>
+				>Add Crypto Transaction</button>
 				<div
 					class="modal fade"
 					id="add-transaction-modal"
@@ -275,7 +275,6 @@
 											v-model="newCryptoTransaction.cryptoAmount"
 											class="form-control"
 											id="crypto-amount"
-											placeholder="Example: 0.12345678"
 											required
 										/>
 									</div>
