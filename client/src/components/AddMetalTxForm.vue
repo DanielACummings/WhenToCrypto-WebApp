@@ -6,7 +6,7 @@
 			data-toggle="modal"
 			data-target="#add-metal-tx-modal"
 			data-whatever="@getbootstrap"
-		>Add Metal Tx</button>
+		>Add Metal Transaction</button>
 		<div
 			class="modal fade"
 			id="add-metal-tx-modal"
@@ -114,7 +114,7 @@
 								<input
 									type="number"
 									step="any"
-									min=">0"
+									min="0"
 									v-model="newMetalTx.marketValue"
 									class="form-control"
 									id="market-value"

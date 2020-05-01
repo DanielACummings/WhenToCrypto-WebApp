@@ -23,7 +23,7 @@
 								<button class="btn btn-sm btn-primary ml-5 mr-4">
 									<a
 										target="_blank"
-										:href="baseURL + cryptoProp.name.toLowerCase()"
+										:href="baseURL + cryptoProp.name.replace(' ', '-').toLowerCase() + '/'"
 										id="market-val-btn"
 									>Market Value</a>
 								</button>
