@@ -530,7 +530,7 @@
 										<button class="btn btn-sm btn-primary ml-5 mr-4">
 											<a
 												target="_blank"
-												href="https://coinmarketcap.com/currencies/bitcoin/"
+												href="https://coinmarketcap.com/currencies/zcash/"
 												id="market-val-btn"
 											>Market Value</a>
 										</button>
