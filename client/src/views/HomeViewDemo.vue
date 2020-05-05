@@ -515,7 +515,7 @@
 							alt="crypto image"
 						/>
 						<div class="row text-center pt-1">
-							<div class="col-12 text-center pt-1">Total owned: 12.64237586</div>
+							<div class="col-12 text-center pt-1">Total owned: 12.64237568</div>
 							<div class="col-12 text-center pt-1">
 								Averaged Value Per Coin:
 								<br />
