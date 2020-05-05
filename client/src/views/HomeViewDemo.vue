@@ -429,7 +429,7 @@
 							alt="crypto image"
 						/>
 						<div class="row text-center pt-1">
-							<div class="col-12 text-center pt-1">Total owned: 1.23456789</div>
+							<div class="col-12 text-center pt-1">Total owned: 0.07139542</div>
 							<div class="col-12 text-center pt-1">
 								Averaged Value Per Coin:
 								<br />
@@ -450,9 +450,9 @@
 										</button>
 									</div>
 									<div>
-										<router-link :to="{name: 'sampleCryptoLedger'}">
-											<button class="btn btn-sm btn-primary">Ledger</button>
-										</router-link>
+										<!-- <router-link :to="{name: 'sampleCryptoLedger'}"> -->
+										<button class="btn btn-sm btn-primary">Ledger</button>
+										<!-- </router-link> -->
 									</div>
 								</div>
 							</div>
@@ -464,22 +464,22 @@
 			<div class="crypto-comp col-12 col-md-6 col-lg-4 col-xl-4 pb-3">
 				<div class="card" style="width: 18rem;">
 					<div class="card-body">
-						<h3 class="card-title">Bitcoin</h3>
-						<p>#1</p>
+						<h3 class="card-title">Litecoin</h3>
+						<p>The silver to Bitcoin's gold</p>
 						<img
-							src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1024px-Bitcoin.svg.png"
+							src="https://image.freepik.com/free-photo/litecoin-coin-dark-background_143092-670.jpg"
 							class="card-img"
 							alt="crypto image"
 						/>
 						<div class="row text-center pt-1">
-							<div class="col-12 text-center pt-1">Total owned: 1.23456789</div>
+							<div class="col-12 text-center pt-1">Total owned: 9.19486423</div>
 							<div class="col-12 text-center pt-1">
 								Averaged Value Per Coin:
 								<br />
 								<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
-								7624.62
+								44.92
 							</div>
-							<div class="col-12 pt-1">Notes: All wallets</div>
+							<div class="col-12 pt-1">Notes: Stored in Crypto.com account</div>
 							<!-- Buttons -->
 							<div class="col-12 pt-1">
 								<div class="row">
@@ -487,15 +487,15 @@
 										<button class="btn btn-sm btn-primary ml-5 mr-4">
 											<a
 												target="_blank"
-												href="https://coinmarketcap.com/currencies/bitcoin/"
+												href="https://coinmarketcap.com/currencies/litecoin/"
 												id="market-val-btn"
 											>Market Value</a>
 										</button>
 									</div>
 									<div>
-										<router-link :to="{name: 'sampleCryptoLedger'}">
-											<button class="btn btn-sm btn-primary">Ledger</button>
-										</router-link>
+										<!-- <router-link :to="{name: 'sampleCryptoLedger'}"> -->
+										<button class="btn btn-sm btn-primary">Ledger</button>
+										<!-- </router-link> -->
 									</div>
 								</div>
 							</div>
@@ -507,22 +507,22 @@
 			<div class="crypto-comp col-12 col-md-6 col-lg-4 col-xl-4 pb-3">
 				<div class="card" style="width: 18rem;">
 					<div class="card-body">
-						<h3 class="card-title">Bitcoin</h3>
-						<p>#1</p>
+						<h3 class="card-title">Zcash</h3>
+						<p>Anonymous crypto</p>
 						<img
-							src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1024px-Bitcoin.svg.png"
+							src="https://www.coinpayments.net/images/coins/ZEC.png"
 							class="card-img"
 							alt="crypto image"
 						/>
 						<div class="row text-center pt-1">
-							<div class="col-12 text-center pt-1">Total owned: 1.23456789</div>
+							<div class="col-12 text-center pt-1">Total owned: 12.64237586</div>
 							<div class="col-12 text-center pt-1">
 								Averaged Value Per Coin:
 								<br />
 								<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
-								7624.62
+								44.30
 							</div>
-							<div class="col-12 pt-1">Notes: All wallets</div>
+							<div class="col-12 pt-1">Notes: Add to CoinPayments account</div>
 							<!-- Buttons -->
 							<div class="col-12 pt-1">
 								<div class="row">
@@ -536,9 +536,9 @@
 										</button>
 									</div>
 									<div>
-										<router-link :to="{name: 'sampleCryptoLedger'}">
-											<button class="btn btn-sm btn-primary">Ledger</button>
-										</router-link>
+										<!-- <router-link :to="{name: 'sampleCryptoLedger'}"> -->
+										<button class="btn btn-sm btn-primary">Ledger</button>
+										<!-- </router-link> -->
 									</div>
 								</div>
 							</div>
@@ -556,7 +556,7 @@
 						<h3 class="card-title">Gold</h3>
 						<p>For saving</p>
 						<img
-							src="https://www.cryptonewsz.com/wp-content/uploads/2019/08/Bitcoin-BTC-1.jpg"
+							src="https://bitcoinist.com/wp-content/uploads/2018/09/shutterstock_742063846.jpg"
 							class="card-img"
 							alt="gold image"
 						/>
@@ -569,8 +569,8 @@
 								54.79
 							</div>
 							<div class="col-12 pt-1">
-								Notes: Gold in
-								<a target="_blank" href="https://monetary-metals.com/">Monetary Metals</a> account
+								Notes:
+								Gold in Monetary Metals account
 							</div>
 							<!-- Buttons -->
 							<div class="col-12 pt-1">
@@ -585,9 +585,9 @@
 										</button>
 									</div>
 									<div>
-										<router-link :to="{name: 'metalLedgerDemo'}">
-											<button class="btn btn-sm btn-primary">Ledger</button>
-										</router-link>
+										<!-- <router-link :to="{name: 'metalLedgerDemo'}"> -->
+										<button class="btn btn-sm btn-primary">Ledger</button>
+										<!-- </router-link> -->
 									</div>
 								</div>
 							</div>
@@ -616,7 +616,7 @@
 							</div>
 							<div class="col-12 pt-1">
 								Notes:
-								<a href="https://silvertoken.com/index.html">Silver Token (SLVT)</a>
+								Held in Silver Token (SLVT)
 							</div>
 							<!-- Buttons -->
 							<div class="col-12 pt-1">
@@ -631,9 +631,9 @@
 										</button>
 									</div>
 									<div>
-										<router-link :to="{name: 'metalLedgerDemo'}">
-											<button class="btn btn-sm btn-primary">Ledger</button>
-										</router-link>
+										<!-- <router-link :to="{name: 'metalLedgerDemo'}"> -->
+										<button class="btn btn-sm btn-primary">Ledger</button>
+										<!-- </router-link> -->
 									</div>
 								</div>
 							</div>
