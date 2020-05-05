@@ -2,7 +2,7 @@
 	<div class="home container">
 		<div class="row">
 			<div class="col">
-				<h1 id="title" class="pb-4 pt-5">Tracked Cryptos</h1>
+				<h1 id="title" class="pb-4 pt-5">Tracked Currencies</h1>
 			</div>
 		</div>
 		<!-- Crypto forms -->
@@ -312,8 +312,8 @@
 				</div>
 			</div>
 		</div>
+		<!-- Gold & silver forms -->
 		<div class="row text-center">
-			<!-- Gold & silver forms -->
 			<div class="pt-3 col-12 col-sm-6">
 				<addMetalForm />
 			</div>
@@ -329,12 +329,12 @@
 				</p>
 			</div>
 		</div>
+		<!-- User's cryptos inserted here -->
 		<div class="row pt-5">
-			<!-- User's cryptos inserted here -->
 			<cryptocurrency v-for="crypto in cryptos" :key="crypto.id" :cryptoProp="crypto" />
 		</div>
+		<!-- User's metals inserted here -->
 		<div class="row pt-5">
-			<!-- User's metals inserted here -->
 			<metal v-for="metal in metals" :key="metal.id" :metalProp="metal" />
 		</div>
 	</div>
