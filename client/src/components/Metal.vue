@@ -8,9 +8,9 @@
 				<div class="row text-center pt-1">
 					<div
 						class="col-12 text-center pt-1"
-					>Total owned: {{parseFloat((metalProp.totalOwned).toFixed(8))}}</div>
+					>Total {{metalProp.measurement}} owned: {{parseFloat((metalProp.totalOwned).toFixed(8))}}</div>
 					<div class="col-12 text-center pt-1">
-						Averaged Value Per {{metalProp.measurement.slice(0, -1)}}:
+						Averaged value per {{metalProp.measurement.slice(0, -1)}}:
 						<br />
 						<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
 						{{(metalProp.localValAv).toFixed(2)}}

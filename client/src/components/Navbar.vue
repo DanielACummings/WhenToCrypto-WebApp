@@ -1,6 +1,6 @@
 <template>
 	<nav class="navbar navbar-expand-sm navbar-light bg-primary">
-		<router-link class="navbar-brand" :to="{ name: 'home' }">WhenToCrypto</router-link>
+		<div class="navbar-brand">WhenToCrypto</div>
 		<button
 			class="navbar-toggler"
 			type="button"
@@ -13,17 +13,21 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarText">
-			<!-- <ul> shown on login page -->
-			<ul v-if="this.$route.name == 'login' || this.$route.name == 'about'" class="navbar-nav mr-auto">
+			<!-- <ul> Shown before login -->
+			<ul v-if="beforeLogin.includes(this.$route.name)" class="navbar-nav mr-auto">
 				<li class="nav-item" :class="{ active: $route.name == 'login' }">
 					<router-link :to="{ name: 'login' }" class="nav-link">Login</router-link>
 				</li>
 				<li class="nav-item" :class="{ active: $route.name == 'about' }">
 					<router-link :to="{ name: 'about' }" class="nav-link">About</router-link>
 				</li>
+				<li class="nav-item" :class="{ active: $route.name == 'homeViewDemo' }">
+					<router-link :to="{ name: 'homeViewDemo' }" class="nav-link">Home (Demo)</router-link>
+				</li>
 			</ul>
-			<!-- <ul> shown when logged in -->
-			<ul v-if="this.$route.name != 'login' && this.$route.name != 'about'" class="navbar-nav mr-auto">
+
+			<!-- <ul> Shown after login -->
+			<ul v-if="afterLogin.includes(this.$route.name)" class="navbar-nav mr-auto">
 				<li class="nav-item" :class="{ active: $route.name == 'home' }">
 					<router-link :to="{ name: 'home' }" class="nav-link">Home</router-link>
 				</li>
@@ -34,7 +38,7 @@
 					<router-link class="nav-link" :to="{ name: 'whyUseCrypto' }">Why Use Crypto?</router-link>
 				</li>
 			</ul>
-			<span v-if="this.$route.name != 'login' && this.$route.name != 'about'" class="navbar-text">
+			<span v-if="afterLogin.includes(this.$route.name)" class="navbar-text">
 				<button @click="logout" class="btn btn-success text-right">Logout</button>
 			</span>
 		</div>
@@ -42,6 +46,7 @@
 </template>
 
 <script>
+import WhyUseCryptoVue from "../views/WhyUseCrypto.vue";
 export default {
 	name: "Navbar",
 	methods: {
@@ -53,6 +58,24 @@ export default {
 		user() {
 			return this.$store.state.user.email;
 		}
+	},
+	data() {
+		return {
+			beforeLogin: [
+				"login",
+				"about",
+				"homeViewDemo",
+				"cryptoLedgerDemo",
+				"metalLedgerDemo"
+			],
+			afterLogin: [
+				"home",
+				"features",
+				"whyUseCrypto",
+				"cryptoLedger",
+				"metalLedger"
+			]
+		};
 	}
 };
 </script>
