@@ -22,5 +22,5 @@ class MetalsTxService {
   }
 }
 
-const metalTxService = new MetalsTxService()
-export default metalTxService
+const metalsTxService = new MetalsTxService()
+export default metalsTxService

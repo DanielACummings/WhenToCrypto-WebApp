@@ -24,6 +24,9 @@
 				<li class="nav-item" :class="{ active: $route.name == 'homeViewDemo' }">
 					<router-link :to="{ name: 'homeViewDemo' }" class="nav-link">Home (Demo)</router-link>
 				</li>
+				<li class="nav-item" :class="{ active: $route.name == 'demoLedger' }">
+					<router-link :to="{ name: 'demoLedger' }" class="nav-link">Ledger (Demo)</router-link>
+				</li>
 			</ul>
 
 			<!-- <ul> Shown after login -->

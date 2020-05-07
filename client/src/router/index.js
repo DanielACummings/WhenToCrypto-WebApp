@@ -1,21 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// @ts-ignore
-import Home from '../views/Home.vue'
-// @ts-ignore
-import CryptoLedger from '../views/CryptoLedger.vue'
+// Before login
 // @ts-ignore
 import Login from '../views/Login.vue'
-// @ts-ignore
-import Features from '../views/Features.vue'
-// @ts-ignore
-import WhyUseCrypto from '../views/WhyUseCrypto.vue'
 // @ts-ignore
 import About from '../views/About.vue'
 // @ts-ignore
 import HomeViewDemo from '../views/HomeViewDemo.vue'
 // @ts-ignore
 import DemoLedger from '../views/DemoLedger.vue'
+
+// After login
+// @ts-ignore
+import Home from '../views/Home.vue'
+// @ts-ignore
+import Features from '../views/Features.vue'
+// @ts-ignore
+import WhyUseCrypto from '../views/WhyUseCrypto.vue'
+// @ts-ignore
+import CryptoLedger from '../views/CryptoLedger.vue'
+// @ts-ignore
+import MetalLedger from '../views/MetalLedger.vue'
 
 Vue.use(Router)
 
@@ -64,11 +69,11 @@ export default new Router({
       name: 'cryptoLedger',
       component: CryptoLedger
     },
-    // {
-    //   path: '/metal-ledgers/:metalId',
-    //   name: 'metalLedger',
-    //   component: MetalLedger
-    // },
+    {
+      path: '/metal-ledgers/:metalId',
+      name: 'metalLedger',
+      component: MetalLedger
+    },
     {
       path: "*",
       redirect: '/'
