@@ -7,7 +7,7 @@ export default class MetalsController {
     this.router = express.Router()
       .use(Authorize.authenticated)
       .get('', this.getAll)
-      // .get('/:metalId', this.getLedgerMetal)
+      .get('/:metalId', this.getLedgerMetal)
       .post('', this.create)
       // .put('/:id', this.edit)
       .use(this.defaultRoute)
@@ -24,12 +24,12 @@ export default class MetalsController {
     } catch (error) { next(error) }
   }
 
-  // async getLedgerMetal(req, res, next) {
-  //   try {
-  //     let data = await metalsService.getById(req.params.metalId)
-  //     return res.send(data)
-  //   } catch (error) { next(error) }
-  // }
+  async getLedgerMetal(req, res, next) {
+    try {
+      let data = await metalsService.getById(req.params.metalId)
+      return res.send(data)
+    } catch (error) { next(error) }
+  }
 
   async create(req, res, next) {
     try {

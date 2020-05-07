@@ -39,7 +39,7 @@
 						<td>
 							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>63.07
 						</td>
-						<td>Converted to Ravencoin</td>
+						<td>Converted to Filecoin</td>
 					</tr>
 				</table>
 			</div>

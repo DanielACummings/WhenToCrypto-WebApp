@@ -46,10 +46,10 @@ export default new Vuex.Store({
     addCrypto(state, crypto) {
       state.cryptos.push(crypto)
     },
-    addLedgerCrypto(state, ledgerCrypto) {
+    setLedgerCrypto(state, ledgerCrypto) {
       state.ledgerCrypto = ledgerCrypto
     },
-    addCryptoTx(state, tx) {
+    setCryptoTx(state, tx) {
       state.activeCryptoLedger = tx
     },
 
@@ -59,6 +59,12 @@ export default new Vuex.Store({
     },
     addMetal(state, metal) {
       state.metals.push(metal)
+    },
+    setLedgerMetal(state, ledgerMetal) {
+      state.ledgerMetal = ledgerMetal
+    },
+    setMetalTx(state, tx) {
+      state.activeMetalLedger = tx
     }
   },
 
@@ -101,7 +107,7 @@ export default new Vuex.Store({
     },
     async getLedgerCrypto({ commit }, cryptoId) {
       let res = await api.get(`cryptos/${cryptoId}`)
-      commit('addLedgerCrypto', res.data)
+      commit('setLedgerCrypto', res.data)
     },
     async createCrypto({ commit }, payload) {
       let res = await api.post('cryptos', payload)
@@ -118,23 +124,31 @@ export default new Vuex.Store({
     },
     async getTxByCrypto({ commit }, cryptoId) {
       let res = await api.get(`transactions/${cryptoId}`)
-      commit('addCryptoTx', res.data)
+      commit('setCryptoTx', res.data)
     },
     //#endregion
 
     //#region - Metals
-    async createMetal({ commit }, payload) {
-      let res = await api.post('metals', payload)
-      commit('addMetal', res.data)
-    },
     async getMetals({ commit }) {
       let res = await api.get('metals')
       commit('setMetals', res.data)
+    },
+    async getLedgerMetal({ commit }, metalId) {
+      let res = await api.get(`metals/${metalId}`)
+      commit('setLedgerMetal', res.data)
+    },
+    async createMetal({ commit }, payload) {
+      let res = await api.post('metals', payload)
+      commit('addMetal', res.data)
     },
     // Transactions
     async createMetalTx({ dispatch }, payload) {
       await api.post('metalTx', payload)
       dispatch('getMetals')
+    },
+    async getTxByMetal({ commit }, metalId) {
+      let res = await api.get(`metalTx/${metalId}`)
+      commit('setMetalTx', res.data)
     }
     //#endregion
   }
