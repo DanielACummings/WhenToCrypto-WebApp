@@ -450,9 +450,9 @@
 										</button>
 									</div>
 									<div>
-										<!-- <router-link :to="{name: 'sampleCryptoLedger'}"> -->
-										<button class="btn btn-sm btn-primary">Ledger</button>
-										<!-- </router-link> -->
+										<router-link :to="{name: 'demoLedger'}">
+											<button class="btn btn-sm btn-primary">Ledger</button>
+										</router-link>
 									</div>
 								</div>
 							</div>
@@ -493,9 +493,9 @@
 										</button>
 									</div>
 									<div>
-										<!-- <router-link :to="{name: 'sampleCryptoLedger'}"> -->
-										<button class="btn btn-sm btn-primary">Ledger</button>
-										<!-- </router-link> -->
+										<router-link :to="{name: 'demoLedger'}">
+											<button class="btn btn-sm btn-primary">Ledger</button>
+										</router-link>
 									</div>
 								</div>
 							</div>
@@ -522,7 +522,7 @@
 								<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
 								44.30
 							</div>
-							<div class="col-12 pt-1">Notes: Add to CoinPayments account</div>
+							<div class="col-12 pt-1">Notes: Buy more next month</div>
 							<!-- Buttons -->
 							<div class="col-12 pt-1">
 								<div class="row">
@@ -536,9 +536,9 @@
 										</button>
 									</div>
 									<div>
-										<!-- <router-link :to="{name: 'sampleCryptoLedger'}"> -->
-										<button class="btn btn-sm btn-primary">Ledger</button>
-										<!-- </router-link> -->
+										<router-link :to="{name: 'demoLedger'}">
+											<button class="btn btn-sm btn-primary">Ledger</button>
+										</router-link>
 									</div>
 								</div>
 							</div>
@@ -585,9 +585,9 @@
 										</button>
 									</div>
 									<div>
-										<!-- <router-link :to="{name: 'metalLedgerDemo'}"> -->
-										<button class="btn btn-sm btn-primary">Ledger</button>
-										<!-- </router-link> -->
+										<router-link :to="{name: 'demoLedger'}">
+											<button class="btn btn-sm btn-primary">Ledger</button>
+										</router-link>
 									</div>
 								</div>
 							</div>
@@ -631,9 +631,9 @@
 										</button>
 									</div>
 									<div>
-										<!-- <router-link :to="{name: 'metalLedgerDemo'}"> -->
-										<button class="btn btn-sm btn-primary">Ledger</button>
-										<!-- </router-link> -->
+										<router-link :to="{name: 'demoLedger'}">
+											<button class="btn btn-sm btn-primary">Ledger</button>
+										</router-link>
 									</div>
 								</div>
 							</div>

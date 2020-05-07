@@ -14,6 +14,8 @@ import WhyUseCrypto from '../views/WhyUseCrypto.vue'
 import About from '../views/About.vue'
 // @ts-ignore
 import HomeViewDemo from '../views/HomeViewDemo.vue'
+// @ts-ignore
+import DemoLedger from '../views/DemoLedger.vue'
 
 Vue.use(Router)
 
@@ -35,16 +37,11 @@ export default new Router({
       name: 'homeViewDemo',
       component: HomeViewDemo
     },
-    // {
-    //   path: '/crypto-ledger-demo',
-    //   name: 'cryptoLedgerDemo',
-    //   component: CryptoLedgerDemo
-    // },
-    // {
-    //   path: '/metal-ledger-demo',
-    //   name: 'metalLedgerDemo',
-    //   component: MetalLedgerDemo
-    // },
+    {
+      path: '/demo-ledger',
+      name: 'demoLedger',
+      component: DemoLedger
+    },
 
     // After login
     {
