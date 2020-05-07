@@ -61,13 +61,7 @@ export default {
 	},
 	data() {
 		return {
-			beforeLogin: [
-				"login",
-				"about",
-				"homeViewDemo",
-				"cryptoLedgerDemo",
-				"metalLedgerDemo"
-			],
+			beforeLogin: ["login", "about", "homeViewDemo", "demoLedger"],
 			afterLogin: [
 				"home",
 				"features",
