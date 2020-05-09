@@ -7,10 +7,10 @@ const User = new Schema({
   name: { type: String },
   email: { type: String, required: true, unique: true },
   hash: { type: String, required: true },
-  paidThru: { type: String, default: "", required: true },
+  coupon: { type: String },
   primaryCrypto: { type: ObjectId, ref: 'Crypto' },
-  grandfatheredSubPrice: { type: String, default: "", required: true },
-  coupon: { type: String }
+  paidThru: { type: String, default: "" },
+  grandfatheredSubPrice: { type: String, default: "" }
 }, { timestamps: true, toJSON: { virtuals: true } })
 
 User.methods.validatePassword = function (password, hash) {
