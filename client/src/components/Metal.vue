@@ -8,7 +8,7 @@
 				<div class="row text-center pt-1">
 					<div
 						class="col-12 text-center pt-1"
-					>Total {{metalProp.measurement}} owned: {{parseFloat((metalProp.totalOwned).toFixed(8))}}</div>
+					>Total {{metalProp.measurement.toLowerCase()}} owned: {{parseFloat((metalProp.totalOwned).toFixed(8))}}</div>
 					<div class="col-12 text-center pt-1">
 						Averaged value per {{metalProp.measurement.slice(0, -1).toLowerCase()}}:
 						<br />

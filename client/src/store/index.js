@@ -141,6 +141,10 @@ export default new Vuex.Store({
       let res = await api.post('metals', payload)
       commit('addMetal', res.data)
     },
+    async editMetal({ dispatch }, update) {
+      await api.put('metals/' + update.id, update)
+      dispatch('getMetals')
+    },
     // Transactions
     async createMetalTx({ dispatch }, payload) {
       await api.post('metalTx', payload)
