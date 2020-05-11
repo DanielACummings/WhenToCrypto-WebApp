@@ -22,10 +22,13 @@
 		</div>
 		<!-- Gold & silver forms -->
 		<div class="row text-center">
-			<div class="pt-3 col-12 col-sm-6">
+			<div class="pt-3 col-12 col-sm-4">
 				<addMetalForm />
 			</div>
-			<div class="pt-3 col-12 col-sm-6">
+			<div class="pt-3 col-12 col-sm-4">
+				<editMetalForm />
+			</div>
+			<div class="pt-3 col-12 col-sm-4">
 				<addMetalTxForm />
 			</div>
 		</div>
@@ -60,6 +63,7 @@ import addCryptoTxForm from "@/components/AddCryptoTxForm";
 
 // Metal forms
 import addMetalForm from "@/components/AddMetalForm";
+import editMetalForm from "@/components/EditMetalForm";
 import addMetalTxForm from "@/components/AddMetalTxForm";
 
 export default {
@@ -72,6 +76,7 @@ export default {
 		editCryptoForm,
 		addCryptoTxForm,
 		addMetalForm,
+		editMetalForm,
 		addMetalTxForm
 	},
 	mounted() {

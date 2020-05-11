@@ -9,7 +9,7 @@ export default class MetalsController {
       .get('', this.getAll)
       .get('/:metalId', this.getLedgerMetal)
       .post('', this.create)
-      // .put('/:id', this.edit)
+      .put('/:id', this.edit)
       .use(this.defaultRoute)
   }
 
@@ -39,11 +39,11 @@ export default class MetalsController {
     } catch (error) { next(error) }
   }
 
-  // async edit(req, res, next) {
-  //   try {
-  //     req.body.authorId = req.session.uid
-  //     let data = await metalsService.edit(req.body)
-  //     return res.status(201).send(data)
-  //   } catch (error) { next(error) }
-  // }
+  async edit(req, res, next) {
+    try {
+      req.body.authorId = req.session.uid
+      let data = await metalsService.edit(req.body)
+      return res.status(201).send(data)
+    } catch (error) { next(error) }
+  }
 }
