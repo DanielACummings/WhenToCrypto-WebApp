@@ -1,4 +1,6 @@
 import Axios from 'axios'
+import Swal from 'sweetalert2'
+
 let baseUrl = location.host.includes('localhost') ? '//localhost:3000/' : '/'
 
 let auth = Axios.create({
@@ -24,7 +26,14 @@ export default class AuthService {
 
       return res.data
     } catch (e) {
-      throw new Error(`[registration failed] : ${!e.response ? 'No response from server' : e.response.data.error}`)
+      if (e.response.data.error.message.includes("at least 6")) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Password must be at least 6 characters long."
+        });
+      }
+      throw new Error(`Registration failed : ${!e.response ? 'No response from server' : e.response.data.error}`)
     }
   }
   static async Logout() {
