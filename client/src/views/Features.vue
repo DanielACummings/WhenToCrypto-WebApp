@@ -6,10 +6,10 @@
 			</div>
 			<div class="col-12 text-left pt-5 pb-5">
 				<ol>
-					<li>Deleting tracked cryptos and metals</li>
-					<li>SweetAlerts for failed logins</li>
 					<li>SweetAlerts for successful and failed creation of cryptos, metals, and transactions</li>
+					<li>Deleting tracked cryptos and metals</li>
 					<li>Auth0 integration which includes password resetting by email</li>
+					<li>Stealth transactions for subscribed users. Transaction information will not be recorded, but they will update averaged values</li>
 				</ol>
 			</div>
 		</div>
