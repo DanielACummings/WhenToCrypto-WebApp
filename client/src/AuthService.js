@@ -26,11 +26,19 @@ export default class AuthService {
 
       return res.data
     } catch (e) {
+      // Minimum password length error message
       if (e.response.data.error.message.includes("at least 6")) {
         Swal.fire({
           icon: "error",
           title: "Oops...",
           text: "Password must be at least 6 characters long."
+        });
+      }
+      if (e.response.data.error.message.includes("E11000")) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Email is already in use."
         });
       }
       throw new Error(`Registration failed : ${!e.response ? 'No response from server' : e.response.data.error}`)
