@@ -5,9 +5,9 @@
 			class="pb-4 col-12"
 		>Only spend or sell your cryptocurrency when it's worth more than you paid for it</p>
 		<form v-if="loginForm" @submit.prevent="loginUser">
-			<input class="mb-1" type="email" v-model="creds.email" placeholder="Email" />
+			<input class="mb-1" type="email" v-model="creds.email" placeholder="Email" required />
 			<br />
-			<input class="mb-1" type="password" v-model="creds.password" placeholder="Passphrase" />
+			<input class="mb-1" type="password" v-model="creds.password" placeholder="Passphrase" required />
 			<br />
 			<button class="btn btn-warning" type="submit">Login</button>
 		</form>

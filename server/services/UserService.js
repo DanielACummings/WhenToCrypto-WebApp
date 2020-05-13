@@ -26,13 +26,13 @@ class UserService {
   async getByEmailAndLogin(body) {
     let user = await _repository.findOne({ email: body.email })
     if (!user) {
-      throw new ApiError("Invalid Username Or Password")
+      throw new ApiError("Invalid email")
     }
     //CHECK THE PASSWORD
     // @ts-ignore
     let valid = await user.validatePassword(body.password)
     if (!valid) {
-      throw new ApiError("Invalid Username Or Password")
+      throw new ApiError("Invalid password")
     }
     //@ts-ignore
     delete user._doc.hash
