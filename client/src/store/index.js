@@ -87,6 +87,7 @@ export default new Vuex.Store({
         router.push({ name: "home" })
       } catch (e) {
         // Invalid email or password error message
+        // Error alert
         Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -117,17 +118,92 @@ export default new Vuex.Store({
       commit('setLedgerCrypto', res.data)
     },
     async createCrypto({ commit }, payload) {
-      let res = await api.post('cryptos', payload)
-      commit('addCrypto', res.data)
+      try {
+        let res = await api.post('cryptos', payload)
+        commit('addCrypto', res.data)
+        // Success alert
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          onOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        Toast.fire({
+          icon: 'success',
+          title: 'Successfully added!'
+        })
+      } catch (e) {
+        // Error alert
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "An error occurred. Please try again or contact support."
+        });
+      }
     },
     async editCrypto({ dispatch }, update) {
-      await api.put('cryptos/' + update.id, update)
-      dispatch('getCryptos')
+      try {
+        await api.put('cryptos/' + update.id, update)
+        dispatch('getCryptos')
+        // Success alert
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          onOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        Toast.fire({
+          icon: 'success',
+          title: 'Successfully edited!'
+        })
+      } catch (e) {
+        // Error alert
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "An error occurred. Please try again or contact support."
+        });
+      }
     },
     // Transactions
     async createTransaction({ dispatch }, payload) {
-      await api.post('transactions', payload)
-      dispatch('getCryptos')
+      try {
+        await api.post('transactions', payload)
+        dispatch('getCryptos')
+        // Success alert
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          onOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        Toast.fire({
+          icon: 'success',
+          title: 'Successfully added!'
+        })
+      } catch (e) {
+        // Error alert
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "An error occurred. Please try again or contact support."
+        });
+      }
     },
     async getTxByCrypto({ commit }, cryptoId) {
       let res = await api.get(`transactions/${cryptoId}`)
@@ -145,17 +221,92 @@ export default new Vuex.Store({
       commit('setLedgerMetal', res.data)
     },
     async createMetal({ commit }, payload) {
-      let res = await api.post('metals', payload)
-      commit('addMetal', res.data)
+      try {
+        let res = await api.post('metals', payload)
+        commit('addMetal', res.data)
+        // Success alert
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          onOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        Toast.fire({
+          icon: 'success',
+          title: 'Successfully added!'
+        })
+      } catch (e) {
+        // Error alert
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "An error occurred. Please try again or contact support."
+        });
+      }
     },
     async editMetal({ dispatch }, update) {
-      await api.put('metals/' + update.id, update)
-      dispatch('getMetals')
+      try {
+        await api.put('metals/' + update.id, update)
+        dispatch('getMetals')
+        // Success alert
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          onOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        Toast.fire({
+          icon: 'success',
+          title: 'Successfully edited!'
+        })
+      } catch (e) {
+        // Error alert
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "An error occurred. Please try again or contact support."
+        });
+      }
     },
     // Transactions
     async createMetalTx({ dispatch }, payload) {
-      await api.post('metalTx', payload)
-      dispatch('getMetals')
+      try {
+        await api.post('metalTx', payload)
+        dispatch('getMetals')
+        // Success alert
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          onOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        Toast.fire({
+          icon: 'success',
+          title: 'Successfully added!'
+        })
+      } catch (e) {
+        // Error alert
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "An error occurred. Please try again or contact support."
+        });
+      }
     },
     async getTxByMetal({ commit }, metalId) {
       let res = await api.get(`metalTx/${metalId}`)
