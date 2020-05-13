@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import Axios from 'axios'
 import router from '../router/index'
 import AuthService from '../AuthService'
+import Swal from 'sweetalert2'
 
 Vue.use(Vuex)
 
@@ -85,6 +86,12 @@ export default new Vuex.Store({
         commit('setUser', user)
         router.push({ name: "home" })
       } catch (e) {
+        // Invalid email or password error message
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Incorrect email or password."
+        });
         console.warn(e.message)
       }
     },
