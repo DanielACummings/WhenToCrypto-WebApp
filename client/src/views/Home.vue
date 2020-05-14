@@ -8,16 +8,12 @@
 		<!-- Crypto forms -->
 		<div class="row text-center">
 			<!-- Add crypto modal form -->
-			<div class="pt-3 col-12 col-sm-4">
+			<div class="pt-3 col-12 col-sm-6">
 				<addCryptoForm />
 			</div>
 			<!-- Edit crypto modal form -->
-			<div class="pt-3 col-12 col-sm-4">
+			<div class="pt-3 col-12 col-sm-6">
 				<editCryptoForm />
-			</div>
-			<!-- Create transaction modal -->
-			<div class="pt-3 col-12 col-sm-4">
-				<addCryptoTxForm />
 			</div>
 		</div>
 		<!-- Gold & silver forms -->
@@ -28,8 +24,9 @@
 			<div class="pt-3 col-12 col-sm-4">
 				<editMetalForm />
 			</div>
+			<!-- Creat tx modal -->
 			<div class="pt-3 col-12 col-sm-4">
-				<addMetalTxForm />
+				<createTxModal />
 			</div>
 		</div>
 		<!-- App usage note -->
@@ -55,16 +52,15 @@
 <script>
 import cryptocurrency from "@/components/Cryptocurrency";
 import metal from "@/components/Metal";
+import createTxModal from "@/components/CreateTxModal";
 
 // Crypto forms
 import addCryptoForm from "@/components/AddCryptoForm";
 import editCryptoForm from "@/components/EditCryptoForm";
-import addCryptoTxForm from "@/components/AddCryptoTxForm";
 
 // Metal forms
 import addMetalForm from "@/components/AddMetalForm";
 import editMetalForm from "@/components/EditMetalForm";
-import addMetalTxForm from "@/components/AddMetalTxForm";
 
 export default {
 	name: "home",
@@ -74,10 +70,9 @@ export default {
 		metal,
 		addCryptoForm,
 		editCryptoForm,
-		addCryptoTxForm,
 		addMetalForm,
 		editMetalForm,
-		addMetalTxForm
+		createTxModal
 	},
 	mounted() {
 		this.$store.dispatch("getCryptos");
