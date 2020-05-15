@@ -1,25 +1,25 @@
 <template>
-	<div class="edit-currency-modal">
+	<div class="create-currency-modal">
 		<button
 			type="button"
 			class="btn btn-primary text-center"
 			data-toggle="modal"
-			data-target="#edit-currency-modal"
+			data-target="#create-currency-modal"
 			data-whatever="@getbootstrap"
-		>Edit Currency</button>
+		>Add Currency</button>
 
 		<div
 			class="modal fade"
-			id="edit-currency-modal"
+			id="create-currency-modal"
 			tabindex="-1"
 			role="dialog"
-			aria-labelledby="edit-currency-modal-label"
+			aria-labelledby="create-currency-modal-label"
 			aria-hidden="true"
 		>
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="edit-currency-modal-label">Edit Currency</h5>
+						<h5 class="modal-title" id="create-currency-modal-label">Add Currency</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -32,13 +32,12 @@
 							<input v-model="currencyType" type="radio" name="crypto-or-metal" value="metal" />
 							<label for="metal">Metal</label>
 						</form>
-						<p class="text-left">Any field can be left blank</p>
 						<!-- Forms -->
 						<div v-if="currencyType == 'crypto'">
-							<editCryptoForm />
+							<createCryptoForm />
 						</div>
 						<div v-if="currencyType == 'metal'">
-							<editMetalForm />
+							<createMetalForm />
 						</div>
 					</div>
 				</div>
@@ -48,14 +47,14 @@
 </template>
 
 <script>
-import editCryptoForm from "./EditCryptoForm";
-import editMetalForm from "./EditMetalForm";
+import createCryptoForm from "./CreateCryptoForm";
+import createMetalForm from "./CreateMetalForm";
 
 export default {
-	name: "editCurrencyModal",
+	name: "createCurrencyModal",
 	components: {
-		editCryptoForm,
-		editMetalForm
+		createCryptoForm,
+		createMetalForm
 	},
 	data() {
 		return {

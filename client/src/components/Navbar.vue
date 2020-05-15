@@ -21,8 +21,8 @@
 				<li class="nav-item" :class="{ active: $route.name == 'about' }">
 					<router-link :to="{ name: 'about' }" class="nav-link">About</router-link>
 				</li>
-				<li class="nav-item" :class="{ active: $route.name == 'homeViewDemo' }">
-					<router-link :to="{ name: 'homeViewDemo' }" class="nav-link">Home (Demo)</router-link>
+				<li class="nav-item" :class="{ active: $route.name == 'demoHome' }">
+					<router-link :to="{ name: 'demoHome' }" class="nav-link">Home (Demo)</router-link>
 				</li>
 				<li class="nav-item" :class="{ active: $route.name == 'demoLedger' }">
 					<router-link :to="{ name: 'demoLedger' }" class="nav-link">Ledger (Demo)</router-link>
@@ -64,7 +64,7 @@ export default {
 	},
 	data() {
 		return {
-			beforeLogin: ["login", "about", "homeViewDemo", "demoLedger"],
+			beforeLogin: ["login", "about", "demoHome", "demoLedger"],
 			afterLogin: [
 				"home",
 				"features",
