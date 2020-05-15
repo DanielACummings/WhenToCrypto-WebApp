@@ -1,5 +1,5 @@
 <template>
-	<div class="crypto-comp col-12 col-md-6 col-lg-4 col-xl-4 pb-3">
+	<div class="crypto-comp col-12 col-md-6 col-lg-4 pb-3">
 		<div class="card" style="width: 18rem;">
 			<div class="card-body">
 				<h3 class="card-title">{{cryptoProp.name}}</h3>

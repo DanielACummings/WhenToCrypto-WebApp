@@ -22,10 +22,10 @@
 		</div>
 		<!-- App usage note -->
 		<div class="row">
-			<div class="col pt-3">
+			<div class="col-12 pt-3">
 				<p class="text-center">
-					If your crypto's market value is higher than your averaged value,
-					<br />you can transact without losing purchasing power.
+					If your currency's market value is higher than your averaged value,
+					<br />you can spend or sell it without losing purchasing power.
 				</p>
 			</div>
 		</div>
