@@ -5,23 +5,17 @@
 				<h1 id="title" class="pb-4 pt-5">Tracked Currencies</h1>
 			</div>
 		</div>
-		<!-- Crypto forms -->
+		<!-- Modal forms -->
 		<div class="row text-center">
-			<!-- Add crypto modal form -->
-			<div class="pt-3 col-12 col-sm-6">
-				<addCryptoForm />
-			</div>
-		</div>
-		<!-- Gold & silver forms -->
-		<div class="row text-center">
+			<!-- Create currency modal -->
 			<div class="pt-3 col-12 col-sm-4">
-				<addMetalForm />
+				<createCurrencyModal />
 			</div>
 			<!-- Edit currency modal -->
 			<div class="pt-3 col-12 col-sm-4">
 				<editCurrencyModal />
 			</div>
-			<!-- Creat tx modal -->
+			<!-- Create tx modal -->
 			<div class="pt-3 col-12 col-sm-4">
 				<createTxModal />
 			</div>
@@ -49,14 +43,9 @@
 <script>
 import cryptocurrency from "@/components/Cryptocurrency";
 import metal from "@/components/Metal";
+import createCurrencyModal from "@/components/CreateCurrencyModal";
 import createTxModal from "@/components/CreateTxModal";
 import editCurrencyModal from "@/components/EditCurrencyModal";
-
-// Crypto forms
-import addCryptoForm from "@/components/AddCryptoForm";
-
-// Metal forms
-import addMetalForm from "@/components/AddMetalForm";
 
 export default {
 	name: "home",
@@ -64,8 +53,7 @@ export default {
 	components: {
 		cryptocurrency,
 		metal,
-		addCryptoForm,
-		addMetalForm,
+		createCurrencyModal,
 		editCurrencyModal,
 		createTxModal
 	},

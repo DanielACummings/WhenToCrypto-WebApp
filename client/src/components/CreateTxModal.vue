@@ -26,17 +26,17 @@
 						</button>
 					</div>
 					<div class="modal-body">
+						<!-- Crypto or metal radio buttons -->
 						<form>
 							<input v-model="currencyType" type="radio" name="crypto-or-metal" value="crypto" />
 							<label class="pr-5" for="crypto">Crypto</label>
 							<input v-model="currencyType" type="radio" name="crypto-or-metal" value="metal" />
 							<label for="metal">Metal</label>
 						</form>
-						<!-- Add crypto transaction form -->
+						<!-- Forms -->
 						<div v-if="currencyType == 'crypto'">
 							<addCryptoTxForm />
 						</div>
-						<!-- Add metal transaction form -->
 						<div v-if="currencyType == 'metal'">
 							<addMetalTxForm />
 						</div>
