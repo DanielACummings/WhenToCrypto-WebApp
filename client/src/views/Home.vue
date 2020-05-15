@@ -11,18 +11,15 @@
 			<div class="pt-3 col-12 col-sm-6">
 				<addCryptoForm />
 			</div>
-			<!-- Edit crypto modal form -->
-			<div class="pt-3 col-12 col-sm-6">
-				<editCryptoForm />
-			</div>
 		</div>
 		<!-- Gold & silver forms -->
 		<div class="row text-center">
 			<div class="pt-3 col-12 col-sm-4">
 				<addMetalForm />
 			</div>
+			<!-- Edit currency modal -->
 			<div class="pt-3 col-12 col-sm-4">
-				<editMetalForm />
+				<editCurrencyModal />
 			</div>
 			<!-- Creat tx modal -->
 			<div class="pt-3 col-12 col-sm-4">
@@ -53,14 +50,13 @@
 import cryptocurrency from "@/components/Cryptocurrency";
 import metal from "@/components/Metal";
 import createTxModal from "@/components/CreateTxModal";
+import editCurrencyModal from "@/components/EditCurrencyModal";
 
 // Crypto forms
 import addCryptoForm from "@/components/AddCryptoForm";
-import editCryptoForm from "@/components/EditCryptoForm";
 
 // Metal forms
 import addMetalForm from "@/components/AddMetalForm";
-import editMetalForm from "@/components/EditMetalForm";
 
 export default {
 	name: "home",
@@ -69,9 +65,8 @@ export default {
 		cryptocurrency,
 		metal,
 		addCryptoForm,
-		editCryptoForm,
 		addMetalForm,
-		editMetalForm,
+		editCurrencyModal,
 		createTxModal
 	},
 	mounted() {
