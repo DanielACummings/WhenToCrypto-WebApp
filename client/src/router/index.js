@@ -6,7 +6,7 @@ import Login from '../views/Login.vue'
 // @ts-ignore
 import About from '../views/About.vue'
 // @ts-ignore
-import HomeViewDemo from '../views/HomeViewDemo.vue'
+import DemoHome from '../views/DemoHome.vue'
 // @ts-ignore
 import DemoLedger from '../views/DemoLedger.vue'
 
@@ -38,9 +38,9 @@ export default new Router({
       component: About
     },
     {
-      path: '/home-demo',
-      name: 'homeViewDemo',
-      component: HomeViewDemo
+      path: '/demo-home',
+      name: 'demoHome',
+      component: DemoHome
     },
     {
       path: '/demo-ledger',
