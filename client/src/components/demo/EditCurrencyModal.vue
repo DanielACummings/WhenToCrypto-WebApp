@@ -48,8 +48,8 @@
 </template>
 
 <script>
-import editCryptoForm from "./forms/EditCryptoForm";
-import editMetalForm from "./forms/EditMetalForm";
+import editCryptoForm from "@/components/demo/forms/EditCryptoForm";
+import editMetalForm from "@/components/demo/forms/EditMetalForm";
 
 export default {
 	name: "editCurrencyModal",

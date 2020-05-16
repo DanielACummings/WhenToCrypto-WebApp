@@ -1,25 +1,26 @@
 <template>
-	<div class="edit-currency-modal">
+	<div class="create-tx-modal">
 		<button
 			type="button"
 			class="btn btn-primary text-center"
 			data-toggle="modal"
-			data-target="#edit-currency-modal"
+			data-target="#create-tx-modal"
 			data-whatever="@getbootstrap"
-		>Edit Currency</button>
-
+		>Add Transaction</button>
 		<div
 			class="modal fade"
-			id="edit-currency-modal"
+			id="create-tx-modal"
 			tabindex="-1"
 			role="dialog"
-			aria-labelledby="edit-currency-modal-label"
+			aria-labelledby="create-tx-modal-label"
 			aria-hidden="true"
 		>
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="edit-currency-modal-label">Edit Currency</h5>
+						<div class="modal-title" id="create-tx-modal-label">
+							<h5>Add Transaction</h5>
+						</div>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -32,13 +33,12 @@
 							<input v-model="currencyType" type="radio" name="crypto-or-metal" value="metal" />
 							<label for="metal">Metal</label>
 						</form>
-						<p class="text-left">Any field can be left blank</p>
 						<!-- Forms -->
 						<div v-if="currencyType == 'crypto'">
-							<editCryptoForm />
+							<addCryptoTxForm />
 						</div>
 						<div v-if="currencyType == 'metal'">
-							<editMetalForm />
+							<addMetalTxForm />
 						</div>
 					</div>
 				</div>
@@ -48,14 +48,14 @@
 </template>
 
 <script>
-import editCryptoForm from "./forms/EditCryptoForm";
-import editMetalForm from "./forms/EditMetalForm";
+import addCryptoTxForm from "@/components/demo/forms/AddCryptoTxForm";
+import addMetalTxForm from "@/components/demo/forms/AddMetalTxForm";
 
 export default {
-	name: "editCurrencyModal",
+	name: "createTxForm",
 	components: {
-		editCryptoForm,
-		editMetalForm
+		addCryptoTxForm,
+		addMetalTxForm
 	},
 	data() {
 		return {
@@ -64,3 +64,6 @@ export default {
 	}
 };
 </script>
+
+<style>
+</style>

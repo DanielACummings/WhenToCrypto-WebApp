@@ -48,8 +48,8 @@
 </template>
 
 <script>
-import addCryptoTxForm from "./AddCryptoTxForm";
-import addMetalTxForm from "./AddMetalTxForm";
+import addCryptoTxForm from "./forms/AddCryptoTxForm";
+import addMetalTxForm from "./forms/AddMetalTxForm";
 
 export default {
 	name: "createTxForm",

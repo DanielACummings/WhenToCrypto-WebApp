@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import createCryptoForm from "./CreateCryptoForm";
-import createMetalForm from "./CreateMetalForm";
+import createCryptoForm from "./forms/CreateCryptoForm";
+import createMetalForm from "./forms/CreateMetalForm";
 
 export default {
 	name: "createCurrencyModal",
