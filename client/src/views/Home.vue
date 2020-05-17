@@ -8,15 +8,11 @@
 		<!-- Modal forms -->
 		<div class="row text-center">
 			<!-- Create currency modal -->
-			<div class="pt-3 col-12 col-sm-4">
+			<div class="pt-3 col-12 col-sm-6">
 				<createCurrencyModal />
 			</div>
-			<!-- Edit currency modal -->
-			<div class="pt-3 col-12 col-sm-4">
-				<editCurrencyModal />
-			</div>
 			<!-- Create tx modal -->
-			<div class="pt-3 col-12 col-sm-4">
+			<div class="pt-3 col-12 col-sm-6">
 				<createTxModal />
 			</div>
 		</div>
@@ -45,7 +41,6 @@ import cryptocurrency from "@/components/Cryptocurrency";
 import metal from "@/components/Metal";
 import createCurrencyModal from "@/components/CreateCurrencyModal";
 import createTxModal from "@/components/CreateTxModal";
-import editCurrencyModal from "@/components/EditCurrencyModal";
 
 export default {
 	name: "home",
@@ -54,7 +49,6 @@ export default {
 		cryptocurrency,
 		metal,
 		createCurrencyModal,
-		editCurrencyModal,
 		createTxModal
 	},
 	mounted() {

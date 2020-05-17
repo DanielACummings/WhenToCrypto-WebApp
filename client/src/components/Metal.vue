@@ -19,8 +19,9 @@
 					<!-- Buttons -->
 					<div class="col-12 pt-1">
 						<div class="row">
+							<!-- Market value button -->
 							<div>
-								<button class="btn btn-sm btn-primary ml-5 mr-4">
+								<button class="btn btn-sm btn-primary ml-4 mr-3">
 									<a
 										target="_blank"
 										:href="baseURL + metalProp.name.toLowerCase() + '-price/'"
@@ -28,11 +29,45 @@
 									>Market Value</a>
 								</button>
 							</div>
+							<!-- Ledger button -->
 							<div>
 								<router-link :to="{name: 'metalLedger', params: {metalId: metalProp.id}}">
-									<button class="btn btn-sm btn-primary">Ledger</button>
+									<button class="btn btn-sm btn-primary mr-3">Ledger</button>
 								</router-link>
 							</div>
+							<!-- Edit/Close button -->
+							<button
+								v-if="showForm == 'closed'"
+								@click="showForm = 'open'"
+								class="btn btn-sm btn-primary"
+							>Edit</button>
+							<button v-else @click="showForm = 'closed'" class="btn btn-sm btn-primary">Close</button>
+							<form v-if="showForm == 'open'" @submit.prevent="editMetal" class="text-left">
+								<p class="pt-4 text-center">Edit</p>
+								<!-- Description -->
+								<div class="form-group">
+									<label for="description" class="col-form-label">Description:</label>
+									<input type="text" v-model="editedMetal.description" class="form-control" id="description" />
+								</div>
+								<!-- Image -->
+								<div class="form-group">
+									<label for="img" class="col-form-label">Image URL (Web Address):</label>
+									<input type="text" v-model="editedMetal.img" class="form-control" id="img" />
+								</div>
+								<!-- Notes -->
+								<div class="form-group">
+									<label for="notes" class="col-form-label">Notes:</label>
+									<input type="text" v-model="editedMetal.notes" class="form-control" id="notes" />
+								</div>
+								<!-- Buttons -->
+								<button @click="closeForm" type="submit" class="btn btn-primary">Submit</button>
+								<button
+									@click="showForm = 'closed'"
+									type="button"
+									class="btn btn-warning"
+									data-dismiss="modal"
+								>Close</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -47,8 +82,30 @@ export default {
 	props: ["metalProp"],
 	data() {
 		return {
-			baseURL: "https://goldsilver.com/price-charts/"
+			baseURL: "https://goldsilver.com/price-charts/",
+			showForm: "closed",
+			editedMetal: {
+				description: "",
+				img: "",
+				notes: "",
+				id: this.metalProp.id
+			}
 		};
+	},
+	methods: {
+		closeForm() {
+			this.showForm = "closed";
+		},
+		editMetal() {
+			let update = { ...this.editedMetal };
+			this.$store.dispatch("editMetal", update);
+			this.editedMetal = {
+				description: "",
+				img: "",
+				notes: "",
+				id: this.metalProp.id
+			};
+		}
 	}
 };
 </script>
