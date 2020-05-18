@@ -27,7 +27,7 @@
 						<div class="col-12 pt-1">
 							<div class="row">
 								<div>
-									<button class="btn btn-sm btn-primary ml-5 mr-4">
+									<button class="btn btn-sm btn-primary ml-4 mr-3">
 										<a
 											target="_blank"
 											href="https://goldsilver.com/price-charts/gold-price/"
@@ -37,9 +37,42 @@
 								</div>
 								<div>
 									<router-link :to="{name: 'demoLedger'}">
-										<button class="btn btn-sm btn-primary">Ledger</button>
+										<button class="btn btn-sm btn-primary mr-3">Ledger</button>
 									</router-link>
 								</div>
+								<!-- Edit/Close button -->
+								<button
+									v-if="showForm1 == 'closed'"
+									@click="showForm1 = 'open'"
+									class="btn btn-sm btn-primary"
+								>Edit</button>
+								<button v-else @click="showForm1 = 'closed'" class="btn btn-sm btn-primary">Close</button>
+								<form v-if="showForm1 == 'open'" class="text-left">
+									<p class="pt-4 text-center">Edit</p>
+									<!-- Description -->
+									<div class="form-group">
+										<label for="description" class="col-form-label">Description:</label>
+										<input type="text" class="form-control" id="description" />
+									</div>
+									<!-- Image -->
+									<div class="form-group">
+										<label for="img" class="col-form-label">Image URL (Web Address):</label>
+										<input type="text" class="form-control" id="img" />
+									</div>
+									<!-- Notes -->
+									<div class="form-group">
+										<label for="notes" class="col-form-label">Notes:</label>
+										<input type="text" class="form-control" id="notes" />
+									</div>
+									<!-- Buttons -->
+									<button @click="closeForm1" class="btn btn-primary">Submit</button>
+									<button
+										@click="showForm1 = 'closed'"
+										type="button"
+										class="btn btn-warning"
+										data-dismiss="modal"
+									>Close</button>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -73,7 +106,7 @@
 						<div class="col-12 pt-1">
 							<div class="row">
 								<div>
-									<button class="btn btn-sm btn-primary ml-5 mr-4">
+									<button class="btn btn-sm btn-primary ml-4 mr-3">
 										<a
 											target="_blank"
 											href="https://goldsilver.com/price-charts/silver-price/"
@@ -83,9 +116,42 @@
 								</div>
 								<div>
 									<router-link :to="{name: 'demoLedger'}">
-										<button class="btn btn-sm btn-primary">Ledger</button>
+										<button class="btn btn-sm btn-primary mr-3">Ledger</button>
 									</router-link>
 								</div>
+								<!-- Edit/Close button -->
+								<button
+									v-if="showForm2 == 'closed'"
+									@click="showForm2 = 'open'"
+									class="btn btn-sm btn-primary"
+								>Edit</button>
+								<button v-else @click="showForm2 = 'closed'" class="btn btn-sm btn-primary">Close</button>
+								<form v-if="showForm2 == 'open'" class="text-left">
+									<p class="pt-4 text-center">Edit</p>
+									<!-- Description -->
+									<div class="form-group">
+										<label for="description" class="col-form-label">Description:</label>
+										<input type="text" class="form-control" id="description" />
+									</div>
+									<!-- Image -->
+									<div class="form-group">
+										<label for="img" class="col-form-label">Image URL (Web Address):</label>
+										<input type="text" class="form-control" id="img" />
+									</div>
+									<!-- Notes -->
+									<div class="form-group">
+										<label for="notes" class="col-form-label">Notes:</label>
+										<input type="text" class="form-control" id="notes" />
+									</div>
+									<!-- Buttons -->
+									<button @click="closeForm2" class="btn btn-primary">Submit</button>
+									<button
+										@click="showForm2 = 'closed'"
+										type="button"
+										class="btn btn-warning"
+										data-dismiss="modal"
+									>Close</button>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -101,8 +167,18 @@ export default {
 	props: ["metalProp"],
 	data() {
 		return {
+			showForm1: "closed",
+			showForm2: "closed",
 			baseURL: "https://goldsilver.com/price-charts/"
 		};
+	},
+	methods: {
+		closeForm1() {
+			this.showForm = "closed";
+		},
+		closeForm2() {
+			this.showForm = "closed";
+		}
 	}
 };
 </script>
