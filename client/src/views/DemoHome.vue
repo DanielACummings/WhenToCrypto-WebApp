@@ -41,7 +41,6 @@ import cryptocurrencies from "@/components/demo/Cryptocurrencies";
 import metals from "@/components/demo/Metals";
 import createCurrencyModal from "@/components/demo/CreateCurrencyModal";
 import createTxModal from "@/components/demo/CreateTxModal";
-import editCurrencyModal from "@/components/demo/EditCurrencyModal";
 
 export default {
 	name: "demoHome",
@@ -49,7 +48,6 @@ export default {
 		cryptocurrencies,
 		metals,
 		createCurrencyModal,
-		editCurrencyModal,
 		createTxModal
 	}
 };
