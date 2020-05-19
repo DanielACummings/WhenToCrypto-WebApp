@@ -8,16 +8,22 @@
 				<div class="row text-center pt-1">
 					<div
 						class="col-12 text-center pt-1"
-					>Total owned: {{parseFloat((cryptoProp.totalOwned).toFixed(8))}}</div>
+					>Balance: {{parseFloat((cryptoProp.totalOwned).toFixed(8))}}</div>
 					<div class="col-12 text-center pt-1">
-						Averaged value per coin:
+						Average value of balance:
+						<br />
+						<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
+						{{parseFloat((cryptoProp.localValAv * cryptoProp.totalOwned).toFixed(2))}}
+					</div>
+					<div class="col-12 text-center pt-1">
+						Average value per coin:
 						<br />
 						<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
 						{{(cryptoProp.localValAv).toFixed(2)}}
 					</div>
 					<div class="col-12 pt-1">Notes: {{cryptoProp.notes}}</div>
 					<!-- Buttons -->
-					<div class="col-12 pt-1">
+					<div class="col-12 pt-2">
 						<div class="row">
 							<!-- Market value button -->
 							<div>
@@ -35,7 +41,7 @@
 									<button class="btn btn-sm btn-primary mr-3">Ledger</button>
 								</router-link>
 							</div>
-							<!-- Edit/Close button -->
+							<!-- Edit/close button & form -->
 							<button
 								v-if="showForm == 'closed'"
 								@click="showForm = 'open'"

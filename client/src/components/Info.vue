@@ -15,5 +15,3 @@ export default {
 	name: "info"
 };
 </script>
-<style>
-</style>

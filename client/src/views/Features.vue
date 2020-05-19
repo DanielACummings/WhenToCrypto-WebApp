@@ -8,7 +8,7 @@
 				<ol>
 					<li>Deleting tracked cryptos and metals</li>
 					<li>Auth0 integration which includes password resetting by email</li>
-					<li>Stealth transactions for subscribed users. Transaction details will not be recorded, but averaged values will be updated</li>
+					<li>Stealth transactions for subscribed users. Transaction details will not be recorded, but average values will be updated</li>
 				</ol>
 			</div>
 		</div>
@@ -20,6 +20,3 @@ export default {
 	name: "features"
 };
 </script>
-
-<style>
-</style>

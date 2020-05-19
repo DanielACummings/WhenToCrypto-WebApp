@@ -8,15 +8,11 @@
 		<!-- Modal forms -->
 		<div class="row text-center">
 			<!-- Create currency modal -->
-			<div class="pt-3 col-12 col-sm-4">
+			<div class="pt-3 col-12 col-sm-6">
 				<createCurrencyModal />
 			</div>
-			<!-- Edit currency modal -->
-			<div class="pt-3 col-12 col-sm-4">
-				<editCurrencyModal />
-			</div>
 			<!-- Create tx modal -->
-			<div class="pt-3 col-12 col-sm-4">
+			<div class="pt-3 col-12 col-sm-6">
 				<createTxModal />
 			</div>
 		</div>
@@ -24,7 +20,7 @@
 		<div class="row">
 			<div class="col-12 pt-3">
 				<p class="text-center">
-					If your currency's market value is higher than your averaged value,
+					If your currency's market value is higher than your average value,
 					<br />you can spend or sell it without losing purchasing power.
 				</p>
 			</div>

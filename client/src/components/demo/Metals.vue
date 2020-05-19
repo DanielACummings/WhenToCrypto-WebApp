@@ -14,7 +14,7 @@
 					<div class="row text-center pt-1">
 						<div class="col-12 text-center pt-1">Total grams owned: 5</div>
 						<div class="col-12 text-center pt-1">
-							Averaged value per gram:
+							Average value per gram:
 							<br />
 							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
 							54.79
@@ -40,7 +40,7 @@
 										<button class="btn btn-sm btn-primary mr-3">Ledger</button>
 									</router-link>
 								</div>
-								<!-- Edit/Close button -->
+								<!-- Edit/close button & form -->
 								<button
 									v-if="showForm1 == 'closed'"
 									@click="showForm1 = 'open'"
@@ -93,7 +93,7 @@
 					<div class="row text-center pt-1">
 						<div class="col-12 text-center pt-1">Total ounces owned: 15</div>
 						<div class="col-12 text-center pt-1">
-							Averaged value per ounce:
+							Average value per ounce:
 							<br />
 							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
 							14.85
@@ -119,7 +119,7 @@
 										<button class="btn btn-sm btn-primary mr-3">Ledger</button>
 									</router-link>
 								</div>
-								<!-- Edit/Close button -->
+								<!-- Edit/close button & form -->
 								<button
 									v-if="showForm2 == 'closed'"
 									@click="showForm2 = 'open'"
