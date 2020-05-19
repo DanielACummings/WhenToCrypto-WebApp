@@ -8,16 +8,22 @@
 				<div class="row text-center pt-1">
 					<div
 						class="col-12 text-center pt-1"
-					>Total {{metalProp.measurement.toLowerCase()}} owned: {{parseFloat((metalProp.totalOwned).toFixed(8))}}</div>
+					>Balance in {{metalProp.measurement.toLowerCase()}}: {{parseFloat((metalProp.totalOwned).toFixed(8))}}</div>
 					<div class="col-12 text-center pt-1">
-						Averaged value per {{metalProp.measurement.slice(0, -1).toLowerCase()}}:
+						Average value of balance:
+						<br />
+						<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
+						{{parseFloat((metalProp.localValAv * metalProp.totalOwned).toFixed(2))}}
+					</div>
+					<div class="col-12 text-center pt-1">
+						Average value per {{metalProp.measurement.slice(0, -1).toLowerCase()}}:
 						<br />
 						<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
 						{{(metalProp.localValAv).toFixed(2)}}
 					</div>
 					<div class="col-12 pt-1">Notes: {{metalProp.notes}}</div>
 					<!-- Buttons -->
-					<div class="col-12 pt-1">
+					<div class="col-12 pt-2">
 						<div class="row">
 							<!-- Market value button -->
 							<div>
@@ -35,7 +41,7 @@
 									<button class="btn btn-sm btn-primary mr-3">Ledger</button>
 								</router-link>
 							</div>
-							<!-- Edit/Close button -->
+							<!-- Edit/close button & form -->
 							<button
 								v-if="showForm == 'closed'"
 								@click="showForm = 'open'"

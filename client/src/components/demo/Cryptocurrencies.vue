@@ -14,7 +14,13 @@
 					<div class="row text-center pt-1">
 						<div class="col-12 text-center pt-1">Total owned: 0.07139542</div>
 						<div class="col-12 text-center pt-1">
-							Averaged value per coin:
+							Average value of balance:
+							<br />
+							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
+							544.36
+						</div>
+						<div class="col-12 text-center pt-1">
+							Average value per coin:
 							<br />
 							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
 							7624.62
@@ -37,7 +43,7 @@
 										<button class="btn btn-sm btn-primary mr-3">Ledger</button>
 									</router-link>
 								</div>
-								<!-- Edit/Close button -->
+								<!-- Edit/close button & form -->
 								<button
 									v-if="showForm1 == 'closed'"
 									@click="showForm1 = 'open'"
@@ -98,7 +104,13 @@
 					<div class="row text-center pt-1">
 						<div class="col-12 text-center pt-1">Total owned: 9.19486423</div>
 						<div class="col-12 text-center pt-1">
-							Averaged value per coin:
+							Average value of balance:
+							<br />
+							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
+							413.03
+						</div>
+						<div class="col-12 text-center pt-1">
+							Average value per coin:
 							<br />
 							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
 							44.92
@@ -121,7 +133,7 @@
 										<button class="btn btn-sm btn-primary mr-3">Ledger</button>
 									</router-link>
 								</div>
-								<!-- Edit/Close button -->
+								<!-- Edit/close button & form -->
 								<button
 									v-if="showForm2 == 'closed'"
 									@click="showForm2 = 'open'"
@@ -182,7 +194,13 @@
 					<div class="row text-center pt-1">
 						<div class="col-12 text-center pt-1">Total owned: 12.64237568</div>
 						<div class="col-12 text-center pt-1">
-							Averaged value per coin:
+							Average value of balance:
+							<br />
+							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
+							560.06
+						</div>
+						<div class="col-12 text-center pt-1">
+							Average value per coin:
 							<br />
 							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
 							44.30
@@ -205,7 +223,7 @@
 										<button class="btn btn-sm btn-primary mr-3">Ledger</button>
 									</router-link>
 								</div>
-								<!-- Edit/Close button -->
+								<!-- Edit/close button & form -->
 								<button
 									v-if="showForm3 == 'closed'"
 									@click="showForm3 = 'open'"

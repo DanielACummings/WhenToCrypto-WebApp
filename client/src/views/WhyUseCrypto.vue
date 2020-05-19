@@ -49,6 +49,3 @@ export default {
 	name: "whyUseCrypto"
 };
 </script>
-
-<style>
-</style>

@@ -24,8 +24,9 @@
 							<li>Track unlimited transactions for one cryptocurrency</li>
 							<li>View cryptocurrency's:</li>
 							<ul>
-								<li>Averaged value</li>
 								<li>Total balance</li>
+								<li>Average value of balance</li>
+								<li>Average value per coin</li>
 								<li>Last 13 months of transaction history</li>
 							</ul>
 							<li>Easily copy transactions to a spreadsheet</li>
@@ -99,6 +100,3 @@ export default {
 	methods: {}
 };
 </script>
-
-<style>
-</style>
