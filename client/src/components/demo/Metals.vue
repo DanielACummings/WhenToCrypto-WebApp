@@ -14,6 +14,12 @@
 					<div class="row text-center pt-1">
 						<div class="col-12 text-center pt-1">Total grams owned: 5</div>
 						<div class="col-12 text-center pt-1">
+							Average value of balance:
+							<br />
+							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
+							273.95
+						</div>
+						<div class="col-12 text-center pt-1">
 							Average value per gram:
 							<br />
 							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
@@ -92,6 +98,12 @@
 					/>
 					<div class="row text-center pt-1">
 						<div class="col-12 text-center pt-1">Total ounces owned: 15</div>
+						<div class="col-12 text-center pt-1">
+							Average value of balance:
+							<br />
+							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
+							222.75
+						</div>
 						<div class="col-12 text-center pt-1">
 							Average value per ounce:
 							<br />

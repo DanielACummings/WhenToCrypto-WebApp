@@ -14,6 +14,12 @@
 					<div class="row text-center pt-1">
 						<div class="col-12 text-center pt-1">Total owned: 0.07139542</div>
 						<div class="col-12 text-center pt-1">
+							Average value of balance:
+							<br />
+							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
+							544.36
+						</div>
+						<div class="col-12 text-center pt-1">
 							Average value per coin:
 							<br />
 							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
@@ -98,6 +104,12 @@
 					<div class="row text-center pt-1">
 						<div class="col-12 text-center pt-1">Total owned: 9.19486423</div>
 						<div class="col-12 text-center pt-1">
+							Average value of balance:
+							<br />
+							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
+							413.03
+						</div>
+						<div class="col-12 text-center pt-1">
 							Average value per coin:
 							<br />
 							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
@@ -181,6 +193,12 @@
 					/>
 					<div class="row text-center pt-1">
 						<div class="col-12 text-center pt-1">Total owned: 12.64237568</div>
+						<div class="col-12 text-center pt-1">
+							Average value of balance:
+							<br />
+							<a href="https://www.symbols.com/symbol/currency-sign" target="blank_" id="curr-symbol">¤</a>
+							560.06
+						</div>
 						<div class="col-12 text-center pt-1">
 							Average value per coin:
 							<br />
