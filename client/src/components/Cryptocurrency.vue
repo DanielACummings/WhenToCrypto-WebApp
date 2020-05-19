@@ -1,6 +1,11 @@
 <template>
 	<div class="crypto-comp col-12 col-md-6 col-lg-4 pb-3">
 		<div class="card" style="width: 18rem;">
+			<button
+				id="deleteBtn"
+				@click="deleteCrypto(cryptoProp)"
+				class="btn btn-sm btn-warning text-right"
+			>X</button>
 			<div class="card-body">
 				<h3 class="card-title">{{cryptoProp.name}}</h3>
 				<p>{{cryptoProp.description}}</p>
@@ -132,12 +137,16 @@ export default {
 				notes: "",
 				id: this.cryptoProp.id
 			};
+		},
+		deleteCrypto(data) {
+			console.log(data);
+			this.$store.dispatch("deleteCrypto", data);
 		}
 	}
 };
 </script>
 
-<style>
+<style scoped>
 .card {
 	background: rgb(27, 26, 26);
 }
@@ -150,5 +159,8 @@ export default {
 }
 #market-val-btn {
 	color: white;
+}
+#deleteBtn {
+	margin-left: 260px;
 }
 </style>

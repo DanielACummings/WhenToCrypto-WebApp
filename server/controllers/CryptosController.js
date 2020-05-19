@@ -10,6 +10,7 @@ export default class CryptosController {
       .get('/:cryptoId', this.getLedgerCrypto)
       .post('', this.create)
       .put('/:id', this.edit)
+      .delete('/:id', this.delete)
       .use(this.defaultRoute)
   }
 
@@ -43,7 +44,19 @@ export default class CryptosController {
     try {
       req.body.authorId = req.session.uid
       let data = await cryptosService.edit(req.body)
-      return res.status(201).send(data)
+      return res.status(200).send(data)
     } catch (error) { next(error) }
+  }
+
+  async delete(req, res, next) {
+    try {
+      req.body.authorId = req.session.uid
+      console.log(req.body);
+
+      let data = await cryptosService.delete(req.body)
+      return res.status(200).send(data)
+    } catch (error) {
+      next(error)
+    }
   }
 }

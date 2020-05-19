@@ -175,6 +175,21 @@ export default new Vuex.Store({
         });
       }
     },
+    async deleteCrypto({ dispatch }, payload) {
+      try {
+        console.log(payload);
+
+        await api.delete(`cryptos/${payload.id}`, payload)
+        dispatch('getCryptos')
+      } catch (e) {
+        // Error alert
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "An error occurred. Please try again or contact support."
+        });
+      }
+    },
     // Transactions
     async createTransaction({ dispatch }, payload) {
       try {
