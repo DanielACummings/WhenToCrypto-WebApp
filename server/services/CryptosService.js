@@ -29,6 +29,13 @@ class CryptosService {
     return res
   }
 
+  async delete(data) {
+    let res = await _repository.findOneAndRemove({ _id: data.id, authorId: data.authorId })
+    if (!res) {
+      throw new ApiError("Invalid ID or you do not have permission to delete this", 400);
+    }
+  }
+
   async addPosTxData(newTx) {
     let pricePerCryptoUnit = newTx.marketValue / newTx.cryptoAmount
     let cryptoData = await this.getById(newTx.cryptoId)

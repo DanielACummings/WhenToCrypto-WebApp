@@ -1,6 +1,7 @@
 <template>
 	<div class="metal-comp col-12 col-md-6 col-lg-4 pb-3">
 		<div class="card" style="width: 18rem;">
+			<button id="deleteBtn" class="btn btn-sm btn-warning text-right">X</button>
 			<div class="card-body">
 				<h3 class="card-title">{{metalProp.name}}</h3>
 				<p>{{metalProp.description}}</p>
@@ -116,7 +117,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .card {
 	background: rgb(27, 26, 26);
 }
@@ -129,5 +130,8 @@ export default {
 }
 #market-val-btn {
 	color: white;
+}
+#deleteBtn {
+	margin-left: 260px;
 }
 </style>
