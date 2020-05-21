@@ -50,11 +50,8 @@ export default class CryptosController {
 
   async delete(req, res, next) {
     try {
-      req.body.authorId = req.session.uid
-      console.log(req.body);
-
-      let data = await cryptosService.delete(req.body)
-      return res.status(200).send(data)
+      await cryptosService.delete(req.params.id, req.session.uid)
+      return res.send("Successfully deleted")
     } catch (error) {
       next(error)
     }

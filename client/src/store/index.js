@@ -175,11 +175,9 @@ export default new Vuex.Store({
         });
       }
     },
-    async deleteCrypto({ dispatch }, payload) {
+    async deleteCrypto({ dispatch }, cryptoId) {
       try {
-        console.log(payload);
-
-        await api.delete(`cryptos/${payload.id}`, payload)
+        await api.delete(`cryptos/${cryptoId}`)
         dispatch('getCryptos')
       } catch (e) {
         // Error alert
