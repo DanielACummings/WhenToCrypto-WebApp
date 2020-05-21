@@ -29,8 +29,8 @@ class CryptosService {
     return res
   }
 
-  async delete(data) {
-    let res = await _repository.findOneAndRemove({ _id: data.id, authorId: data.authorId })
+  async delete(cryptoId, authorId) {
+    let res = await _repository.findOneAndRemove({ _id: cryptoId, authorId: authorId })
     if (!res) {
       throw new ApiError("Invalid ID or you do not have permission to delete this", 400);
     }

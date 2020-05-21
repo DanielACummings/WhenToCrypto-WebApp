@@ -3,7 +3,7 @@
 		<div class="card" style="width: 18rem;">
 			<button
 				id="deleteBtn"
-				@click="deleteCrypto(cryptoProp)"
+				@click="deleteCrypto(cryptoProp.id)"
 				class="btn btn-sm btn-warning text-right"
 			>X</button>
 			<div class="card-body">
@@ -138,9 +138,8 @@ export default {
 				id: this.cryptoProp.id
 			};
 		},
-		deleteCrypto(data) {
-			console.log(data);
-			this.$store.dispatch("deleteCrypto", data);
+		deleteCrypto(id) {
+			this.$store.dispatch("deleteCrypto", id);
 		}
 	}
 };
