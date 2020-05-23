@@ -139,7 +139,45 @@ export default {
 			};
 		},
 		deleteCrypto(id) {
-			this.$store.dispatch("deleteCrypto", id);
+			const swalWithBootstrapButtons = Swal.mixin({
+				customClass: {
+					confirmButton: "btn btn-success",
+					cancelButton: "btn btn-danger"
+				},
+				buttonsStyling: false
+			});
+
+			swalWithBootstrapButtons
+				.fire({
+					title: "Are you sure?",
+					text:
+						"This is irreversible! If you want to save this currency's transaction history, please copy it from the ledger page before deleting this.",
+					icon: "warning",
+					showCancelButton: true,
+					confirmButtonText: "Yes, delete it.",
+					cancelButtonText: "No, cancel.",
+					reverseButtons: true
+				})
+				.then(result => {
+					if (result.value) {
+						swalWithBootstrapButtons.fire(
+							"Deleted!",
+							"Your currency and its transactions have been deleted.",
+							"success"
+						);
+						// Call to store
+						this.$store.dispatch("deleteCrypto", id);
+					} else if (
+						/* Read more about handling dismissals below */
+						result.dismiss === Swal.DismissReason.cancel
+					) {
+						swalWithBootstrapButtons.fire(
+							"Cancelled",
+							"Your records are safe.",
+							"error"
+						);
+					}
+				});
 		}
 	}
 };
