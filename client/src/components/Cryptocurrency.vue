@@ -167,10 +167,7 @@ export default {
 						);
 						// Call to store
 						this.$store.dispatch("deleteCrypto", id);
-					} else if (
-						/* Read more about handling dismissals below */
-						result.dismiss === Swal.DismissReason.cancel
-					) {
+					} else if (result.dismiss === Swal.DismissReason.cancel) {
 						swalWithBootstrapButtons.fire(
 							"Cancelled",
 							"Your records are safe.",

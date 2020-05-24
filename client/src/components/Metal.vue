@@ -1,7 +1,11 @@
 <template>
 	<div class="metal-comp col-12 col-md-6 col-lg-4 pb-3">
 		<div class="card" style="width: 18rem;">
-			<button id="deleteBtn" class="btn btn-sm btn-warning text-right">X</button>
+			<button
+				id="deleteBtn"
+				@click="deleteMetal(metalProp.id)"
+				class="btn btn-sm btn-warning text-right"
+			>X</button>
 			<div class="card-body">
 				<h3 class="card-title">{{metalProp.name}}</h3>
 				<p>{{metalProp.description}}</p>
@@ -112,6 +116,44 @@ export default {
 				notes: "",
 				id: this.metalProp.id
 			};
+		},
+		deleteMetal(id) {
+			const swalWithBootstrapButtons = Swal.mixin({
+				customClass: {
+					confirmButton: "btn btn-success",
+					cancelButton: "btn btn-danger"
+				},
+				buttonsStyling: false
+			});
+
+			swalWithBootstrapButtons
+				.fire({
+					title: "Are you sure?",
+					text:
+						"This is irreversible! If you want to save this currency's transaction history, please copy it from the ledger page before deleting this.",
+					icon: "warning",
+					showCancelButton: true,
+					confirmButtonText: "Yes, delete it.",
+					cancelButtonText: "No, cancel.",
+					reverseButtons: true
+				})
+				.then(result => {
+					if (result.value) {
+						swalWithBootstrapButtons.fire(
+							"Deleted!",
+							"Your currency and its transactions have been deleted.",
+							"success"
+						);
+						// Call to store
+						this.$store.dispatch("deleteMetal", id);
+					} else if (result.dismiss === Swal.DismissReason.cancel) {
+						swalWithBootstrapButtons.fire(
+							"Cancelled",
+							"Your records are safe.",
+							"error"
+						);
+					}
+				});
 		}
 	}
 };

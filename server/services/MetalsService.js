@@ -29,6 +29,13 @@ class MetalsService {
     return res
   }
 
+  async delete(id, authorId) {
+    let res = await _repository.findOneAndRemove({ _id: id, authorId: authorId })
+    if (!res) {
+      throw new ApiError("Invalid ID or you do not have permission to delete this", 400);
+    }
+  }
+
   async addPosTxData(newTx) {
     let pricePerMetalUnit = newTx.marketValue / newTx.metalAmount
     let metalData = await this.getById(newTx.metalId)

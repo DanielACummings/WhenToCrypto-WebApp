@@ -10,6 +10,7 @@ export default class MetalsController {
       .get('/:metalId', this.getLedgerMetal)
       .post('', this.create)
       .put('/:id', this.edit)
+      .delete('/:id', this.delete)
       .use(this.defaultRoute)
   }
 
@@ -45,5 +46,14 @@ export default class MetalsController {
       let data = await metalsService.edit(req.body)
       return res.status(201).send(data)
     } catch (error) { next(error) }
+  }
+
+  async delete(req, res, next) {
+    try {
+      await metalsService.delete(req.params.id, req.session.uid)
+      return res.send("Successfully deleted")
+    } catch (error) {
+      next(error)
+    }
   }
 }
