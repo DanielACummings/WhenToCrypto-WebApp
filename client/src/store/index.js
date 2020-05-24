@@ -291,6 +291,20 @@ export default new Vuex.Store({
         });
       }
     },
+    async deleteMetal({ dispatch }, metalId) {
+      try {
+        await api.delete(`metals/${metalId}`)
+        dispatch('getMetals')
+      } catch (e) {
+        // Error alert
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "An error occurred. Please try again or contact support."
+        });
+      }
+    },
+
     // Transactions
     async createMetalTx({ dispatch }, payload) {
       try {
