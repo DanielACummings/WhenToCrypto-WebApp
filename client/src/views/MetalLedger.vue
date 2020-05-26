@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-12">
 				<h1 class="pt-5 pb-5">
-					{{ledgerMetal.name}} - {{ledgerMetal.description}}
+					{{ledgerMetal.name}} - {{ledgerMetal.description || 'No description'}}
 					<br />Transaction History
 				</h1>
 			</div>

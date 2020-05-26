@@ -2,7 +2,10 @@
 	<div class="crypto-ledger container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="pt-5 pb-5">{{ledgerCryptoName}} Transaction History</h1>
+				<h1 class="pt-5 pb-5">
+					{{ledgerCrypto.name}} - {{ledgerCrypto.description || 'No description'}}
+					<br />Transaction History
+				</h1>
 			</div>
 			<div class="col-12">
 				<table border="2">
@@ -36,8 +39,8 @@ export default {
 		activeCryptoLedger() {
 			return this.$store.state.activeCryptoLedger;
 		},
-		ledgerCryptoName() {
-			return this.$store.state.ledgerCrypto.name;
+		ledgerCrypto() {
+			return this.$store.state.ledgerCrypto;
 		}
 	}
 };
