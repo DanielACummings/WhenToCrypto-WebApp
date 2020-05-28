@@ -3,6 +3,7 @@
 		<!-- Sample gold -->
 		<div class="metal-comp col-12 col-md-6 col-lg-4 pb-3">
 			<div class="card" style="width: 18rem;">
+				<button id="deleteBtn" @click="deleteMetal" class="btn btn-sm btn-warning text-right">X</button>
 				<div class="card-body">
 					<h3 class="card-title">Gold</h3>
 					<p>For saving</p>
@@ -12,7 +13,7 @@
 						alt="gold image"
 					/>
 					<div class="row text-center pt-1">
-						<div class="col-12 text-center pt-1">Total grams owned: 5</div>
+						<div class="col-12 text-center pt-1">Balance in grams: 5</div>
 						<div class="col-12 text-center pt-1">
 							Average value of balance:
 							<br />
@@ -88,6 +89,7 @@
 		<!-- Sample silver -->
 		<div class="metal-comp col-12 col-md-6 col-lg-4 pb-3">
 			<div class="card" style="width: 18rem;">
+				<button id="deleteBtn" @click="deleteMetal" class="btn btn-sm btn-warning text-right">X</button>
 				<div class="card-body">
 					<h3 class="card-title">Silver</h3>
 					<p>For spending</p>
@@ -97,7 +99,7 @@
 						alt="silver image"
 					/>
 					<div class="row text-center pt-1">
-						<div class="col-12 text-center pt-1">Total ounces owned: 15</div>
+						<div class="col-12 text-center pt-1">Balance in ounces: 15</div>
 						<div class="col-12 text-center pt-1">
 							Average value of balance:
 							<br />
@@ -190,6 +192,42 @@ export default {
 		},
 		closeForm2() {
 			this.showForm = "closed";
+		},
+		deleteMetal() {
+			const swalWithBootstrapButtons = Swal.mixin({
+				customClass: {
+					confirmButton: "btn btn-success",
+					cancelButton: "btn btn-danger"
+				},
+				buttonsStyling: false
+			});
+
+			swalWithBootstrapButtons
+				.fire({
+					title: "Are you sure?",
+					text:
+						"This is irreversible! If you want to save this currency's transaction history, please copy it from the ledger page before deleting this.",
+					icon: "warning",
+					showCancelButton: true,
+					confirmButtonText: "Yes, delete it.",
+					cancelButtonText: "No, cancel.",
+					reverseButtons: true
+				})
+				.then(result => {
+					if (result.value) {
+						swalWithBootstrapButtons.fire(
+							"Deleted!",
+							"Your currency and its transactions have been deleted.",
+							"success"
+						);
+					} else if (result.dismiss === Swal.DismissReason.cancel) {
+						swalWithBootstrapButtons.fire(
+							"Cancelled",
+							"Your records are safe.",
+							"error"
+						);
+					}
+				});
 		}
 	}
 };
@@ -208,5 +246,8 @@ export default {
 }
 #market-val-btn {
 	color: white;
+}
+#deleteBtn {
+	margin-left: 260px;
 }
 </style>
