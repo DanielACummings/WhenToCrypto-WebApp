@@ -1,5 +1,10 @@
 <template>
 	<form @submit.prevent="createMetalTx" class="text-left">
+		<!-- Secret transaction checkbox -->
+		<div class="form-group">
+			<input type="checkbox" id="secret" />
+			<label for="secret">Secret Transaction</label>
+		</div>
 		<!-- "Which Metal?" dropdown -->
 		<div class="form-group">
 			<label for="which-crypto" class="col-form-label">Which Metal?</label>
