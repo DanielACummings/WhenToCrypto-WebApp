@@ -2,9 +2,16 @@
 	<form @submit.prevent="createTransaction" class="text-left">
 		<!-- Secret transaction checkbox -->
 		<div class="form-group">
-			<input type="checkbox" id="secret" />
+			<input v-model="secret" type="checkbox" id="secret" />
 			<label for="secret">Secret Transaction</label>
 		</div>
+
+		<!-- Secret transaction message -->
+		<p v-if="secret == true">
+			Secret transactions change your average values without storing any transaction data. The only record they leave is a +1 increase to the total positive transaction count which is necessary to calculate averages.
+			<b />
+		</p>
+
 		<!-- "Which Crypto?" dropdown -->
 		<div class="form-group">
 			<label for="which-crypto" class="col-form-label">Which Crypto?</label>
@@ -19,7 +26,7 @@
 		</div>
 
 		<!-- Transaction type dropdown -->
-		<div class="form-group">
+		<div v-if="secret == false" class="form-group">
 			<label for="transaction-type" class="col-form-label">Type:</label>
 			<select
 				v-model="newCryptoTransaction.transactionType"
@@ -51,7 +58,7 @@
 		</div>
 
 		<!-- Date -->
-		<div class="form-group">
+		<div v-if="secret == false" class="form-group">
 			<label for="date" class="col-form-label">Date:</label>
 			<input
 				type="text"
@@ -62,8 +69,9 @@
 				required
 			/>
 		</div>
+
 		<!-- +/- radio buttons for adding or subtracting from ledger-->
-		<div class="form-group">
+		<div v-if="secret == false" class="form-group">
 			<label for="pos-or-neg" class="col-form-label">Adding or Subtracting from Ledger?</label>
 			<br />
 			<input
@@ -84,6 +92,8 @@
 			/>
 			<label for="neg">Subtracting</label>
 		</div>
+
+		<!-- Amount of crypto -->
 		<div class="form-group">
 			<label for="crypto-amount" class="col-form-label">Amount of Crypto:</label>
 			<input
@@ -96,6 +106,8 @@
 				required
 			/>
 		</div>
+
+		<!-- Market value -->
 		<div class="form-group">
 			<label for="market-value" class="col-form-label">
 				Amount of Local Currency:
@@ -111,7 +123,9 @@
 				required
 			/>
 		</div>
-		<div class="form-group">
+
+		<!-- Notes -->
+		<div v-if="secret == false" class="form-group">
 			<label for="notes" class="col-form-label">Notes:</label>
 			<input
 				type="text"
@@ -136,6 +150,7 @@ export default {
 	},
 	data() {
 		return {
+			secret: false,
 			newCryptoTransaction: {
 				transactionType: "",
 				date: "",
