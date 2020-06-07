@@ -25,9 +25,19 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
+
 					<div class="modal-body">
-						<!-- Crypto or metal radio buttons -->
+						<!-- Secret transaction checkbox -->
 						<form>
+							<div class="form-group text-left">
+								<input v-model="secret" type="checkbox" id="secret" />
+								<label for="secret">Secret Transaction</label>
+							</div>
+						</form>
+
+						<!-- Normal Transactions -->
+						<!-- Crypto or metal radio buttons -->
+						<form v-if="secret=='false'">
 							<input v-model="currencyType" type="radio" name="crypto-or-metal" value="crypto" />
 							<label class="pr-5" for="crypto">Crypto</label>
 							<input v-model="currencyType" type="radio" name="crypto-or-metal" value="metal" />
@@ -59,7 +69,8 @@ export default {
 	},
 	data() {
 		return {
-			currencyType: ""
+			currencyType: "",
+			secret: false
 		};
 	}
 };
