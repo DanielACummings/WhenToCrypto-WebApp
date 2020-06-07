@@ -1,17 +1,5 @@
 <template>
 	<form @submit.prevent="createTransaction" class="text-left">
-		<!-- Secret transaction checkbox -->
-		<div class="form-group">
-			<input v-model="secret" type="checkbox" id="secret" />
-			<label for="secret">Secret Transaction</label>
-		</div>
-
-		<!-- Secret transaction message -->
-		<p v-if="secret == true">
-			Secret transactions change your average values without storing any transaction data. The only record they leave is a +1 increase to the total positive transaction count which is necessary to calculate averages.
-			<b />
-		</p>
-
 		<!-- "Which Crypto?" dropdown -->
 		<div class="form-group">
 			<label for="which-crypto" class="col-form-label">Which Crypto?</label>
@@ -26,7 +14,7 @@
 		</div>
 
 		<!-- Transaction type dropdown -->
-		<div v-if="secret == false" class="form-group">
+		<div class="form-group">
 			<label for="transaction-type" class="col-form-label">Type:</label>
 			<select
 				v-model="newCryptoTransaction.transactionType"
@@ -58,7 +46,7 @@
 		</div>
 
 		<!-- Date -->
-		<div v-if="secret == false" class="form-group">
+		<div class="form-group">
 			<label for="date" class="col-form-label">Date:</label>
 			<input
 				type="text"
@@ -71,7 +59,7 @@
 		</div>
 
 		<!-- +/- radio buttons for adding or subtracting from ledger-->
-		<div v-if="secret == false" class="form-group">
+		<div class="form-group">
 			<label for="pos-or-neg" class="col-form-label">Adding or Subtracting from Ledger?</label>
 			<br />
 			<input
@@ -125,7 +113,7 @@
 		</div>
 
 		<!-- Notes -->
-		<div v-if="secret == false" class="form-group">
+		<div class="form-group">
 			<label for="notes" class="col-form-label">Notes:</label>
 			<input
 				type="text"
@@ -150,7 +138,6 @@ export default {
 	},
 	data() {
 		return {
-			secret: false,
 			newCryptoTransaction: {
 				transactionType: "",
 				date: "",
