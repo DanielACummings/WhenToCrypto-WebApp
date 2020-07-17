@@ -37,18 +37,34 @@
 
 						<!-- Normal Transactions -->
 						<!-- Crypto or metal radio buttons -->
-						<form v-if="secret=='false'">
+						<form v-if="secret==false">
 							<input v-model="currencyType" type="radio" name="crypto-or-metal" value="crypto" />
 							<label class="pr-5" for="crypto">Crypto</label>
 							<input v-model="currencyType" type="radio" name="crypto-or-metal" value="metal" />
 							<label for="metal">Metal</label>
 						</form>
 						<!-- Forms -->
-						<div v-if="currencyType == 'crypto'">
+						<div v-if="currencyType == 'crypto' && secret==false">
 							<addCryptoTxForm />
 						</div>
-						<div v-if="currencyType == 'metal'">
+						<div v-if="currencyType == 'metal' && secret==false">
 							<addMetalTxForm />
+						</div>
+
+						<!-- Secret Transactions -->
+						<!-- Crypto or metal radio buttons -->
+						<form v-if="secret==true">
+							<input v-model="currencyType" type="radio" name="crypto-or-metal" value="crypto" />
+							<label class="pr-5" for="crypto">Crypto</label>
+							<input v-model="currencyType" type="radio" name="crypto-or-metal" value="metal" />
+							<label for="metal">Metal</label>
+						</form>
+						<!-- Forms -->
+						<div v-if="currencyType == 'crypto' && secret==true">
+							<secretCryptoTx />
+						</div>
+						<div v-if="currencyType == 'metal' && secret==true">
+							<secretMetalTx />
 						</div>
 					</div>
 				</div>
@@ -60,12 +76,16 @@
 <script>
 import addCryptoTxForm from "./forms/AddCryptoTxForm";
 import addMetalTxForm from "./forms/AddMetalTxForm";
+import secretCryptoTx from "./forms/SecretCryptoTx";
+import secretMetalTx from "./forms/SecretMetalTx";
 
 export default {
 	name: "createTxForm",
 	components: {
 		addCryptoTxForm,
-		addMetalTxForm
+		addMetalTxForm,
+		secretCryptoTx,
+		secretMetalTx
 	},
 	data() {
 		return {
